@@ -1,0 +1,10 @@
+import { createBrowserRouter } from 'react-router-dom';
+import DefaultLayout from '../components/DefaultLayout.jsx';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <DefaultLayout />,
+    errorElement: <div>에러가 발생했습니다.</div>,
+  },
+]);
