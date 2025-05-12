@@ -12,15 +12,14 @@ loadCandidateInfo: getVotedCandidate()로 후보자 이름 로딩
 handleMessageChange: 30자 제한을 체크하면서 메시지 업데이트
 handleSubmit: 메시지를 생성해 onAddMessage로 전달, 상태 초기화
 handleTestButtonClick: 유레카 후보 정보를 로컬 스토리지에 저장하는 테스트용 버튼
-
-후보 이름은 getVotedCandidate()로 가져오고 candidate에 저장
-메시지를 입력하고 제출 시 → onAddMessage(newMessage) 호출 → 부모(CheerSection)에서 메시지 배열 갱신
 */
 import { useState, useEffect } from 'react';
 import { getVotedCandidate, saveVotedCandidate } from '../../utils/localStorage';
+import SubmitButton from '../common/Button';
 
 const CheerForm = () => {
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const [candidate, setCandidate] = useState('');
   const maxLength = 30;
@@ -46,15 +45,34 @@ const CheerForm = () => {
     }
   };
 
-  // 테스트 버튼 클릭 핸들러
-  const handleTestButtonClick = () => {
-    // 로컬 스토리지에 "유레카" 후보 정보 저장
-    saveVotedCandidate({
-      name: '유레카',
-      party: '너무맛있당',
-    });
+  const handleSubmit = async () => {
+    if (!message.trim()) return;
+    setIsSubmitting(true);
 
-    // 저장 후 화면에 즉시 반영
+    try {
+      const newMessage = {
+        id: Date.now(),
+        text: message,
+        createdAt: new Date().toISOString(),
+      };
+
+      // 부모 컴포넌트에 새 메시지 전달
+      // onAddMessage(newMessage);
+      // 입력 필드 초기화
+      setMessage('');
+      setCharCount(0);
+      console.log('응원 메시지 전송:', newMessage);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      alert('메시지 전송에 실패했습니다. 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // 테스트 버튼: 유레카 후보 저장
+  const handleTestButtonClick = () => {
+    saveVotedCandidate({ name: '유레카' });
     loadCandidateInfo();
   };
 
@@ -79,12 +97,23 @@ const CheerForm = () => {
             onChange={handleMessageChange}
             placeholder="응원을 남겨주세요"
             className="w-full p-5 bg-[#f5f5f5]/60 rounded-xl h-24 resize-none focus:outline-none font-nanumSquare"
+            disabled={isSubmitting}
           />
           <span className="absolute bottom-2 right-3 text-gray-500 text-sm font-nanumSquare">
             {charCount} / {maxLength}
           </span>
         </div>
       </form>
+
+      <div className="mt-6 mb-4">
+        <SubmitButton
+          disabled={isSubmitting || !message.trim()}
+          onClick={handleSubmit}
+          type="button"
+        >
+          제출하기
+        </SubmitButton>
+      </div>
 
       {/* 테스트 버튼 */}
       <div className="mb-8">
