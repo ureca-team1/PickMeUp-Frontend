@@ -1,4 +1,3 @@
-//Button.jsx
 const SubmitButton = ({ children, disabled = false, type = 'button', onClick }) => {
   return (
     <button
