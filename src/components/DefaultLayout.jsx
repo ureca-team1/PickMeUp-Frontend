@@ -1,7 +1,9 @@
 const DefaultLayout = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-500">Hello, World!</h1>
+      <div class="bg-democratic text-white">더불어민주당</div>
+      <div class="text-people">국민의힘</div>
+      <div class="text-reform">개혁신당</div>
     </div>
   );
 };

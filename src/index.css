@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-democratic: #002bff;
+  --color-people: #e61e2b;
+  --color-reform: #ff7210;
+  --color-labor: #d6001c;
+  --color-free: #ffed00;
+  --color-independent: #808080;
+}
