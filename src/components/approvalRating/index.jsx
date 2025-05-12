@@ -1,7 +1,15 @@
 import React from 'react';
+import RatingTitle from './RatingTitle';
+import RatingCharts from './RatingCharts';
+import MyBarChart from './RatingCharts';
 
-const index = () => {
-  return <div></div>;
+const RatingSection = () => {
+  return (
+    <div>
+      <RatingTitle />
+      <RatingCharts />
+    </div>
+  );
 };
 
-export default index;
+export default RatingSection;
