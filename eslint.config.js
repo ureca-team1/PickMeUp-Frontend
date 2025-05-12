@@ -1,9 +1,9 @@
 import js from "@eslint/js";
-import globals from "globals";
+import prettierConfig from "eslint-config-prettier";
+import prettier from "eslint-plugin-prettier";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import prettier from "eslint-plugin-prettier";
-import prettierConfig from "eslint-config-prettier";
+import globals from "globals";
 
 export default [
   { ignores: ["dist"] },
@@ -29,10 +29,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       "prettier/prettier": "error", // Prettier 규칙 위반 시 에러 표시
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     },
   },
 ];
