@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
-import policyData from '../../data/policies.json';
+import policyData from '../../data/parties.json';
 import CandidateInfo from './policySummaryComponents/CandidateInfo';
 
 const PolicySummary = () => {
@@ -17,7 +17,7 @@ const PolicySummary = () => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center text-center">
       <section>
         <h2 className="text-2xl font-bold">공약 총정리</h2>
         <p>누구랑 잘 맞는지, 정책으로 비교해보세요</p>
@@ -33,9 +33,9 @@ const PolicySummary = () => {
 
       {selectedParty && selectedPartyData && (
         <section>
-          <h3 className="text-xl font-semibold">{selectedParty}</h3>
+          <h3 className="text-xl font-semibold"></h3>
           {selectedPartyData.candidates.map((candidate) => (
-            <CandidateInfo key={candidate.name} candidate={candidate} />
+            <CandidateInfo key={candidate.name} candidate={candidate} partyColor={selectedPartyData.color}/>
           ))}
         </section>
       )}

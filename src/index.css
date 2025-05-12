@@ -1,12 +1,12 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-democratic: #002bff;
-  --color-people: #e61e2b;
-  --color-reform: #ff7210;
-  --color-labor: #d6001c;
-  --color-free: #ffed00;
-  --color-independent: #808080;
+   --color-democratic: #1B2C7A;
+  --color-people: #E61E2B;
+  --color-reform: #FF7210;
+  --color-labor: #FFED00;
+  --color-free: #E24A49;
+  --color-independent: #808080;
 
   --font-nanum: 'NanumSquare Neo', sans-serif;
 }

@@ -1,179 +1,68 @@
-[
-  {
-    "party": "더불어민주당",
-    "color" :"var(--color-democratic)",
-    "candidates": [
-      {
-        "name": "이재명",
-        "image": "/images/lee_minju.jpg",
-        "policies": [
-          {
-            "category": "청년 정책",
-            "items": [
-              "청년 주택 지원 확대",
-              "청년 기본소득 도입"
-            ]
-          },
-          {
-            "category": "교육 정책",
-            "items": [
-              "대학 등록금 반값",
-              "교사 인권 보호 강화"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "party": "국민의힘",
-    "color" :"var(--color-people)",
-    "candidates": [
-      {
-        "name": "김문수",
-        "image": "/images/park_bosu.jpg",
-        "policies": [
-          {
-            "category": "경제 정책",
-            "items": [
-              "법인세 인하",
-              "규제 완화 통한 투자 촉진"
-            ]
-          },
-          {
-            "category": "복지 정책",
-            "items": [
-              "노인 연금 인상",
-              "출산 장려금 확대"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "party": "개혁신당",
-    "color" :"var(--color-reform)",
-    "candidates": [
-      {
-        "name": "이준석",
-        "image": "/images/kim_gaehyeok.jpg",
-        "policies": [
-          {
-            "category": "정치 개혁",
-            "items": [
-              "국회의원 수 축소",
-              "정당 보조금 제도 개편"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "party": "민주노동당",
-    "color" :"var(--color-labor)",
-    "candidates": [
-      {
-        "name": "권영국",
-        "image": "/images/park_bosu.jpg",
-        "policies": [
-          {
-            "category": "경제 정책",
-            "items": [
-              "법인세 인하",
-              "규제 완화 통한 투자 촉진"
-            ]
-          },
-          {
-            "category": "복지 정책",
-            "items": [
-              "노인 연금 인상",
-              "출산 장려금 확대"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-   {
-    "party": "자유통일당",
-    "color" :"var(--color-free)",
-    "candidates": [
-      {
-        "name": "구주와",
-        "image": "/images/park_bosu.jpg",
-        "policies": [
-          {
-            "category": "경제 정책",
-            "items": [
-              "법인세 인하",
-              "규제 완화 통한 투자 촉진"
-            ]
-          },
-          {
-            "category": "복지 정책",
-            "items": [
-              "노인 연금 인상",
-              "출산 장려금 확대"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "party": "무소속-황교안",
-    "color" :"var(--color-independent)",
-    "candidates": [
-      {
-        "name": "황교안",
-        "image": "/images/park_bosu.jpg",
-        "policies": [
-          {
-            "category": "경제 정책",
-            "items": [
-              "법인세 인하",
-              "규제 완화 통한 투자 촉진"
-            ]
-          },
-          {
-            "category": "복지 정책",
-            "items": [
-              "노인 연금 인상",
-              "출산 장려금 확대"
-            ]
-          }
-        ]
-      }
-      
-    ]
-  },
-  {
-    "party": "무소속-송진호",
-    "color" :"var(--color-independent)",
-    "candidates": [
-      {
-        "name": "송진호",
-        "image": "/images/park_bosu.jpg",
-        "policies": [
-          {
-            "category": "경제 정책",
-            "items": [
-              "법인세 인하",
-              "규제 완화 통한 투자 촉진"
-            ]
-          },
-          {
-            "category": "복지 정책",
-            "items": [
-              "노인 연금 인상",
-              "출산 장려금 확대"
-            ]
-          }
-        ]
-      }
-      
-    ]
-  }
-]
+{
+  "이재명": [
+    {
+      "category": "청년 정책",
+      "items": ["청년 주택 지원 확대", "청년 기본소득 도입"]
+    },
+    {
+      "category": "교육 정책",
+      "items": ["대학 등록금 반값", "교사 인권 보호 강화"]
+    }
+  ],
+  "김문수": [
+    {
+      "category": "경제 정책",
+      "items": ["법인세 인하", "규제 완화 통한 투자 촉진"]
+    },
+    {
+      "category": "복지 정책",
+      "items": ["노인 연금 인상", "출산 장려금 확대"]
+    }
+  ],
+  "이준석": [
+    {
+      "category": "정치 개혁",
+      "items": ["국회의원 수 축소", "정당 보조금 제도 개편"]
+    }
+  ],
+  "권영국": [
+    {
+      "category": "경제 정책",
+      "items": ["법인세 인하", "규제 완화 통한 투자 촉진"]
+    },
+    {
+      "category": "복지 정책",
+      "items": ["노인 연금 인상", "출산 장려금 확대"]
+    }
+  ],
+  "구주와": [
+    {
+      "category": "경제 정책",
+      "items": ["법인세 인하", "규제 완화 통한 투자 촉진"]
+    },
+    {
+      "category": "복지 정책",
+      "items": ["노인 연금 인상", "출산 장려금 확대"]
+    }
+  ],
+  "황교안": [
+    {
+      "category": "경제 정책",
+      "items": ["법인세 인하", "규제 완화 통한 투자 촉진"]
+    },
+    {
+      "category": "복지 정책",
+      "items": ["노인 연금 인상", "출산 장려금 확대"]
+    }
+  ],
+  "송진호": [
+    {
+      "category": "경제 정책",
+      "items": ["법인세 인하", "규제 완화 통한 투자 촉진"]
+    },
+    {
+      "category": "복지 정책",
+      "items": ["노인 연금 인상", "출산 장려금 확대"]
+    }
+  ]
+}
