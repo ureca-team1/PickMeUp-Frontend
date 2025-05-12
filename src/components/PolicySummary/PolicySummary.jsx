@@ -1,7 +1,7 @@
 import React from 'react'
-import PartyFilterButtons from './PolicySummaryComponents/PartyFilterButtons'
-import CandidateSlider from './PolicySummaryComponents/CandidateSlider'
-import PolicyList from './PolicySummaryComponents/PolicyList'
+import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons'
+import CandidateSlider from './policySummaryComponents/CandidateSlider'
+import PolicyList from './policySummaryComponents/PolicyList'
 
 const PolicySummary = () => {
   return (
