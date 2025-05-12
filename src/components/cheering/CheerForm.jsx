@@ -6,6 +6,7 @@ message   입력 중인 응원 메시지
 charCount   현재 입력 글자 수
 maxLength   최대 입력 글자 수
 
+handleMessageChange: 30자 제한을 체크하면서 메시지 업데이트
 */
 import { useState } from 'react';
 
