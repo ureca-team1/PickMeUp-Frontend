@@ -11,9 +11,9 @@ const PolicySummary = () => {
         <p>누구랑 잘 맞는지, 정책으로 비교해보세요</p>
         <p>핵심만 뽑아서 빠르게 정리했어요.</p>
       </section>
-
+    {/* 슬라이더 추가 */}
       <section>
-        <PartyFilterButtons/>
+        <PartyFilterButtons/> 
       </section>
 
       <section>
