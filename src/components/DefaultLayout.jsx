@@ -4,6 +4,7 @@ const DefaultLayout = () => {
       <div class="bg-democratic text-white">더불어민주당</div>
       <div class="text-people">국민의힘</div>
       <div class="text-reform">개혁신당</div>
+      <div className="bg-people text-white font-nanum px-4 py-2 rounded">국민의힘</div>
     </div>
   );
 };
