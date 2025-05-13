@@ -66,9 +66,9 @@ const CheerForm = ({ onAddMessage }) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <form className="w-[319px] md:w-[865px] border-3 border-[#292B2E] rounded-2xl p-6 relative">
-        <div className="mb-4 font-nanumSquare text-[16px] md:text-[24px] text-black">
+    <div className="flex w-full flex-col items-center">
+      <form className="relative w-[319px] rounded-2xl border-3 border-[#292B2E] p-6 md:w-[865px]">
+        <div className="font-nanumSquare mb-4 text-[16px] text-black md:text-[24px]">
           {candidateId ? (
             <>
               <span className="font-extrabold underline">{candidateNameMap[candidateId]}</span>{' '}
@@ -86,10 +86,10 @@ const CheerForm = ({ onAddMessage }) => {
             placeholder={
               candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
             }
-            className="w-full p-4 md:p-5 bg-[#f5f5f5]/60 rounded-xl h-24 resize-none focus:outline-none font-nanumSquare text-[14px] md:text-[24px] placeholder:text-[#808080]"
+            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[14px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px]"
             disabled={isSubmitting || !candidateId}
           />
-          <span className="absolute bottom-2 right-3 text-[10px] md:text-[16px] text-[#808080] font-nanumSquare">
+          <span className="font-nanumSquare absolute right-3 bottom-2 text-[10px] text-[#808080] md:text-[16px]">
             {charCount} / {maxLength}
           </span>
         </div>
@@ -110,7 +110,7 @@ const CheerForm = ({ onAddMessage }) => {
         <button
           type="button"
           onClick={handleTestButtonClick}
-          className="bg-gray-200 border-2 border-gray-300 text-gray-700 font-medium text-base py-2 px-4 rounded font-nanumSquare hover:cursor-pointer"
+          className="font-nanumSquare rounded border-2 border-gray-300 bg-gray-200 px-4 py-2 text-base font-medium text-gray-700 hover:cursor-pointer"
         >
           테스트 (이재명 후보 저장)
         </button>

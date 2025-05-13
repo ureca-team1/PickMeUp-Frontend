@@ -32,14 +32,14 @@ const CheerSection = () => {
   };
 
   return (
-    <section className="mw-1280 max-w-4xl mx-auto px-4 py-12 flex flex-col items-center">
+    <section className="mw-1280 mx-auto flex max-w-4xl flex-col items-center px-4 py-12">
       <CheerTitle />
       <CheerForm onAddMessage={handleAddMessage} />
 
       {isLoading ? (
-        <p className="text-center mt-8">메시지를 불러오는 중...</p>
+        <p className="mt-8 text-center">메시지를 불러오는 중...</p>
       ) : error ? (
-        <p className="text-center mt-8 text-red-500">{error}</p>
+        <p className="mt-8 text-center text-red-500">{error}</p>
       ) : (
         <CheerList messages={messages} />
       )}

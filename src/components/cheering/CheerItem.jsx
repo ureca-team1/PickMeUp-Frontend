@@ -6,10 +6,10 @@ const CheerItem = ({ message }) => {
 
   return (
     <div
-      className={`${bgColor} rounded-2xl py-5 px-6 md:py-[20px] md:px-[24px]`}
+      className={`${bgColor} rounded-2xl px-6 py-5 md:px-[24px] md:py-[20px]`}
       style={{ minWidth: '256px' }}
     >
-      <p className="text-[14px] md:text-[24px] font-nanumSquare leading-normal text-black text-center">
+      <p className="font-nanumSquare text-center text-[14px] leading-normal text-black md:text-[24px]">
         {text}
       </p>
     </div>
