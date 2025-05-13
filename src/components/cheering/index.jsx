@@ -32,7 +32,7 @@ const CheerSection = () => {
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-4 py-12 flex flex-col items-center">
+    <section className="mw-1280 max-w-4xl mx-auto px-4 py-12 flex flex-col items-center">
       <CheerTitle />
       <CheerForm onAddMessage={handleAddMessage} />
 
