@@ -24,3 +24,14 @@
   width: calc(100% - 40px);
   margin: 0 auto;
 }
+
+/* 스크롤 바 숨기기 */
+html {
+  -ms-overflow-style: none; /* Internet Explorer, Edge */
+  scrollbar-width: none; /*  Firefox */
+  overflow-y: scroll; 
+}
+
+html::-webkit-scrollbar {
+  display: none; /*  Chrome, Safari, and Opera */
+}

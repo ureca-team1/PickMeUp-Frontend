@@ -1,7 +1,7 @@
 [
   {
     "party": "더불어민주당",
-    "color": "var(--color-democratic)",
+    "color": "bg-democratic/70",
     "candidates": [
       {
         "name": "이재명",
@@ -22,7 +22,7 @@
   },
   {
     "party": "국민의힘",
-    "color": "var(--color-people)",
+    "color": "bg-people/70",
     "candidates": [
       {
         "name": "김문수",
@@ -41,7 +41,7 @@
   },
   {
     "party": "개혁신당",
-    "color": "var(--color-reform)",
+    "color": "bg-reform/70",
     "candidates": [
       {
         "name": "이준석",
@@ -61,7 +61,7 @@
   },
   {
     "party": "민주노동당",
-    "color": "var(--color-labor)",
+    "color": "bg-labor/70",
     "candidates": [
       {
         "name": "권영국",
@@ -81,7 +81,7 @@
   },
   {
     "party": "자유통일당",
-    "color": "var(--color-free)",
+    "color": "bg-free/70",
     "candidates": [
       {
         "name": "구주와",
@@ -101,7 +101,7 @@
   },
   {
     "party": "황교안(무소속)",
-    "color": "var(--color-independent)",
+    "color": "bg-independent/70",
     "candidates": [
       {
         "name": "황교안",
@@ -122,7 +122,7 @@
   },
   {
     "party": "송진호(무소속)",
-    "color": "var(--color-independent)",
+    "color": "bg-independent/70",
     "candidates": [
       {
         "name": "송진호",

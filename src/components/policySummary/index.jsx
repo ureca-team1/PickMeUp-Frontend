@@ -53,5 +53,3 @@ const PolicySummary = () => {
 export default PolicySummary;
 
 //전체 페이지 컴포넌트
-
-//전체 페이지 컴포넌트

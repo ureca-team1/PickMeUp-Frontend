@@ -6,8 +6,8 @@ const CandidateProfile = ({ imgSrc, name, partyColor }) => {
       <img
         src={imgSrc}
         alt={name}
-        className="w-32 h-32 rounded-full object-cover mb-2"
-        style={{ backgroundColor: partyColor, border: '4px solid black' }}
+        className={`w-32 h-32 rounded-full object-cover mb-2 opacity-100 ${partyColor} `}
+        style={{ border: '4px solid black' }}
       />
       <p className="text-3xl font-bold text-center">{name}</p>
     </div>
