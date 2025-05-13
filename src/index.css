@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
 @import 'tailwindcss';
 
 @theme {
@@ -18,16 +17,4 @@
 * {
   font-family: 'NanumSquareNeo';
   box-sizing: border-box;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }
