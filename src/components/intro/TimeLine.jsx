@@ -31,12 +31,25 @@ const timelines = [
   },
 ];
 
-const NodeItem = ({ active = false }) => {
+const NodeItem = ({ title, subTitle, active = false }) => {
   return (
     <div
-      className={`rounded-full flex items-center justify-center  border-[5px] border-primary ${active ? 'bg-secondary w-12 h-12 md:w-[60px] md:h-[60px]' : 'bg-white w-4 h-4  md:w-8 md:h-8'}`}
+      key={title}
+      className={`flex items-center gap-4 md:flex-col ${active ? '-translate-x-4 md:-translate-y-4 md:translate-x-0' : ''}`}
     >
-      {active && <div className="bg-primary rounded-full w-4 h-4 md:w-5 md:h-5" />}
+      <div
+        className={`rounded-full flex items-center justify-center  border-[5px] border-primary ${active ? 'bg-secondary w-12 h-12 md:w-[60px] md:h-[60px]' : 'bg-white w-4 h-4  md:w-8 md:h-8'}`}
+      >
+        {active && <div className="bg-primary rounded-full w-4 h-4 md:w-5 md:h-5" />}
+      </div>
+      <div className="md:text-center">
+        <h4
+          className={`whitespace-pre-line mb-0.5 md:mb-1 ${active ? 'font-extrabold text-2xl md:text-[1.75rem]' : 'md:text-2xl text-xl font-bold'}`}
+        >
+          {title}
+        </h4>
+        <span className="text-[#595959] md:text-lg text-sm">{subTitle}</span>
+      </div>
     </div>
   );
 };
@@ -69,13 +82,7 @@ function TimeLine() {
       />
       <div className="flex flex-col md:flex-row gap-10 md:gap-16">
         {timelines.map((item) => (
-          <div
-            key={item.title}
-            className={`flex items-center gap-4 md:flex-col ${item.active ? '-translate-x-4 md:-translate-y-4 md:translate-x-0' : ''}`}
-          >
-            <NodeItem active={item.active} />
-            <ContentItem title={item.title} active={item.active} subTitle={item.subTitle} />
-          </div>
+          <NodeItem title={item.title} active={item.active} subTitle={item.subTitle} />
         ))}
       </div>
     </div>
