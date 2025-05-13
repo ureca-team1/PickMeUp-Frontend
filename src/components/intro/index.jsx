@@ -13,7 +13,7 @@ function Intro() {
   };
 
   return (
-    <div className="mt-16 md:mt-24">
+    <section className="mt-16 md:mt-24 w-full overflow-hidden">
       <h2 className="text-center !leading-tight mb-6 md:mb-9 text-3xl md:text-6xl font-extrabold">
         2025
         <br />
@@ -27,11 +27,11 @@ function Intro() {
       <div className="w-[196px] h-[196px] mb-5 mt-2.5 md:mt-3 mx-auto md:mb-6 md:w-[480px] md:h-[480px]">
         <Lottie options={defaultOptions} />
       </div>
-      <p className="text-center md:text-2xl">
+      <p className="text-center mb-20 md:text-2xl">
         대선 본투표일까지 <b className="font-extrabold">00일</b> 남았어요
       </p>
       <TimeLine />
-    </div>
+    </section>
   );
 }
 

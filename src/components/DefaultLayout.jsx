@@ -5,7 +5,7 @@ const DefaultLayout = () => {
   return (
     <>
       <Header />
-      <main className="mw-1280 min-h-screen flex justify-center">
+      <main className="min-h-screen flex justify-center">
         <Intro />
       </main>
       <footer className="mw-1280"></footer>
