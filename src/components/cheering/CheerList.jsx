@@ -1,14 +1,3 @@
-/*
-응원 메시지들을 나열
-초기엔 6개만 보여주고, 더보기 버튼 클릭 시 전체 표시
-
-messages를 받아와서 조건에 따라 6개 또는 전체 렌더링
-showMore가 false일 경우 slice(0, 6)
-showMore가 true가 되면 전체 메시지 렌더링
-
-메시지가 없을 경우 안내 문구 출력
-점 3개(더보기 버튼)는 onClick 시 setShowMore(true)
-*/
 import { useState } from 'react';
 import CheerItem from './CheerItem';
 

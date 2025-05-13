@@ -60,7 +60,7 @@ const CheerForm = ({ onAddMessage }) => {
   };
 
   const handleTestButtonClick = () => {
-    saveVotedCandidate(1);
+    saveVotedCandidate(1, 4); // candidateId: 1, regionId: 4
     loadCandidateInfo();
   };
 
@@ -108,7 +108,7 @@ const CheerForm = ({ onAddMessage }) => {
         <button
           type="button"
           onClick={handleTestButtonClick}
-          className="bg-gray-200 border-2 border-gray-300 text-gray-700 font-medium text-base py-2 px-4 rounded font-nanumSquare"
+          className="bg-gray-200 border-2 border-gray-300 text-gray-700 font-medium text-base py-2 px-4 rounded font-nanumSquare hover:cursor-pointer"
         >
           테스트 (이재명 후보 저장)
         </button>

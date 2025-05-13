@@ -1,17 +1,23 @@
 export const getVotedCandidate = () => {
   try {
-    const id = localStorage.getItem('votedCandidateId');
-    return id ? parseInt(id, 10) : null;
+    const voteInfo = localStorage.getItem('voteinfo');
+    if (!voteInfo) return null;
+    const parsed = JSON.parse(voteInfo);
+    return parsed.candidateId || null;
   } catch (error) {
     console.error('로컬 스토리지 접근 오류:', error);
     return null;
   }
 };
 
-export const saveVotedCandidate = (id) => {
+export const saveVotedCandidate = (candidateId, regionId) => {
   try {
-    localStorage.setItem('votedCandidateId', id.toString());
-    console.log('후보 ID 저장됨:', id);
+    const voteInfo = JSON.stringify({
+      regionId,
+      candidateId,
+    });
+    localStorage.setItem('voteinfo', voteInfo);
+    console.log('voteinfo 저장됨:', voteInfo);
   } catch (error) {
     console.error('로컬 스토리지 저장 오류:', error);
   }
