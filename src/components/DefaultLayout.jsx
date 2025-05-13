@@ -1,3 +1,4 @@
+import CheerSection from './cheering';
 import Footer from './footer/index.jsx';
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
@@ -9,6 +10,7 @@ const DefaultLayout = () => {
       <Header />
       <main className="min-h-screen">
         <Intro />
+        <CheerSection />
         <ShareSection />
       </main>
       <Footer />
