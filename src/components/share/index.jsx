@@ -17,6 +17,7 @@ const LinkButton = ({ children, className, ...restProps }) => {
 function ShareSection() {
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(window.location.href);
+    // TODO: 토스트 메시지로 바꾸기
     alert('링크가 복사되었습니다.');
   };
 
