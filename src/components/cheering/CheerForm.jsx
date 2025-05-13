@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getVotedCandidate, saveVotedCandidate } from '../../utils/localStorage';
+import { getVotedCandidate } from '../../utils/localStorage';
 import { candidateNameMap } from '../../utils/candidateMap';
 import { postCheerMessage } from '../../apis/cheerApi';
 import SubmitButton from '../common/Button';
@@ -59,12 +59,6 @@ const CheerForm = ({ onAddMessage }) => {
     }
   };
 
-  //todo: 삭제
-  const handleTestButtonClick = () => {
-    saveVotedCandidate(1, 4); // candidateId: 1, regionId: 4
-    loadCandidateInfo();
-  };
-
   return (
     <div className="flex w-full flex-col items-center">
       <form className="relative w-[319px] rounded-2xl border-3 border-[#292B2E] p-6 md:w-[865px]">
@@ -103,17 +97,6 @@ const CheerForm = ({ onAddMessage }) => {
         >
           제출하기
         </SubmitButton>
-      </div>
-
-      {/* todo: 삭제 */}
-      <div className="mb-8">
-        <button
-          type="button"
-          onClick={handleTestButtonClick}
-          className="font-nanumSquare rounded border-2 border-gray-300 bg-gray-200 px-4 py-2 text-base font-medium text-gray-700 hover:cursor-pointer"
-        >
-          테스트 (이재명 후보 저장)
-        </button>
       </div>
     </div>
   );
