@@ -11,16 +11,16 @@ const PolicySummary = () => {
     setSelectedParty(party);
   };
 
-  const selectedPartyData = policyData.find(
-    (data) => data.party === selectedParty
-  );
+  const selectedPartyData = policyData.find((data) => data.party === selectedParty);
 
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex flex-col items-center justify-center text-center px-4 md:px-0">
       <section>
-        <h2 className="text-2xl font-bold">공약 총정리</h2>
-        <p>누구랑 잘 맞는지, 정책으로 비교해보세요</p>
-        <p>핵심만 뽑아서 빠르게 정리했어요.</p>
+        <h2 className="text-3xl md:text-6xl font-bold mb-8">공약 총정리</h2>
+        <div className="text-base md:text-2xl mb-8">
+          <p className="mb-2">누구랑 잘 맞는지, 정책으로 비교해보세요</p>
+          <p>핵심만 뽑아서 빠르게 정리했어요.</p>
+        </div>
       </section>
 
       <section>
@@ -33,9 +33,7 @@ const PolicySummary = () => {
       {selectedParty && selectedPartyData && (
         <section>
           {selectedPartyData.candidates.map((candidate) => {
-            const matchedPolicy = policyDetails.find(
-              (p) => p.name === candidate.policyRef
-            );
+            const matchedPolicy = policyDetails.find((p) => p.name === candidate.policyRef);
 
             return (
               <CandidateInfo
@@ -54,5 +52,6 @@ const PolicySummary = () => {
 
 export default PolicySummary;
 
+//전체 페이지 컴포넌트
 
 //전체 페이지 컴포넌트

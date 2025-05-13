@@ -1,12 +1,26 @@
+@charset "UTF-8";
 @import 'tailwindcss';
 
 @theme {
-   --color-democratic: #1B2C7A;
-  --color-people: #E61E2B;
-  --color-reform: #FF7210;
-  --color-labor: #FFED00;
-  --color-free: #E24A49;
-  --color-independent: #808080;
+  --color-democratic: #002bff; /* 더불어민주당 */
+  --color-people: #e61e2b; /* 국민의힘 */
+  --color-reform: #ff7210; /* 개혁신당 */
+  --color-labor: #ffed00; /* 민주노동당 */
+  --color-free: #d6001c; /* 자유통일당 */
+  --color-independent: #808080; /* 무소속 */
+}
 
-  --font-nanum: 'NanumSquare Neo', sans-serif;
+:root {
+  font-family: 'NanumSquareNeo';
+}
+
+* {
+  font-family: 'NanumSquareNeo';
+  box-sizing: border-box;
+}
+
+.mw-1280 {
+  max-width: 1280px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
 }

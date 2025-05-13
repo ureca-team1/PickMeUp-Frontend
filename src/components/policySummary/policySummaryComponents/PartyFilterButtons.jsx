@@ -10,21 +10,20 @@ const PartyFilterButtons = ({ onFilterClick }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-4 justify-cneter mb-8">
       {partyData.map((party) => (
-        <div key={party.party} className="flex gap-2">
+        <div key={party.party}>
           {party.candidates.map((candidate) => (
             <button
               key={candidate.name}
               onClick={() => handleClick(party.party)}
-              className={`
-                px-4 py-2 rounded-lg focus:outline-none transition-all duration-200
-                ${selectedParty === party.party ? 'opacity-100 ring-5 ring-black text-white' : 'opacity-50 hover:opacity-100 text-white'}
-              `}
               style={{
                 backgroundColor: party.color,
-                color: party.party === '민주노동당' ? 'black' : 'white', // 자유통일당일 때 글자 색 검정으로 변경
+                color: party.party === '민주노동당' ? 'black' : 'white',
+                opacity: 0.7,
+                border: selectedParty === party.party ? '2px solid white' : 'none',
               }}
+              className="px-4 py-2 rounded-lg transition-all duration-200"
             >
               {party.party}
             </button>
@@ -36,7 +35,5 @@ const PartyFilterButtons = ({ onFilterClick }) => {
 };
 
 export default PartyFilterButtons;
-
-
 
 //정당 필터 버튼들
