@@ -2,9 +2,9 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-democratic: #002bff;
-  --color-people: #e61e2b;
-  --color-reform: #ff7210;
+  --color-democratic: #002bff; /* 더불어민주당 */
+  --color-people: #e61e2b; /* 국민의힘 */
+  --color-reform: #ff7210; /* 개혁신당 */
   --color-labor: #d6001c;
   --color-free: #ffed00;
   --color-independent: #808080;
@@ -17,4 +17,10 @@
 * {
   font-family: 'NanumSquareNeo';
   box-sizing: border-box;
+}
+
+.mw-1280 {
+  max-width: 1280px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
 }
