@@ -2,6 +2,14 @@ import VoteBox from '@/assets/vote-box.json';
 import Lottie from 'react-lottie';
 import TimeLine from './TimeLine.jsx';
 
+const daysUntil = (targetDate) => {
+  const currentDate = new Date();
+  const difference = targetDate - currentDate; // 밀리초 단위
+  const daysRemaining = Math.ceil(difference / (1000 * 60 * 60 * 24)); // 밀리초를 일로 변환
+
+  return daysRemaining >= 0 ? daysRemaining : 0; // 남은 일수가 음수일 경우 0 반환
+};
+
 function Intro() {
   const defaultOptions = {
     loop: false,
@@ -28,7 +36,8 @@ function Intro() {
         <Lottie options={defaultOptions} />
       </div>
       <p className="text-center mb-20 md:text-2xl">
-        대선 본투표일까지 <b className="font-extrabold">00일</b> 남았어요
+        대선 본투표일까지 <b className="font-extrabold">{daysUntil(new Date('2025.06.03'))}일</b>{' '}
+        남았어요
       </p>
       <TimeLine />
     </section>
