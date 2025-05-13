@@ -1,5 +1,6 @@
 import VoteBox from '@/assets/vote-box.json';
 import Lottie from 'react-lottie';
+import TimeLine from './TimeLine.jsx';
 
 function Intro() {
   const defaultOptions = {
@@ -13,7 +14,7 @@ function Intro() {
 
   return (
     <div className="mt-16 md:mt-24">
-      <h2 className="text-center !leading-tight mb-6 md:mb-9 text-3xl md:text-6xl font-extrabold ">
+      <h2 className="text-center !leading-tight mb-6 md:mb-9 text-3xl md:text-6xl font-extrabold">
         2025
         <br />
         Pick Your President
@@ -29,6 +30,7 @@ function Intro() {
       <p className="text-center md:text-2xl">
         대선 본투표일까지 <b className="font-extrabold">00일</b> 남았어요
       </p>
+      <TimeLine />
     </div>
   );
 }

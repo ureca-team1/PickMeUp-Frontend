@@ -1,6 +1,31 @@
 @charset "UTF-8";
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff')
+    format('woff');
+}
+
 @theme {
   --color-democratic: #002bff; /* 더불어민주당 */
   --color-people: #e61e2b; /* 국민의힘 */
