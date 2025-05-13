@@ -1,11 +1,12 @@
 import Header from './header/index.jsx';
+import Intro from './intro/index.jsx';
 
 const DefaultLayout = () => {
   return (
     <>
       <Header />
-      <main className="mw-1280 min-h-screen flex items-center justify-center">
-        {/* 메인 콘텐츠 */}
+      <main className="min-h-screen flex justify-center">
+        <Intro />
       </main>
       <footer className="mw-1280"></footer>
     </>
