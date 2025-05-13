@@ -83,9 +83,11 @@ const CheerForm = ({ onAddMessage }) => {
           <textarea
             value={message}
             onChange={handleMessageChange}
-            placeholder="응원을 남겨주세요"
+            placeholder={
+              candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
+            }
             className="w-full p-4 md:p-5 bg-[#f5f5f5]/60 rounded-xl h-24 resize-none focus:outline-none font-nanumSquare text-[14px] md:text-[24px] placeholder:text-[#808080]"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !candidateId}
           />
           <span className="absolute bottom-2 right-3 text-[10px] md:text-[16px] text-[#808080] font-nanumSquare">
             {charCount} / {maxLength}

@@ -1,13 +1,40 @@
 @charset "UTF-8";
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff')
+    format('woff');
+}
+
 @theme {
-  --color-democratic: #002bff;
-  --color-people: #e61e2b;
-  --color-reform: #ff7210;
-  --color-labor: #d6001c;
-  --color-free: #ffed00;
-  --color-independent: #808080;
+  --color-democratic: #002bff; /* 더불어민주당 */
+  --color-people: #e61e2b; /* 국민의힘 */
+  --color-reform: #ff7210; /* 개혁신당 */
+  --color-labor: #ffed00; /* 민주노동당 */
+  --color-free: #d6001c; /* 자유통일당 */
+  --color-independent: #808080; /* 무소속 */
+  --color-primary: #292b2e;
+  --color-secondary: #f5f5f5;
 }
 
 :root {
@@ -17,4 +44,11 @@
 * {
   font-family: 'NanumSquareNeo';
   box-sizing: border-box;
+  line-height: 150%;
+}
+
+.mw-1280 {
+  max-width: 1280px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
 }
