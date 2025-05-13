@@ -1,14 +1,13 @@
 @charset "UTF-8";
-@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
 @import 'tailwindcss';
 
 @theme {
-  --color-democratic: #002bff;
-  --color-people: #e61e2b;
-  --color-reform: #ff7210;
-  --color-labor: #d6001c;
-  --color-free: #ffed00;
-  --color-independent: #808080;
+  --color-democratic: #002bff; /* 더불어민주당 */
+  --color-people: #e61e2b; /* 국민의힘 */
+  --color-reform: #ff7210; /* 개혁신당 */
+  --color-labor: #ffed00; /* 민주노동당 */
+  --color-free: #d6001c; /* 자유통일당 */
+  --color-independent: #808080; /* 무소속 */
 }
 
 :root {
@@ -20,14 +19,8 @@
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+.mw-1280 {
+  max-width: 1280px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
 }
