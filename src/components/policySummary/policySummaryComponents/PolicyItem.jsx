@@ -11,20 +11,20 @@ const PolicyItem = ({ category, items }) => {
     <div className="mb-4 border-b border-black pb-2">
       <button
         onClick={toggleOpen}
-        className="flex justify-between items-center w-full text-left font-semibold text-lg "
+        className="flex w-full items-center justify-between text-left text-lg font-semibold"
       >
         <div className="flex items-center gap-2">
           <CategoryIcon category={category} />
-          <span className="text-sm  md:text-xl">{category}</span>
+          <span className="text-sm md:text-xl">{category}</span>
         </div>
-        <span className="text-2xl  text-gray-500">
+        <span className="text-2xl text-gray-500">
           {isOpen ? <FiChevronUp /> : <FiChevronDown />}
         </span>
       </button>
 
       {isOpen && (
-        <div className="mt-2 pt-2 border-t border-gray-300">
-          <ul className="list-disc list-inside space-y-1">
+        <div className="mt-2 border-t border-gray-300 pt-2">
+          <ul className="list-inside list-disc space-y-1">
             {items.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}

@@ -14,10 +14,10 @@ const PolicySummary = () => {
   const selectedPartyData = policyData.find((data) => data.party === selectedParty);
 
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 md:px-0">
+    <div className="flex flex-col items-center justify-center px-4 text-center md:px-0">
       <section>
-        <h2 className="text-3xl md:text-6xl font-bold mb-8">공약 총정리</h2>
-        <div className="text-base md:text-2xl mb-8">
+        <h2 className="mb-8 text-3xl font-bold md:text-6xl">공약 총정리</h2>
+        <div className="mb-8 text-base md:text-2xl">
           <p className="mb-2">누구랑 잘 맞는지, 정책으로 비교해보세요</p>
           <p>핵심만 뽑아서 빠르게 정리했어요.</p>
         </div>

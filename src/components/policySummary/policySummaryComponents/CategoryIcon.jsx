@@ -15,7 +15,7 @@ const CategoryIcon = ({ category }) => {
   const colorClass = iconMap[category]?.color || 'text-gray-400';
 
   return IconComponent ? (
-    <span className={`text-2xl mr-2 ${colorClass}`}>
+    <span className={`mr-2 text-2xl ${colorClass}`}>
       <IconComponent />
     </span>
   ) : null;

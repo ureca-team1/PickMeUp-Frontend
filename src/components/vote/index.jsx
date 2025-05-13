@@ -86,7 +86,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <div className="p-4 space-y-4 max-w-md mx-auto">
+    <div className="mx-auto max-w-md space-y-4 p-4">
       <VoteHeader />
       {/* 지역선택 */}
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />

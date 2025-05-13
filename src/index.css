@@ -37,7 +37,6 @@
   --color-secondary: #f5f5f5;
 }
 
-
 button {
   cursor: pointer;
 }
@@ -61,7 +60,7 @@ button {
 html {
   -ms-overflow-style: none; /* Internet Explorer, Edge */
   scrollbar-width: none; /*  Firefox */
-  overflow-y: scroll; 
+  overflow-y: scroll;
 }
 
 html::-webkit-scrollbar {
