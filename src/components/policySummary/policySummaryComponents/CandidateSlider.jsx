@@ -27,13 +27,13 @@ const CandidateSlider = ({ candidate }) => {
         >
           {/* 생년월일 슬라이드 */}
           <SwiperSlide key="birth">
-            <div className="text-center py-6 text-sm md:text-xl">{candidate.info.birth}</div>
+            <div className="py-6 text-center text-sm md:text-xl">{candidate.info.birth}</div>
           </SwiperSlide>
 
           {/* 이력 슬라이드: 2개씩 세로로 보여줌 */}
           {chunkedHistories.map((historyPair, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col gap-2 items-center justify-center h-full py-6 text-sm  md:text-xl">
+              <div className="flex h-full flex-col items-center justify-center gap-2 py-6 text-sm md:text-xl">
                 {historyPair.map((item, idx) => (
                   <div key={idx} className="text-center">
                     {item}

@@ -1,5 +1,5 @@
-
-import PolicySummary from "./policySummary";
+import PolicySummary from './policySummary';
+import Vote from '../components/vote';
 import CheerSection from './cheering';
 import Footer from './footer/index.jsx';
 import Header from './header/index.jsx';
@@ -12,13 +12,13 @@ const DefaultLayout = () => {
       <Header />
       <main className="min-h-screen">
         <Intro />
-        <PolicySummary/>
+        <PolicySummary />
+        <Vote />
         <CheerSection />
         <ShareSection />
       </main>
       <Footer />
     </>
-
   );
 };
 
