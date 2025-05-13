@@ -38,9 +38,7 @@ const CheerForm = ({ onAddMessage }) => {
         content: message,
       };
 
-      // console.log('전송할 응원 메시지:', newMessage);
       await postCheerMessage(newMessage);
-      // console.log('메시지 전송 완료');
 
       const formattedMessage = {
         ...newMessage,
@@ -65,11 +63,13 @@ const CheerForm = ({ onAddMessage }) => {
         <div className="font-nanumSquare mb-4 text-[16px] text-black md:text-[24px]">
           {candidateId ? (
             <>
-              <span className="font-extrabold underline">{candidateNameMap[candidateId]}</span>{' '}
+              <span className="border-b-2 border-black pb-[0.1px] font-extrabold">
+                {candidateNameMap[candidateId]}
+              </span>{' '}
               후보님께
             </>
           ) : (
-            '후보님께'
+            '나의 후보님께'
           )}
         </div>
 
@@ -80,7 +80,7 @@ const CheerForm = ({ onAddMessage }) => {
             placeholder={
               candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
             }
-            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[14px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px]"
+            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[13px] placeholder:text-[13px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px] md:placeholder:text-[24px]"
             disabled={isSubmitting || !candidateId}
           />
           <span className="font-nanumSquare absolute right-3 bottom-2 text-[10px] text-[#808080] md:text-[16px]">
