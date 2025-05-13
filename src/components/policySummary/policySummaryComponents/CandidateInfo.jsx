@@ -1,16 +1,14 @@
 import React from 'react';
+import CandidateProfile from './CandidateProfile';
 import CandidateSlider from './CandidateSlider';
 import PolicyList from './PolicyList';
-import CandidateProfile from './CandidateProfile';
 
-const CandidateInfo = ({ candidate, partyColor }) => {
+const CandidateInfo = ({ candidate, partyColor, policies }) => {
   return (
-    <div>
-    <CandidateProfile imgSrc={candidate.image} name={candidate.name} partyColor={partyColor}/>
-    <CandidateSlider candidate={candidate}/>
-    <PolicyList/>
-      {/* 공약 리스트 표시 */}
-      
+    <div className="candidate-info">
+      <CandidateProfile imgSrc={candidate.image} name={candidate.name} partyColor={partyColor} />
+      <CandidateSlider candidate={candidate} />
+      <PolicyList policies={policies} /> {/* 공약 리스트 전달 */}
     </div>
   );
 };

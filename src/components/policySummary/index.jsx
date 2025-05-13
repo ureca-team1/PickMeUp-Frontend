@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
 import policyData from '../../data/parties.json';
+import policyDetails from '../../data/policies.json';
 import CandidateInfo from './policySummaryComponents/CandidateInfo';
 
 const PolicySummary = () => {
   const [selectedParty, setSelectedParty] = useState(null);
 
-  // 선택된 정당에 맞는 후보 정보 가져오기
   const handleFilterClick = (party) => {
     setSelectedParty(party);
   };
 
-  // 선택된 정당의 후보 필터링
   const selectedPartyData = policyData.find(
     (data) => data.party === selectedParty
   );
@@ -33,10 +32,20 @@ const PolicySummary = () => {
 
       {selectedParty && selectedPartyData && (
         <section>
-          <h3 className="text-xl font-semibold"></h3>
-          {selectedPartyData.candidates.map((candidate) => (
-            <CandidateInfo key={candidate.name} candidate={candidate} partyColor={selectedPartyData.color}/>
-          ))}
+          {selectedPartyData.candidates.map((candidate) => {
+            const matchedPolicy = policyDetails.find(
+              (p) => p.name === candidate.policyRef
+            );
+
+            return (
+              <CandidateInfo
+                key={candidate.name}
+                candidate={candidate}
+                partyColor={selectedPartyData.color}
+                policies={matchedPolicy?.categories || []} //여기서 전달
+              />
+            );
+          })}
         </section>
       )}
     </div>
@@ -44,5 +53,6 @@ const PolicySummary = () => {
 };
 
 export default PolicySummary;
+
 
 //전체 페이지 컴포넌트

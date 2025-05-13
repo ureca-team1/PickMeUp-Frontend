@@ -1,10 +1,24 @@
-import React from 'react'
+import React from 'react';
+import PolicyItem from './PolicyItem';
 
-const PolicyList = () => {
+const PolicyList = ({ policies }) => {
   return (
-    <div>PolicyList</div>
-  )
-}
+    <div className="w-full max-w-xl mx-auto text-left mt-6">
+      {policies.map((policy) => (
+        <PolicyItem
+          key={policy.category}
+          category={policy.category}
+          items={policy.items}
+        />
+      ))}
+    </div>
+  );
+};
 
-export default PolicyList
-// 공약 리스트 전체 > 큰 항목 보여주기
+export default PolicyList;
+
+
+
+
+
+// 공약 카테고리 >> 드랍다운 클릭 시 PolicyItem 보여줌
