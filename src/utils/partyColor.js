@@ -1,18 +1,18 @@
-// 정당별 색상 정보
+// utils/partyColor.js
 const PARTY_COLORS = {
-  더불어민주당: 'bg-[#002BFF]/50',
-  국민의힘: 'bg-[#E61E2B]/50',
-  개혁신당: 'bg-[#FF7210]/50',
-  진보당: 'bg-[#D6001C]/50',
-  민주노동당: 'bg-[#FFED00]/50',
-  무소속: 'bg-[#808080]/50',
+  1: 'bg-[#002BFF]/70', // 더불어민주당
+  2: 'bg-[#E61E2B]/70', // 국민의힘
+  3: 'bg-[#FF7210]/70', // 개혁신당
+  4: 'bg-[#D6001C]/70', // 진보당
+  5: 'bg-[#FFED00]/70', // 민주노동당
+  6: 'bg-[#808080]/70', // 무소속
+  7: 'bg-[#808080]/70', // 무소속
+  8: 'bg-[#808080]/70', // 무소속
 };
 
 /**
- * 정당명에 따른 배경색 클래스명 반환
- * @param {string} party - 정당명
- * @returns {string} Tailwind 배경색 클래스
+ * 후보 ID에 따른 배경색 클래스 반환
  */
-export const getPartyColor = (party) => {
-  return PARTY_COLORS[party] || PARTY_COLORS['무소속'];
+export const getPartyColor = (candidateId) => {
+  return PARTY_COLORS[candidateId] || 'bg-[#808080]/50';
 };

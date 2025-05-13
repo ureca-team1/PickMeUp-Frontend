@@ -1,39 +1,22 @@
-//CheerForm.jsx
-/*
-사용자가 응원 메시지를 입력하고 제출할 수 있는 폼
-후보자 정보는 로컬 스토리지에서 불러옴
-
-message	입력 중인 응원 메시지
-isSubmitting	제출 중 여부 (버튼 비활성화용)
-charCount	현재 입력 글자 수
-candidate	로컬 스토리지에서 불러온 후보자 이름
-
-loadCandidateInfo: getVotedCandidate()로 후보자 이름 로딩
-handleMessageChange: 30자 제한을 체크하면서 메시지 업데이트
-handleSubmit: 메시지를 생성해 onAddMessage로 전달, 상태 초기화
-handleTestButtonClick: 유레카 후보 정보를 로컬 스토리지에 저장하는 테스트용 버튼
-*/
 import { useState, useEffect } from 'react';
 import { getVotedCandidate, saveVotedCandidate } from '../../utils/localStorage';
+import { candidateNameMap } from '../../utils/candidateMap';
+import { postCheerMessage } from '../../apis/cheerApi';
 import SubmitButton from '../common/Button';
 
-const CheerForm = () => {
+const CheerForm = ({ onAddMessage }) => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [charCount, setCharCount] = useState(0);
-  const [candidate, setCandidate] = useState('');
+  const [candidateId, setCandidateId] = useState(null);
   const maxLength = 30;
 
-  // 후보자 정보 로드 함수
   const loadCandidateInfo = () => {
-    const votedInfo = getVotedCandidate();
-    if (votedInfo && votedInfo.name) {
-      setCandidate(votedInfo.name);
-    }
+    const id = getVotedCandidate();
+    setCandidateId(id);
   };
 
   useEffect(() => {
-    // 로컬 스토리지에서 투표한 후보자 정보 가져오기
     loadCandidateInfo();
   }, []);
 
@@ -46,49 +29,55 @@ const CheerForm = () => {
   };
 
   const handleSubmit = async () => {
-    if (!message.trim()) return;
+    if (!message.trim() || !candidateId) return;
     setIsSubmitting(true);
 
     try {
       const newMessage = {
+        candidate: candidateId,
+        content: message,
+      };
+
+      console.log('전송할 응원 메시지:', newMessage); // POST 전송 데이터 로그 확인
+      await postCheerMessage(newMessage);
+      console.log('메시지 전송 완료'); // POST 성공 로그 확인
+
+      const formattedMessage = {
+        ...newMessage,
         id: Date.now(),
         text: message,
         createdAt: new Date().toISOString(),
       };
-
-      // 부모 컴포넌트에 새 메시지 전달
-      // onAddMessage(newMessage);
-      // 입력 필드 초기화
+      onAddMessage(formattedMessage);
       setMessage('');
       setCharCount(0);
-      console.log('응원 메시지 전송:', newMessage);
     } catch (err) {
-      console.error('Error sending message:', err);
-      alert('메시지 전송에 실패했습니다. 다시 시도해주세요.');
+      console.error('메시지 전송 실패:', err);
+      alert('전송 오류. 다시 시도해주세요.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // 테스트 버튼: 유레카 후보 저장
   const handleTestButtonClick = () => {
-    saveVotedCandidate({ name: '유레카' });
+    saveVotedCandidate(1);
     loadCandidateInfo();
   };
 
   return (
     <div className="flex flex-col items-center w-full">
       <form className="w-full max-w-[865px] border-3 border-[#292B2E] rounded-2xl p-6 relative">
-        <div className="mb-4">
-          <span className="text-2xl font-nanumSquare">
-            {candidate ? (
-              <>
-                <span className="font-extrabold underline text-black">{candidate}</span> 후보님께
-              </>
-            ) : (
-              '후보님께'
-            )}
-          </span>
+        <div className="mb-4 text-2xl font-nanumSquare">
+          {candidateId ? (
+            <>
+              <span className="font-extrabold underline text-black">
+                {candidateNameMap[candidateId]}
+              </span>{' '}
+              후보님께
+            </>
+          ) : (
+            '후보님께'
+          )}
         </div>
 
         <div className="relative">
@@ -115,14 +104,13 @@ const CheerForm = () => {
         </SubmitButton>
       </div>
 
-      {/* 테스트 버튼 */}
       <div className="mb-8">
         <button
           type="button"
           onClick={handleTestButtonClick}
           className="bg-gray-200 border-2 border-gray-300 text-gray-700 font-medium text-base py-2 px-4 rounded font-nanumSquare"
         >
-          테스트 (유레카 후보 저장)
+          테스트 (이재명 후보 저장)
         </button>
       </div>
     </div>

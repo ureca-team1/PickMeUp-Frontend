@@ -1,6 +1,3 @@
-/*
-페이지 상단의 타이틀 + 부제목을 렌더링
-*/
 const CheerTitle = () => {
   return (
     <div className="text-center mb-8">

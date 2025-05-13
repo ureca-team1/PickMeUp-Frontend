@@ -1,29 +1,21 @@
-/*
-응원 한마디 전체 섹션을 담당하는 최상위 컴포넌트
-응원 메시지 목록을 관리하고 하위 컴포넌트(Form, List)에 전달
-*/
-
 import { useState, useEffect } from 'react';
 import CheerForm from './CheerForm';
 import CheerTitle from './CheerTitle';
 import CheerList from './CheerList';
-import { mockCheerMessages } from '../../mock/cheerMessages';
+import { getCheerMessages } from '../../apis/cheerApi';
 
 const CheerSection = () => {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // API 연동 시 사용할 함수
+  // API 연동 함수
   const fetchMessages = async () => {
     setIsLoading(true);
     try {
-      // 실제 API 연동 시 아래 주석을 해제하고 목업 데이터 사용 부분을 주석 처리
-      // const data = await getCheerMessages();
-      // setMessages(data);
-
-      // 목업 데이터 사용 (API 연동 전)
-      setMessages(mockCheerMessages);
+      const data = await getCheerMessages(); // 실제 서버에서 데이터 받아오기
+      console.log('서버에서 가져온 메시지 목록:', data); // GET 결과 로그 확인
+      setMessages(data);
     } catch (err) {
       setError('메시지를 불러오는데 실패했습니다.');
       console.error('Error fetching messages:', err);
@@ -32,13 +24,14 @@ const CheerSection = () => {
     }
   };
 
+  // 컴포넌트 마운트 시 메시지 로딩
   useEffect(() => {
     fetchMessages();
   }, []);
 
+  // 새 메시지 추가 (POST 성공 시 호출됨)
   const handleAddMessage = (newMessage) => {
-    // 새 메시지를 목록 맨 앞에 추가
-    setMessages([newMessage, ...messages]);
+    setMessages((prev) => [newMessage, ...prev]);
   };
 
   return (
