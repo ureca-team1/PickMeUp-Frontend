@@ -3,7 +3,7 @@ import CheerItem from './CheerItem';
 
 const CheerList = ({ messages }) => {
   const [showMore, setShowMore] = useState(false);
-  const initialDisplayCount = 6; // 초기에 보여줄 메시지 수
+  const initialDisplayCount = 6;
 
   if (!messages || messages.length === 0) {
     return (
@@ -13,7 +13,6 @@ const CheerList = ({ messages }) => {
     );
   }
 
-  // 표시할 메시지 결정
   const displayMessages = showMore ? messages : messages.slice(0, initialDisplayCount);
 
   const handleShowMore = () => {
@@ -22,7 +21,7 @@ const CheerList = ({ messages }) => {
 
   return (
     <div className="w-full mt-8 relative">
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4 md:flex-row flex-col items-center">
         {displayMessages.map((message) => (
           <CheerItem key={message.id} message={message} />
         ))}
@@ -34,9 +33,12 @@ const CheerList = ({ messages }) => {
           className="flex flex-col items-center gap-3 mt-8 cursor-pointer"
           onClick={handleShowMore}
         >
-          <div className="w-2.5 h-2.5 rounded-full bg-[#B7B7B7]"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-[#B7B7B7]"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-[#B7B7B7]"></div>
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-[#B7B7B7] rounded-full w-[5px] h-[5px] md:w-[10px] md:h-[10px]"
+            ></div>
+          ))}
         </div>
       )}
     </div>

@@ -9,12 +9,11 @@ const CheerSection = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // API 연동 함수
   const fetchMessages = async () => {
     setIsLoading(true);
     try {
-      const data = await getCheerMessages(); // 실제 서버에서 데이터 받아오기
-      console.log('서버에서 가져온 메시지 목록:', data); // GET 결과 로그 확인
+      const data = await getCheerMessages();
+      // console.log('서버에서 가져온 메시지 목록:', data);
       setMessages(data);
     } catch (err) {
       setError('메시지를 불러오는데 실패했습니다.');
@@ -24,12 +23,10 @@ const CheerSection = () => {
     }
   };
 
-  // 컴포넌트 마운트 시 메시지 로딩
   useEffect(() => {
     fetchMessages();
   }, []);
 
-  // 새 메시지 추가 (POST 성공 시 호출됨)
   const handleAddMessage = (newMessage) => {
     setMessages((prev) => [newMessage, ...prev]);
   };

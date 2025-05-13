@@ -38,9 +38,9 @@ const CheerForm = ({ onAddMessage }) => {
         content: message,
       };
 
-      console.log('전송할 응원 메시지:', newMessage); // POST 전송 데이터 로그 확인
+      // console.log('전송할 응원 메시지:', newMessage);
       await postCheerMessage(newMessage);
-      console.log('메시지 전송 완료'); // POST 성공 로그 확인
+      // console.log('메시지 전송 완료');
 
       const formattedMessage = {
         ...newMessage,
@@ -59,6 +59,7 @@ const CheerForm = ({ onAddMessage }) => {
     }
   };
 
+  //todo: 삭제
   const handleTestButtonClick = () => {
     saveVotedCandidate(1, 4); // candidateId: 1, regionId: 4
     loadCandidateInfo();
@@ -66,13 +67,11 @@ const CheerForm = ({ onAddMessage }) => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <form className="w-full max-w-[865px] border-3 border-[#292B2E] rounded-2xl p-6 relative">
-        <div className="mb-4 text-2xl font-nanumSquare">
+      <form className="w-[319px] md:w-[865px] border-3 border-[#292B2E] rounded-2xl p-6 relative">
+        <div className="mb-4 font-nanumSquare text-[16px] md:text-[24px] text-black">
           {candidateId ? (
             <>
-              <span className="font-extrabold underline text-black">
-                {candidateNameMap[candidateId]}
-              </span>{' '}
+              <span className="font-extrabold underline">{candidateNameMap[candidateId]}</span>{' '}
               후보님께
             </>
           ) : (
@@ -85,10 +84,10 @@ const CheerForm = ({ onAddMessage }) => {
             value={message}
             onChange={handleMessageChange}
             placeholder="응원을 남겨주세요"
-            className="w-full p-5 bg-[#f5f5f5]/60 rounded-xl h-24 resize-none focus:outline-none font-nanumSquare"
+            className="w-full p-4 md:p-5 bg-[#f5f5f5]/60 rounded-xl h-24 resize-none focus:outline-none font-nanumSquare text-[14px] md:text-[24px] placeholder:text-[#808080]"
             disabled={isSubmitting}
           />
-          <span className="absolute bottom-2 right-3 text-gray-500 text-sm font-nanumSquare">
+          <span className="absolute bottom-2 right-3 text-[10px] md:text-[16px] text-[#808080] font-nanumSquare">
             {charCount} / {maxLength}
           </span>
         </div>
@@ -104,6 +103,7 @@ const CheerForm = ({ onAddMessage }) => {
         </SubmitButton>
       </div>
 
+      {/* todo: 삭제 */}
       <div className="mb-8">
         <button
           type="button"
