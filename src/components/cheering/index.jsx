@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { getCheerMessages } from '@/apis/cheerApi';
+import { useEffect, useState } from 'react';
 import CheerForm from './CheerForm';
-import CheerTitle from './CheerTitle';
 import CheerList from './CheerList';
-import { getCheerMessages } from '../../apis/cheerApi';
+import CheerTitle from './CheerTitle';
 
 const CheerSection = () => {
   const [messages, setMessages] = useState([]);

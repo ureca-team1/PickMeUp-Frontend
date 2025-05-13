@@ -21,7 +21,7 @@ function Intro() {
   };
 
   return (
-    <section className="mt-16 w-full overflow-hidden md:mt-24">
+    <section className="mt-16 mb-30 w-full overflow-hidden md:mt-24">
       <h2 className="mb-6 text-center text-3xl !leading-tight font-extrabold md:mb-9 md:text-6xl">
         2025
         <br />
