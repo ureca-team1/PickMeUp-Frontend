@@ -2,12 +2,13 @@ import React from 'react';
 
 const Disclaimer = () => {
   return (
-    <div className="mt-6 w-full flex justify-center">
-      <div className="text-xs text-gray-400 leading-relaxed text-center inline-block">
-        <p>※ 본 페이지는 실제 선거와 무관한 모의 체험 콘텐츠입니다.</p>
-        <p className="whitespace-nowrap">
-          모든 데이터는 사용자 참여 기반의 체험용으로 수집되며, 실제 선거, 지지율, 결과와는 아무
-          관련이 없습니다.
+    <div className="mt-6 w-full flex justify-center px-4">
+      <div className="text-xs text-gray-400 leading-relaxed text-center max-w-md">
+        <p className="break-words">※ 실제 선거와 무관한 모의 체험 콘텐츠입니다.</p>
+        <p className="mt-1 break-words">
+          후보 이름, 결과 등은 단순한 사용자 선택 데이터이며,
+          <br className="block sm:hidden" />
+          공식 지지율이나 선거 결과와는 관련이 없습니다.
         </p>
       </div>
     </div>

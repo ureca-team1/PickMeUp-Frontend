@@ -1,4 +1,4 @@
-import Vote from './vote/Vote';
+import Vote from '../components/vote';
 
 const DefaultLayout = () => {
   return (
