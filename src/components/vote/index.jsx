@@ -3,15 +3,15 @@ import VoteHeader from './voteComponents/VoteHeader';
 import CandidateCard from './voteComponents/CandidateCard';
 import VoteButton from './voteComponents/VoteButton';
 import CancelButton from './voteComponents/CancelButton';
-
 import Disclaimer from './voteComponents/Disclaimer';
-import useVote from './useVote';
-
-import toast from 'react-hot-toast';
 import RegionSelect from './voteComponents/RegionSelect';
+
+import useVote from './useVote';
+import toast from 'react-hot-toast';
 
 import { sendVote, cancelVote } from '@/apis/voteApi';
 import { candidates } from '@/utils/candidates';
+import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
 
 const Vote = () => {
   const [selectedRegionId, setSelectedRegionId] = useState(null);
@@ -22,16 +22,18 @@ const Vote = () => {
     setSelectedRegionId(regionId);
   };
 
-  // 지역 먼저 선택하라는 토스트
+  // 투표 처리
   const handleVote = async () => {
-    if (localStorage.getItem('voteInfo')) {
+    if (getVotedCandidate()) {
       toast.error('이미 투표를 완료하셨습니다.');
       return;
     }
+
     if (selectedRegionId === null) {
       toast.error('지역을 먼저 선택해주세요.');
       return;
     }
+
     const selectedCandidate = candidates.find((candidate) => candidate.id === selected);
     if (!selectedCandidate) {
       toast.error('후보를 선택해주세요.');
@@ -44,10 +46,7 @@ const Vote = () => {
         candidate: selectedCandidate.id,
       });
 
-      localStorage.setItem(
-        'voteInfo',
-        JSON.stringify({ region: selectedRegionId, candidate: selectedCandidate.id })
-      );
+      saveVotedCandidate(selectedCandidate.id, selectedRegionId);
       setIsVoted(true);
       toast.success(`${selectedCandidate.name} 후보에게 투표 완료되었습니다.`);
     } catch (err) {
@@ -56,8 +55,10 @@ const Vote = () => {
     }
   };
 
+  // 투표 취소 처리
   const handleCancelVote = async () => {
     const selectedCandidate = candidates.find((candidate) => candidate.id === selected);
+
     try {
       await cancelVote({
         region: selectedRegionId,
@@ -75,10 +76,12 @@ const Vote = () => {
     }
   };
 
+  // 초기 로딩 시 로컬 스토리지에서 투표 정보 복원
   useEffect(() => {
-    const stored = localStorage.getItem('voteInfo'); // 로컬에서 데이터 가져옴
-    if (stored) {
-      const { regionId, candidateId } = JSON.parse(stored);
+    const candidateId = getVotedCandidate();
+    if (candidateId) {
+      const stored = localStorage.getItem('voteInfo'); // regionId는 직접 파싱
+      const { regionId } = JSON.parse(stored);
       setSelectedRegionId(regionId);
       selectCandidate(candidateId);
       setIsVoted(true);
@@ -86,12 +89,11 @@ const Vote = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-md space-y-4 p-4">
+    <div className="mx-auto max-w-md md:max-w-2xl space-y-4 p-4">
       <VoteHeader />
-      {/* 지역선택 */}
+
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
 
-      {/* 후보자 카드 */}
       {candidates.map((candidate) => (
         <CandidateCard
           key={candidate.id}
@@ -104,7 +106,6 @@ const Vote = () => {
         />
       ))}
 
-      {/* 투표 */}
       {isVoted ? (
         <CancelButton onClick={handleCancelVote} />
       ) : (
