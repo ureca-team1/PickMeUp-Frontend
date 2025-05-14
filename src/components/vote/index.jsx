@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import VoteHeader from './voteComponents/VoteHeader';
-import CandidateCard from './voteComponents/CandidateCard';
-import VoteButton from './voteComponents/VoteButton';
+import { useEffect, useState } from 'react';
 import CancelButton from './voteComponents/CancelButton';
+import CandidateCard from './voteComponents/CandidateCard';
 import Disclaimer from './voteComponents/Disclaimer';
 import RegionSelect from './voteComponents/RegionSelect';
+import VoteButton from './voteComponents/VoteButton';
+import VoteHeader from './voteComponents/VoteHeader';
 
-import useVote from './useVote';
 import toast from 'react-hot-toast';
+import useVote from './useVote';
 
-import { sendVote, cancelVote } from '@/apis/voteApi';
+import { cancelVote, sendVote } from '@/apis/voteApi';
 import { candidates } from '@/utils/candidates';
 import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
 
@@ -89,7 +89,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
+    <section id="vote" className="mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
       <VoteHeader />
 
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
@@ -113,7 +113,7 @@ const Vote = () => {
       )}
 
       <Disclaimer />
-    </div>
+    </section>
   );
 };
 

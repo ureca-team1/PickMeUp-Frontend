@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
+import { useState } from 'react';
 import policyData from '../../data/parties.json';
 import policyDetails from '../../data/policies.json';
 import CandidateInfo from './policySummaryComponents/CandidateInfo';
+import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
 
 const PolicySummary = () => {
   const [selectedParty, setSelectedParty] = useState(null);
@@ -14,10 +14,13 @@ const PolicySummary = () => {
   const selectedPartyData = policyData.find((data) => data.party === selectedParty);
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 text-center md:px-0">
+    <section
+      id="policy"
+      className="flex flex-col items-center justify-center px-4 text-center md:px-0"
+    >
       <section>
-        <h2 className="mb-8 font-extrabold text-[28px] md:text-[54px]">공약 총정리</h2>
-        <div className="mb-8 font-normal text-[16px] md:text-[24px]">
+        <h2 className="mb-8 text-[28px] font-extrabold md:text-[54px]">공약 총정리</h2>
+        <div className="mb-8 text-[16px] font-normal md:text-[24px]">
           <p className="mb-2">누구랑 잘 맞는지, 정책으로 비교해보세요</p>
           <p>핵심만 뽑아서 빠르게 정리했어요.</p>
         </div>
@@ -46,7 +49,7 @@ const PolicySummary = () => {
           })}
         </section>
       )}
-    </div>
+    </section>
   );
 };
 
