@@ -60,3 +60,18 @@
     }
   }
 }
+
+/* 등장 애니메이션: 스르륵 */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
