@@ -16,8 +16,8 @@ const PolicySummary = () => {
   return (
     <div className="flex flex-col items-center justify-center px-4 text-center md:px-0">
       <section>
-        <h2 className="mb-8 font-extrabold text-[28px] md:text-[54px]">공약 총정리</h2>
-        <div className="mb-8 font-normal text-[16px] md:text-[24px]">
+        <h2 className="mb-8 text-[28px] font-extrabold md:text-[54px]">공약 총정리</h2>
+        <div className="mb-8 text-[16px] font-normal md:text-[24px]">
           <p className="mb-2">누구랑 잘 맞는지, 정책으로 비교해보세요</p>
           <p>핵심만 뽑아서 빠르게 정리했어요.</p>
         </div>
