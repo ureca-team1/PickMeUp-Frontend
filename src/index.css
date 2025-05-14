@@ -92,7 +92,6 @@ a,
   }
 }
 
-
 /* 토스트 */
 .toast-responsive {
   font-size: 14px;
@@ -111,7 +110,7 @@ a,
   .toast-responsive {
     font-size: 16px;
     padding: 16px 24px;
-    max-width: 300px;
+    max-width: 400px;
   }
 }
 
@@ -127,4 +126,3 @@ html.dark .toast-responsive {
     color: #000;
   }
 }
-
