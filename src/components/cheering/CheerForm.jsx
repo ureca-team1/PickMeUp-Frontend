@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { getVotedCandidate } from '../../utils/localStorage';
 import { candidateNameMap } from '../../utils/candidateMap';
 import { postCheerMessage } from '../../apis/cheerApi';
 import SubmitButton from '../common/Button';
@@ -11,15 +10,6 @@ const CheerForm = ({ onAddMessage }) => {
   const [candidateId, setCandidateId] = useState(null);
   const maxLength = 30;
 
-  const loadCandidateInfo = () => {
-    const id = getVotedCandidate();
-    setCandidateId(id);
-  };
-
-  useEffect(() => {
-    loadCandidateInfo();
-  }, []);
-
   const handleMessageChange = (e) => {
     const text = e.target.value;
     if (text.length <= maxLength) {
@@ -27,6 +17,20 @@ const CheerForm = ({ onAddMessage }) => {
       setCharCount(text.length);
     }
   };
+
+  // 투표 이벤트 수신 처리
+  useEffect(() => {
+    const handleVoteChange = (e) => {
+      const newId = e.detail?.candidateId || null;
+      setCandidateId(newId);
+    };
+
+    window.addEventListener('vote:change', handleVoteChange);
+
+    return () => {
+      window.removeEventListener('vote:change', handleVoteChange);
+    };
+  }, []);
 
   const handleSubmit = async () => {
     if (!message.trim() || !candidateId) return;
