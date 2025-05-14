@@ -26,7 +26,7 @@ const CandidateCard = ({ image, name, party, slogan, selected, onClick }) => {
         <p className="text-sm md:text-2xl dark:text-white">“{slogan}”</p>
       </div>
       {/* 선택 상태 아이콘 */}
-      <img src={selected ? voted : unvoted} alt="투표 상태" className="h-8 w-8" />
+      <img src={selected ? voted : unvoted} alt="투표 상태" className="h-6 w-6 md:h-9 md:w-9" />
     </div>
   );
 };
