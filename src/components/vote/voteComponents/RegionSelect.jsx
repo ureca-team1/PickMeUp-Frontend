@@ -14,12 +14,12 @@ const REGIONS = {
 const RegionSelect = ({ onRegionSelect }) => {
   return (
     <div className="flex w-full items-center justify-between">
-      <label htmlFor="region" className="text-lg whitespace-nowrap text-gray-700">
+      <label htmlFor="region" className="text-lg whitespace-nowrap text-gray-700 dark:text-white">
         어느 지역에 계신가요?
       </label>
       <select
         id="region"
-        className="w-34 rounded-md border p-2 text-sm sm:w-34"
+        className="w-34 rounded-md border p-2 text-sm sm:w-34 dark:bg-black dark:text-white"
         defaultValue=""
         onChange={(e) => {
           const regionId = Number(e.target.value);
