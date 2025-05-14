@@ -8,7 +8,6 @@ import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
 
 const PolicySummary = () => {
   const [selectedParty, setSelectedParty] = useState(policyData[0].party);
-  console.log(selectedParty);
 
   const handleFilterClick = (party) => {
     setSelectedParty(party);

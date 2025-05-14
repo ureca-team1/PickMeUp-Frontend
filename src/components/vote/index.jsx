@@ -1,10 +1,10 @@
 import { cancelVote, sendVote } from '@/apis/voteApi';
 import Button from '@/components/common/Button';
-import { candidateImages } from './images/images';
 import { candidates } from '@/utils/candidates';
 import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { candidateImages } from './images/images';
 import useVote from './useVote';
 import CandidateCard from './voteComponents/CandidateCard';
 import Disclaimer from './voteComponents/Disclaimer';
@@ -101,32 +101,32 @@ const Vote = () => {
   }, []);
 
   return (
-    <section id="vote" className="scroll-margin mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
+    <section id="vote" className="scroll-margin mw-1280 pb-24 md:pb-36">
       <VoteHeader />
-
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
-
-      {candidates.map((candidate) => (
-        <CandidateCard
-          key={candidate.id}
-          image={candidateImages[candidate.image]}
-          name={candidate.name}
-          party={candidate.party}
-          slogan={candidate.slogan}
-          selected={selected === candidate.id}
-          onClick={() => selectCandidate(candidate.id)}
-        />
-      ))}
-
-      <div className="flex justify-center">
-        {isVoted ? (
-          <Button onClick={handleCancelVote}>취소하기</Button>
-        ) : (
-          <Button onClick={handleVote} disabled={selected === null}>
-            투표하기
-          </Button>
-        )}
+      <div className="mx-auto mt-3 mb-6 flex w-full max-w-[700px] flex-col gap-3 md:mt-9 md:mb-9 md:gap-9">
+        {candidates.map((candidate) => (
+          <CandidateCard
+            key={candidate.id}
+            image={candidateImages[candidate.image]}
+            name={candidate.name}
+            party={candidate.party}
+            slogan={candidate.slogan}
+            selected={selected === candidate.id}
+            onClick={() => selectCandidate(candidate.id)}
+          />
+        ))}
       </div>
+
+      {isVoted ? (
+        <Button className="mx-auto" onClick={handleCancelVote}>
+          취소하기
+        </Button>
+      ) : (
+        <Button className="mx-auto" onClick={handleVote} disabled={selected === null}>
+          투표하기
+        </Button>
+      )}
 
       <Disclaimer />
     </section>
