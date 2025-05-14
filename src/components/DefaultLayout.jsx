@@ -1,12 +1,9 @@
-import Vote from '../components/vote';
-import CheerSection from './cheering';
-import TopButton from './common/TopButton.jsx';
-import Footer from './footer/index.jsx';
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
+import Footer from './footer/index.jsx';
+import TopButton from './common/TopButton.jsx';
+import LazyWrapper from './common/LazyFadeInSection.jsx';
 import GlobalNavigation from './navigation/index.jsx';
-import PolicySummary from './policySummary';
-import ShareSection from './share/index.jsx';
 import React, { useState, useEffect } from 'react';
 
 const DefaultLayout = () => {
@@ -44,15 +41,14 @@ const DefaultLayout = () => {
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
         <GlobalNavigation />
         <Intro />
-        <PolicySummary />
-        <Vote />
-        <CheerSection />
-        <ShareSection />
+        <LazyWrapper componentKey="PolicySummary" delay={0.1} />
+        <LazyWrapper componentKey="Vote" delay={0.1} />
+        <LazyWrapper componentKey="CheerSection" delay={0.1} />
+        <LazyWrapper componentKey="ShareSection" delay={0.1} />
       </main>
       <Footer />
       <TopButton className="fixed right-5 bottom-5 md:right-8" />
     </div>
   );
 };
-
 export default DefaultLayout;
