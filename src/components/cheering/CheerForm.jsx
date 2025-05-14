@@ -18,7 +18,6 @@ const CheerForm = ({ onAddMessage }) => {
     }
   };
 
-  // 투표 이벤트 수신 처리
   useEffect(() => {
     const handleVoteChange = (e) => {
       const newId = e.detail?.candidateId || null;
