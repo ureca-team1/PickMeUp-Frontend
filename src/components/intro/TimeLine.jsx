@@ -48,7 +48,7 @@ const NodeItem = ({ title, subTitle, active = false }) => {
         >
           {title}
         </h4>
-        <span className="text-sm text-[#595959] md:text-lg">{subTitle}</span>
+        <span className="text-sm text-[#595959] md:text-lg dark:text-gray-400">{subTitle}</span>
       </div>
     </div>
   );
@@ -59,15 +59,17 @@ function TimeLine() {
     <div className="relative mx-auto flex w-fit items-center md:flex-col">
       {/* 모바일 라인 */}
       <div
-        className="absolute -z-10 h-[620px] w-[5px] translate-x-1.5 bg-[#E4E4E4] md:hidden md:w-screen"
+        className="absolute h-[620px] w-[5px] translate-x-1.5 bg-[#E4E4E4] md:hidden"
         aria-hidden="true"
       />
+
       {/* 데스크탑 라인 */}
       <hr
-        className="absolute -z-10 hidden translate-y-3 border-t-[5px] border-[#E4E4E4] md:block md:w-screen"
+        className="absolute hidden translate-y-3 border-t-[5px] border-[#E4E4E4] md:block md:w-screen"
         aria-hidden="true"
       />
-      <div className="flex flex-col gap-10 md:flex-row md:gap-16">
+
+      <div className="z-10 flex flex-col gap-10 md:flex-row md:gap-16">
         {timelines.map((item) => (
           <NodeItem
             key={item.title}

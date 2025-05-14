@@ -4,6 +4,7 @@ import { candidates } from '@/utils/candidates';
 import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { candidateImages } from './images/images';
 import useVote from './useVote';
 import CandidateCard from './voteComponents/CandidateCard';
 import Disclaimer from './voteComponents/Disclaimer';
@@ -107,7 +108,7 @@ const Vote = () => {
         {candidates.map((candidate) => (
           <CandidateCard
             key={candidate.id}
-            image={candidate.image}
+            image={candidateImages[candidate.image]}
             name={candidate.name}
             party={candidate.party}
             slogan={candidate.slogan}

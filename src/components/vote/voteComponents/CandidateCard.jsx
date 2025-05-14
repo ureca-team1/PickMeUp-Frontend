@@ -8,11 +8,13 @@ const CandidateCard = ({ image, name, party, slogan, selected, onClick }) => {
       onClick={onClick}
     >
       {/* 후보 이미지 */}
-      <img
-        src={image}
-        alt={name}
-        className="h-[50px] w-[50px] rounded-full object-cover md:h-20 md:w-20"
-      />
+      <div className="h-[50px] w-[50px] md:h-20 md:w-20">
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full rounded-full border-4 object-cover dark:border-white"
+        />
+      </div>
       {/* 이름, 정당, 슬로건 */}
       <div className="flex-1">
         <p className="mb-0.5 flex items-center gap-1.5 md:mb-1 md:gap-2">
@@ -24,7 +26,7 @@ const CandidateCard = ({ image, name, party, slogan, selected, onClick }) => {
         <p className="text-sm md:text-2xl dark:text-white">“{slogan}”</p>
       </div>
       {/* 선택 상태 아이콘 */}
-      <img src={selected ? voted : unvoted} alt="투표 상태" className="h-8 w-8 md:h-12 md:w-12" />
+      <img src={selected ? voted : unvoted} alt="투표 상태" className="h-8 w-8" />
     </div>
   );
 };
