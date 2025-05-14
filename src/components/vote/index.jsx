@@ -1,5 +1,6 @@
 import { cancelVote, sendVote } from '@/apis/voteApi';
 import Button from '@/components/common/Button';
+import { candidateImages } from './images/images';
 import { candidates } from '@/utils/candidates';
 import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
@@ -108,7 +109,7 @@ const Vote = () => {
       {candidates.map((candidate) => (
         <CandidateCard
           key={candidate.id}
-          image={candidate.image}
+          image={candidateImages[candidate.image]}
           name={candidate.name}
           party={candidate.party}
           slogan={candidate.slogan}
