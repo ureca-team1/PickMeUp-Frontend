@@ -4,7 +4,7 @@ import PolicyList from './PolicyList';
 
 const CandidateInfo = ({ candidate, partyColor, policies }) => {
   return (
-    <div className="candidate-info md:w-[1200px]">
+    <div className="candidate-info">
       {/* md 이상에서는 1200px, 그 외는 full */}
       <CandidateProfile imgSrc={candidate.image} name={candidate.name} partyColor={partyColor} />
       <CandidateSlider candidate={candidate} />

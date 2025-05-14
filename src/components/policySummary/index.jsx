@@ -32,7 +32,7 @@ const PolicySummary = () => {
 
       <PartyFilterButtons selectedParty={selectedParty} onFilterClick={handleFilterClick} />
 
-      <div>
+      <div className="w-full md:max-w-[730px]">
         {selectedPartyData.candidates.map((candidate) => {
           const matchedPolicy = policyDetails.find((p) => p.name === candidate.policyRef);
           return (
