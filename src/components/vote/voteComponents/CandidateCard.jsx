@@ -12,10 +12,11 @@ const CandidateCard = ({ image, name, party, slogan, selected, onClick }) => {
       <img src={image} alt={name} className="h-12 w-12 rounded-full object-cover md:h-14 md:w-14" />
       {/* 이름, 정당, 슬로건 */}
       <div className="flex-1">
-        <p className="text-base font-bold text-gray-800 md:text-xl">
-          {name} <span className="text-sm text-gray-500 md:text-lg">{party}</span>
+        <p className="text-base font-bold text-gray-800 md:text-xl dark:text-white">
+          {name}{' '}
+          <span className="text-sm text-gray-500 md:text-lg dark:text-gray-300">{party}</span>
         </p>
-        <p className="text-sm text-gray-700 md:text-2xl">“{slogan}”</p>
+        <p className="text-sm text-gray-700 md:text-2xl dark:text-white">“{slogan}”</p>
       </div>
       {/* 선택 상태 아이콘 */}
       <img src={selected ? voted : unvoted} alt="투표 상태" className="h-8 w-8 md:h-12 md:w-12" />

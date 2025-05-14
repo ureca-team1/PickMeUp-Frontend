@@ -8,14 +8,11 @@ const PolicyItem = ({ category, items }) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className="mb-1 border-t border-black pt-3 pb-3">
-      <button
-        onClick={toggleOpen}
-        className="flex w-full items-center justify-between text-left"
-      >
+    <div className="mb-1 border-t pt-3 pb-3">
+      <button onClick={toggleOpen} className="flex w-full items-center justify-between text-left">
         <div className="flex items-center gap-2">
           <CategoryIcon category={category} />
-          <span className="font-bold text-[20px]  text-center">{category}</span>
+          <span className="text-center text-[20px] font-bold">{category}</span>
         </div>
         <span className="text-2xl text-gray-500">
           {isOpen ? <FiChevronUp /> : <FiChevronDown />}
@@ -24,7 +21,7 @@ const PolicyItem = ({ category, items }) => {
 
       {isOpen && (
         <div className="mt-2 border-t border-gray-300 pt-2">
-          <ul className="list-inside list-disc space-y-1 font-normal text-[16px] leading-[150%] md:text-[18px]">
+          <ul className="list-inside list-disc space-y-1 text-[16px] leading-[150%] font-normal md:text-[18px]">
             {items.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
