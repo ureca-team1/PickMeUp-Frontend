@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import VoteHeader from './voteComponents/VoteHeader';
-import CandidateCard from './voteComponents/CandidateCard';
+import { cancelVote, sendVote } from '@/apis/voteApi';
 import Button from '@/components/common/Button';
-
-import Disclaimer from './voteComponents/Disclaimer';
-import RegionSelect from './voteComponents/RegionSelect';
-
-import useVote from './useVote';
-import toast from 'react-hot-toast';
-
-import { sendVote, cancelVote } from '@/apis/voteApi';
 import { candidates } from '@/utils/candidates';
 import { getVotedCandidate, saveVotedCandidate } from '@/utils/localStorage';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import useVote from './useVote';
+import CandidateCard from './voteComponents/CandidateCard';
+import Disclaimer from './voteComponents/Disclaimer';
+import RegionSelect from './voteComponents/RegionSelect';
+import VoteHeader from './voteComponents/VoteHeader';
 
 const Vote = () => {
   const [selectedRegionId, setSelectedRegionId] = useState(null);
@@ -103,7 +100,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
+    <section id="vote" className="scroll-margin mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
       <VoteHeader />
 
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
@@ -131,7 +128,7 @@ const Vote = () => {
       </div>
 
       <Disclaimer />
-    </div>
+    </section>
   );
 };
 

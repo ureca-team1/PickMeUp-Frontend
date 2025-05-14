@@ -63,7 +63,7 @@ const CheerForm = ({ onAddMessage }) => {
   return (
     <div className="flex w-full flex-col items-center">
       <form className="relative w-[319px] rounded-2xl border-3 border-[#292B2E] p-6 md:w-[865px]">
-        <div className="font-nanumSquare mb-4 text-[16px] text-black md:text-[24px]">
+        <div className="font-nanumSquare mb-4 text-[16px] md:text-[24px]">
           {candidateId ? (
             <>
               <span className="border-b-2 border-black pb-[0.1px] font-extrabold">
@@ -83,10 +83,10 @@ const CheerForm = ({ onAddMessage }) => {
             placeholder={
               candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
             }
-            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[13px] placeholder:text-[13px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px] md:placeholder:text-[24px]"
+            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[13px] placeholder:text-[13px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px] md:placeholder:text-[24px] dark:placeholder:text-white/70"
             disabled={isSubmitting || !candidateId}
           />
-          <span className="font-nanumSquare absolute right-3 bottom-2 text-[10px] text-[#808080] md:text-[16px]">
+          <span className="font-nanumSquare absolute right-3 bottom-2 text-[10px] text-[#808080] md:text-[16px] dark:text-white/70">
             {charCount} / {maxLength}
           </span>
         </div>

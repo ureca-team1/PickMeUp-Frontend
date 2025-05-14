@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
+import { useState } from 'react';
 import policyData from '../../data/parties.json';
 import policyDetails from '../../data/policies.json';
 import CandidateInfo from './policySummaryComponents/CandidateInfo';
+import PartyFilterButtons from './policySummaryComponents/PartyFilterButtons';
 
 const PolicySummary = () => {
   const [selectedParty, setSelectedParty] = useState(null);
@@ -14,7 +14,10 @@ const PolicySummary = () => {
   const selectedPartyData = policyData.find((data) => data.party === selectedParty);
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 text-center md:px-0">
+    <div
+      id="policy"
+      className="scroll-margin flex flex-col items-center justify-center px-4 text-center md:px-0"
+    >
       <section>
         <h2 className="mb-8 text-[28px] font-extrabold md:text-[54px]">공약 총정리</h2>
         <div className="mb-8 text-[16px] font-normal md:text-[24px]">
