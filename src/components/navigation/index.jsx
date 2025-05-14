@@ -22,7 +22,7 @@ const navList = [
 
 const defaultClassName = 'w-[84px] shrink-0 text-center text-xs md:w-[170px] md:text-2xl';
 
-function GlobalNavigation() {
+function GlobalNavigation({ className }) {
   const [activeId, setActiveId] = useState('');
 
   const handleClick = (event, sectionId) => {
@@ -56,7 +56,9 @@ function GlobalNavigation() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-20 flex items-center justify-center gap-1 bg-white py-4 md:gap-30 dark:bg-black">
+    <nav
+      className={`sticky top-0 z-20 items-center justify-center gap-1 bg-white py-4 md:gap-30 dark:bg-black ${className}`}
+    >
       {navList.map((item) => (
         <NavLink
           to={`#${item.sectionId}`}
