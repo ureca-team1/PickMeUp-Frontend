@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
+/* 다크모드 접두사 */
 
 @font-face {
   font-family: 'NanumSquareNeo';
