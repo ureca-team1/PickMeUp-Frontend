@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import VoteHeader from './voteComponents/VoteHeader';
 import CandidateCard from './voteComponents/CandidateCard';
 import Button from '@/components/common/Button';
+import { candidateImages } from './images/images';
 
 import Disclaimer from './voteComponents/Disclaimer';
 import RegionSelect from './voteComponents/RegionSelect';
@@ -97,7 +98,7 @@ const Vote = () => {
       {candidates.map((candidate) => (
         <CandidateCard
           key={candidate.id}
-          image={candidate.image}
+          image={candidateImages[candidate.image]}
           name={candidate.name}
           party={candidate.party}
           slogan={candidate.slogan}
