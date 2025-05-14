@@ -65,7 +65,7 @@ const Vote = () => {
         candidate: selectedCandidate.id,
       });
 
-      localStorage.removeItem('voteInfo');
+      localStorage.removeItem('voteinfo');
       setSelectedRegionId(null);
       selectCandidate(null);
       setIsVoted(false);
@@ -80,7 +80,7 @@ const Vote = () => {
   useEffect(() => {
     const candidateId = getVotedCandidate();
     if (candidateId) {
-      const stored = localStorage.getItem('voteInfo'); // regionId는 직접 파싱
+      const stored = localStorage.getItem('voteinfo');
       const { regionId } = JSON.parse(stored);
       setSelectedRegionId(regionId);
       selectCandidate(candidateId);
@@ -89,7 +89,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-md md:max-w-2xl space-y-4 p-4">
+    <div className="mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
       <VoteHeader />
 
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
