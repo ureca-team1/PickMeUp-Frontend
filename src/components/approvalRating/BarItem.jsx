@@ -1,35 +1,61 @@
 import React from 'react';
 
 const BarItem = ({ name, party, height, percent, image, color }) => {
-  const isSmall = percent <= 5;
-  const displayHeight = isSmall ? 5 : height;
+  const isSmall = percent < 5;
+  const displaySize = isSmall ? 30 : height * 2;
   const isLabor = party === '민주노동당';
-  const textLaborColor = isLabor ? 'text-black' : 'text-white';
+  const textColor = isLabor ? 'text-black' : 'text-white';
 
   return (
-    <div className="mx-2 flex w-20 flex-col items-center text-center md:w-24">
-      <div className="flex w-full flex-col items-center">
+    <div>
+      {/* 모바일 */}
+      <div className="flex items-center justify-start gap-x-2 py-2 pr-2 pl-6 md:hidden">
+        <div className="flex w-20 flex-shrink-0 flex-col text-left">
+          <span className="text-sm leading-none text-gray-500">{party}</span>
+          <span className="text-base leading-tight font-bold">{name}</span>
+        </div>
+
+        {/* 그래프 */}
+        <div className="flex w-full items-center">
+          <div
+            className={`flex h-8 items-center px-2 text-xs font-bold ${textColor}`}
+            style={{
+              width: `${displaySize}px`,
+              minWidth: '40px',
+              backgroundColor: `var(${color})`,
+              borderRadius: '4px',
+            }}
+          >
+            {isSmall ? '5% 미만' : `${percent.toFixed(1)}%`}
+          </div>
+        </div>
+      </div>
+
+      {/* PC*/}
+      <div className="mx-2 hidden w-20 flex-col items-center text-center md:flex">
         {image && (
           <div className="aspect-square w-full">
             <img src={image} alt={name} className="h-full w-full rounded-t-md object-cover" />
           </div>
         )}
 
+        {/* 그래프 */}
         <div
-          className={`flex w-full items-center justify-center text-sm font-bold ${textLaborColor}`}
+          className={`flex w-full items-center justify-center text-sm font-bold ${textColor}`}
           style={{
-            height: `${displayHeight * 3}px`, // 비율에 따라 크기 조절
+            height: `${displaySize * 2}px`,
             backgroundColor: `var(${color})`,
             borderBottomLeftRadius: '8px',
             borderBottomRightRadius: '8px',
           }}
         >
-          {isSmall ? '5% 미만' : typeof percent === 'number' ? `${percent.toFixed(1)}%` : '0.0%'}
+          {isSmall ? '5% 미만' : `${percent.toFixed(1)}%`}
         </div>
-      </div>
 
-      <div className="mt-1 text-base text-gray-500">{party || '\u00A0'}</div>
-      <div className="text-base font-bold">{name}</div>
+        {/* 텍스트 */}
+        <div className="mt-1 text-sm leading-tight text-gray-500">{party || '\u00A0'}</div>
+        <div className="text-base font-bold">{name}</div>
+      </div>
     </div>
   );
 };
