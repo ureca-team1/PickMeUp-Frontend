@@ -1,4 +1,4 @@
-import { getPartyColor } from '../../utils/partyColor';
+import { getPartyColor } from '@/utils/partyColor';
 
 const CheerItem = ({ message }) => {
   const { text, candidate } = message;
@@ -6,12 +6,9 @@ const CheerItem = ({ message }) => {
 
   return (
     <div
-      className={`${bgColor} rounded-2xl px-6 py-5 md:px-[24px] md:py-[20px]`}
-      style={{ minWidth: '256px' }}
+      className={`${bgColor} min-w-[256px] rounded-lg px-2 py-3.5 md:rounded-2xl md:px-6 md:py-5`}
     >
-      <p className="font-nanumSquare text-center text-[14px] leading-normal text-black md:text-[24px]">
-        {text}
-      </p>
+      <p className="text-center text-sm md:text-2xl">{text}</p>
     </div>
   );
 };

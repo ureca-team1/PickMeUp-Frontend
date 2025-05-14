@@ -1,5 +1,4 @@
-import React from 'react';
-import { FiStar, FiBook, FiBarChart, FiMapPin, FiUserPlus } from 'react-icons/fi';
+import { FiBarChart, FiBook, FiMapPin, FiStar, FiUserPlus } from 'react-icons/fi';
 import { MdWork } from 'react-icons/md';
 const iconMap = {
   '주요 공약': { icon: FiStar, color: 'text-yellow-500' },
@@ -15,7 +14,7 @@ const CategoryIcon = ({ category }) => {
   const colorClass = iconMap[category]?.color || 'text-gray-400';
 
   return IconComponent ? (
-    <span className={`mr-2 text-2xl ${colorClass}`}>
+    <span className={`text-2xl ${colorClass}`}>
       <IconComponent />
     </span>
   ) : null;

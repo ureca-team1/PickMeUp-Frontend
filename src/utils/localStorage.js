@@ -17,7 +17,6 @@ export const saveVotedCandidate = (candidateId, regionId) => {
       candidateId,
     });
     localStorage.setItem('voteinfo', voteInfo);
-    console.log('voteinfo 저장됨:', voteInfo);
   } catch (error) {
     console.error('로컬 스토리지 저장 오류:', error);
   }

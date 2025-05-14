@@ -22,7 +22,7 @@ function ShareSection() {
   };
 
   return (
-    <section className="mw-1280 pb-20">
+    <section className="mw-1280">
       <h3 className="mb-5 text-center text-2xl font-bold md:mb-10 md:h-8 md:text-[2rem]">
         공유를 통해 더 많은 <br className="md:hidden" />
         투표 참가에 도움을 주세요!
@@ -40,9 +40,7 @@ function ShareSection() {
             target="_blank"
             className="absolute inset-0 text-transparent"
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('2025 Pick Your President\n')}&url=${window.location.href}`}
-          >
-            트윗하기
-          </a>
+          />
         </LinkButton>
         <LinkButton
           className="fb-share-button relative overflow-hidden"
@@ -55,9 +53,7 @@ function ShareSection() {
             target="_blank"
             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.naver.com%2F&amp;src=sdkpreparse"
             className="fb-xfbml-parse-ignore absolute inset-0 text-transparent"
-          >
-            페이스북에 공유하기
-          </a>
+          />
         </LinkButton>
       </div>
     </section>

@@ -1,9 +1,8 @@
-import React from 'react';
 import PolicyItem from './PolicyItem';
 
 const PolicyList = ({ policies }) => {
   return (
-    <div className="mx-auto mt-6 w-full max-w-xl text-left text-sm md:text-lg">
+    <div className="mt-8 mb-20 flex flex-col gap-6 overflow-x-hidden md:mt-10 md:mb-28 md:gap-8">
       {policies.map((policy) => (
         <PolicyItem key={policy.category} category={policy.category} items={policy.items} />
       ))}
