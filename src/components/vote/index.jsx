@@ -89,7 +89,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <section id="vote" className="mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
+    <section id="vote" className="scroll-margin mx-auto max-w-md space-y-4 p-4 md:max-w-2xl">
       <VoteHeader />
 
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />

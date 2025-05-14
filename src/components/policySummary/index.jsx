@@ -14,9 +14,9 @@ const PolicySummary = () => {
   const selectedPartyData = policyData.find((data) => data.party === selectedParty);
 
   return (
-    <section
+    <div
       id="policy"
-      className="flex flex-col items-center justify-center px-4 text-center md:px-0"
+      className="scroll-margin flex flex-col items-center justify-center px-4 text-center md:px-0"
     >
       <section>
         <h2 className="mb-8 text-[28px] font-extrabold md:text-[54px]">공약 총정리</h2>
@@ -49,7 +49,7 @@ const PolicySummary = () => {
           })}
         </section>
       )}
-    </section>
+    </div>
   );
 };
 

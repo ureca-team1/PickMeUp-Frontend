@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const navList = [
@@ -30,9 +30,30 @@ function GlobalNavigation() {
     const target = document.getElementById(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
+
       setActiveId(sectionId);
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveId(entry.target.id);
+      });
+    });
+
+    navList.forEach((item) => {
+      const target = document.getElementById(item.sectionId);
+      if (target) observer.observe(target);
+    });
+
+    return () => {
+      navList.forEach((item) => {
+        const target = document.getElementById(item.sectionId);
+        if (target) observer.unobserve(target);
+      });
+    };
+  }, []);
 
   return (
     <nav className="sticky top-0 z-10 flex items-center justify-center gap-1 bg-white py-4 md:gap-30">

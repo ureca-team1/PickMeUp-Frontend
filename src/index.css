@@ -66,3 +66,13 @@ html {
 html::-webkit-scrollbar {
   display: none; /*  Chrome, Safari, and Opera */
 }
+
+.scroll-margin {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .scroll-margin {
+    scroll-margin-top: 64px;
+  }
+}
