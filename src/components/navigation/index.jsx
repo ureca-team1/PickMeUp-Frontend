@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const navList = [
@@ -19,13 +20,18 @@ const navList = [
   },
 ];
 
+const defaultClassName = 'w-[84px] shrink-0 text-center text-xs md:w-[170px] md:text-2xl';
+
 function GlobalNavigation() {
-  const linkClassName = 'w-[84px] shrink-0 text-center text-xs md:w-[170px] md:text-2xl';
+  const [activeId, setActiveId] = useState('');
 
   const handleClick = (event, sectionId) => {
     event.preventDefault();
     const target = document.getElementById(sectionId);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      setActiveId(sectionId);
+    }
   };
 
   return (
@@ -33,7 +39,7 @@ function GlobalNavigation() {
       {navList.map((item) => (
         <NavLink
           to={`#${item.sectionId}`}
-          className={linkClassName}
+          className={`${defaultClassName} ${activeId === item.sectionId ? 'font-bold' : 'font-normal'} `}
           onClick={(e) => handleClick(e, item.sectionId)}
         >
           {item.caption}
