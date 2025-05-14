@@ -66,3 +66,15 @@ html {
 html::-webkit-scrollbar {
   display: none; /*  Chrome, Safari, and Opera */
 }
+
+/*커서 변경*/
+body {
+  cursor: url('/src/assets/cursor.svg'), auto;
+}
+
+/*마우스 포인터 유지하고 싶으면 밑에 코드 지우면 됩니다*/
+button,
+a,
+[class*='cursor-pointer'] {
+  cursor: url('/src/assets/cursor.svg'), auto !important;
+}
