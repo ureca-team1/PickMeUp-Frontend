@@ -54,19 +54,6 @@ const NodeItem = ({ title, subTitle, active = false }) => {
   );
 };
 
-const ContentItem = ({ title, subTitle, active = false }) => {
-  return (
-    <div className="md:text-center">
-      <h4
-        className={`mb-0.5 whitespace-pre-line md:mb-1 ${active ? 'text-2xl font-extrabold md:text-[1.75rem]' : 'text-xl font-bold md:text-2xl'}`}
-      >
-        {title}
-      </h4>
-      <span className="text-sm text-[#595959] md:text-lg">{subTitle}</span>
-    </div>
-  );
-};
-
 function TimeLine() {
   return (
     <div className="relative mx-auto flex w-fit items-center md:flex-col">

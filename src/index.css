@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+/* 다크모드 접두사 */
+
 @font-face {
   font-family: 'NanumSquareNeo';
   font-style: normal;
@@ -77,4 +80,14 @@ button,
 a,
 [class*='cursor-pointer'] {
   cursor: url('/src/assets/cursor.svg'), auto !important;
+}
+
+.scroll-margin {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .scroll-margin {
+    scroll-margin-top: 64px;
+  }
 }

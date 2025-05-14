@@ -40,9 +40,7 @@ function ShareSection() {
             target="_blank"
             className="absolute inset-0 text-transparent"
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('2025 Pick Your President\n')}&url=${window.location.href}`}
-          >
-            트윗하기
-          </a>
+          />
         </LinkButton>
         <LinkButton
           className="fb-share-button relative overflow-hidden"
@@ -55,9 +53,7 @@ function ShareSection() {
             target="_blank"
             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.naver.com%2F&amp;src=sdkpreparse"
             className="fb-xfbml-parse-ignore absolute inset-0 text-transparent"
-          >
-            페이스북에 공유하기
-          </a>
+          />
         </LinkButton>
       </div>
     </section>
