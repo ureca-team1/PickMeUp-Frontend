@@ -5,7 +5,7 @@ import { IoSunny } from 'react-icons/io5';
 
 const Header = ({ toggleDarkMode, isDarkMode }) => {
   return (
-    <header className="mw-1280 flex items-center justify-between py-4 md:py-5">
+    <header className="mw-1280 flex items-center justify-between pt-4 pb-1">
       <h1>
         <Logo className="h-auto w-24 text-black md:w-40 dark:text-white" />
       </h1>
