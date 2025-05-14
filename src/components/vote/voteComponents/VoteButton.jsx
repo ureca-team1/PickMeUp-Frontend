@@ -6,7 +6,7 @@ const VoteButton = ({ disabled, onClick }) => {
       <button
         onClick={onClick}
         disabled={disabled}
-        className={`flex h-10 w-32 items-center justify-center rounded-md text-sm font-semibold text-white transition md:h-10 md:w-32 md:text-base ${disabled ? 'cursor-not-allowed bg-gray-300' : 'bg-black hover:bg-gray-900'}`}
+        className={`flex h-10 w-32 items-center justify-center rounded-md text-sm font-semibold text-white transition md:h-10 md:w-32 md:text-base ${disabled ? 'cursor-not-allowed bg-gray-300' : 'bg-black hover:bg-gray-900 dark:bg-gray-500'}`}
       >
         투표하기
       </button>
