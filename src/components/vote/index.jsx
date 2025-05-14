@@ -101,7 +101,7 @@ const Vote = () => {
   }, []);
 
   return (
-    <section id="vote" className="scroll-margin mw-1280 pb-24 md:pb-36">
+    <div className="mw-1280 pb-24 md:pb-36">
       <VoteHeader />
       <RegionSelect selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />
       <div className="mx-auto mt-3 mb-6 flex w-full max-w-[700px] flex-col gap-3 md:mt-9 md:mb-9 md:gap-9">
@@ -129,7 +129,7 @@ const Vote = () => {
       )}
 
       <Disclaimer />
-    </section>
+    </div>
   );
 };
 
