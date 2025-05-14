@@ -22,7 +22,7 @@ function ShareSection() {
   };
 
   return (
-    <section className="mw-1280 pb-20">
+    <section className="mw-1280">
       <h3 className="mb-5 text-center text-2xl font-bold md:mb-10 md:h-8 md:text-[2rem]">
         공유를 통해 더 많은 <br className="md:hidden" />
         투표 참가에 도움을 주세요!

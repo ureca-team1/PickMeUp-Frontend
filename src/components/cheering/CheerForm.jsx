@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { candidateNameMap } from '../../utils/candidateMap';
-import { postCheerMessage } from '../../apis/cheerApi';
+import { postCheerMessage } from '@/apis/cheerApi';
+import { candidateNameMap } from '@/utils/candidateMap';
+import { useEffect, useState } from 'react';
 import SubmitButton from '../common/Button';
 
 const CheerForm = ({ onAddMessage }) => {
@@ -61,9 +61,9 @@ const CheerForm = ({ onAddMessage }) => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center">
-      <form className="relative w-[319px] rounded-2xl border-3 border-[#292B2E] p-6 md:w-[865px]">
-        <div className="font-nanumSquare mb-4 text-[16px] md:text-[24px]">
+    <div className="mb-12 flex w-full flex-col items-center md:mb-16">
+      <form className="border-primary mx-auto w-full max-w-[865px] rounded-lg border-3 px-5 py-4 md:w-[865px] md:rounded-2xl md:px-7 md:py-5">
+        <div className="mb-4 md:mb-5 md:text-2xl">
           {candidateId ? (
             <>
               <span className="border-b-2 border-black pb-[0.1px] font-extrabold">
@@ -76,31 +76,30 @@ const CheerForm = ({ onAddMessage }) => {
           )}
         </div>
 
-        <div className="relative">
+        <div className="bg-secondary rounded-lg pb-3.5 text-right md:rounded-2xl md:pb-5">
           <textarea
             value={message}
             onChange={handleMessageChange}
             placeholder={
               candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
             }
-            className="font-nanumSquare h-24 w-full resize-none rounded-xl bg-[#f5f5f5]/60 p-4 text-[13px] placeholder:text-[13px] placeholder:text-[#808080] focus:outline-none md:p-5 md:text-[24px] md:placeholder:text-[24px] dark:placeholder:text-white/70"
+            className="placeholder:text-independent dark:placeholder:text-independent h-[4.25rem] w-full resize-none p-3.5 text-sm placeholder:text-sm focus:outline-none md:h-[4.75rem] md:max-h-none md:p-5 md:text-2xl md:placeholder:text-2xl"
             disabled={isSubmitting || !candidateId}
           />
-          <span className="font-nanumSquare absolute right-3 bottom-2 text-[10px] text-[#808080] md:text-[16px] dark:text-white/70">
+          <span className="text-independent px-3.5 text-[0.625rem] md:px-5 md:text-base dark:text-white/70">
             {charCount} / {maxLength}
           </span>
         </div>
       </form>
 
-      <div className="mt-6 mb-4">
-        <SubmitButton
-          disabled={isSubmitting || !message.trim()}
-          onClick={handleSubmit}
-          type="button"
-        >
-          제출하기
-        </SubmitButton>
-      </div>
+      <SubmitButton
+        className="mt-5 md:mt-9"
+        disabled={isSubmitting || !message.trim()}
+        onClick={handleSubmit}
+        type="button"
+      >
+        제출하기
+      </SubmitButton>
     </div>
   );
 };

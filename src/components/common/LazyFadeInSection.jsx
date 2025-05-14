@@ -1,6 +1,6 @@
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { Suspense, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { fadeImportMap } from './lazyComponentMap';
 
 const MotionDiv = motion.div;
