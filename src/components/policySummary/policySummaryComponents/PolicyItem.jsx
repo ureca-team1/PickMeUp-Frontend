@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import CategoryIcon from './CategoryIcon';
+import { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import CategoryIcon from './CategoryIcon';
 
 const PolicyItem = ({ category, items }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,22 +8,27 @@ const PolicyItem = ({ category, items }) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className="mb-1 border-t pt-3 pb-3">
-      <button onClick={toggleOpen} className="flex w-full items-center justify-between text-left">
+    <div className="border-primary border-t-5 pt-6 md:pt-8">
+      <button onClick={toggleOpen} className="flex w-full items-center justify-between">
         <div className="flex items-center gap-2">
           <CategoryIcon category={category} />
-          <span className="text-center text-[20px] font-bold">{category}</span>
+          <span className="text-xl font-bold">{category}</span>
         </div>
-        <span className="text-2xl text-gray-500">
-          {isOpen ? <FiChevronUp /> : <FiChevronDown />}
-        </span>
+        {isOpen ? (
+          <FiChevronUp className="text-independent h-6 w-6" />
+        ) : (
+          <FiChevronDown className="text-independent h-6 w-6" />
+        )}
       </button>
 
       {isOpen && (
-        <div className="mt-2 border-t border-gray-300 pt-2">
-          <ul className="list-inside list-disc space-y-1 text-[16px] leading-[150%] font-normal md:text-[18px]">
+        <div className={`mt-6 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8`}>
+          <ul className="flex flex-col gap-1 px-3.5 md:text-lg">
             {items.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li key={idx} className="flex gap-3 text-left md:gap-4">
+                <div className="bg-primary mt-2.5 h-1 w-1 shrink-0 rounded-full md:h-1.5 md:w-1.5" />
+                {item}
+              </li>
             ))}
           </ul>
         </div>

@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
-import partyData from '../../../data/parties.json';
+import partyData from '@/data/parties.json';
 
-const PartyFilterButtons = ({ onFilterClick }) => {
-  const [selectedParty, setSelectedParty] = useState(null); // 클릭된 정당 저장
+const TabButton = ({ children, className, ...restProps }) => {
+  const defaultClassName =
+    'rounded-full px-2.5 py-1.5 text-center text-sm transition-all duration-200 md:px-[18px] md:py-2 md:text-xl';
 
-  const handleClick = (partyName) => {
-    setSelectedParty(partyName);
-    onFilterClick(partyName);
+  return (
+    <button className={`${defaultClassName} ${className}`} {...restProps}>
+      {children}
+    </button>
+  );
+};
+
+const PartyFilterButtons = ({ onFilterClick, selectedParty }) => {
+  const handleClick = (partyName) => onFilterClick(partyName);
+  const generateClassName = (partyItem) => {
+    return selectedParty === partyItem.party
+      ? `${partyItem.color} ${partyItem.party === '민주노동당' ? 'text-black' : 'text-white'}`
+      : 'bg-secondary text-independent';
   };
 
   return (
-    <div className="mb-15 flex flex-wrap justify-center gap-4">
-      {partyData.map((party) => (
-        <div key={party.party}>
-          {party.candidates.map((candidate) => (
-            <button
+    <div className="mb-11 flex flex-wrap justify-center gap-4 md:mb-16">
+      {partyData.map((item) => (
+        <div key={item.party}>
+          {item.candidates.map((candidate) => (
+            <TabButton
               key={candidate.name}
-              onClick={() => handleClick(party.party)}
-              className={`rounded-lg px-4 py-2 transition-all duration-200 ${party.color}  font-bold  text-center`}
+              onClick={() => handleClick(item.party)}
+              className={generateClassName(item)}
             >
-              {party.party}
-            </button>
+              {item.party}
+            </TabButton>
           ))}
         </div>
       ))}
@@ -29,5 +39,3 @@ const PartyFilterButtons = ({ onFilterClick }) => {
 };
 
 export default PartyFilterButtons;
-
-//정당 필터 버튼들
