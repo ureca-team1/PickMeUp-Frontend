@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import VoteHeader from './voteComponents/VoteHeader';
 import CandidateCard from './voteComponents/CandidateCard';
-import VoteButton from './voteComponents/VoteButton';
-import CancelButton from './voteComponents/CancelButton';
+import Button from '@/components/common/Button';
+
 import Disclaimer from './voteComponents/Disclaimer';
 import RegionSelect from './voteComponents/RegionSelect';
 
@@ -106,11 +106,15 @@ const Vote = () => {
         />
       ))}
 
-      {isVoted ? (
-        <CancelButton onClick={handleCancelVote} />
-      ) : (
-        <VoteButton disabled={selected === null} onClick={handleVote} />
-      )}
+      <div className="flex justify-center">
+        {isVoted ? (
+          <Button onClick={handleCancelVote}>취소하기</Button>
+        ) : (
+          <Button onClick={handleVote} disabled={selected === null}>
+            투표하기
+          </Button>
+        )}
+      </div>
 
       <Disclaimer />
     </div>
