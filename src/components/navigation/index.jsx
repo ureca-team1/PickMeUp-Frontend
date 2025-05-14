@@ -56,7 +56,7 @@ function GlobalNavigation() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-10 flex items-center justify-center gap-1 bg-white py-4 md:gap-30">
+    <nav className="sticky top-0 z-10 flex items-center justify-center gap-1 py-4 md:gap-30">
       {navList.map((item) => (
         <NavLink
           to={`#${item.sectionId}`}
