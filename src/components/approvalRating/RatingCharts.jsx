@@ -1,4 +1,4 @@
-// API 데이터 요청청
+// API 데이터 요청
 // import React, { useEffect, useState } from 'react';
 // import { fetchRatings } from '../../apis/ratingApi';
 // import BarItem from './BarItem';
@@ -23,7 +23,7 @@
 //   );
 // };
 
-// 더미데이터로 테스트트
+// 더미데이터로 테스트
 
 import React, { useEffect, useState } from 'react';
 import { fetchRatings } from '../../apis/ratingApi';

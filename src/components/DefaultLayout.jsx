@@ -1,16 +1,27 @@
+import PolicySummary from './policySummary';
+import Vote from '../components/vote';
+import CheerSection from './cheering';
+import Footer from './footer/index.jsx';
 import React from 'react';
 import RatingSection from './approvalRating';
 
 import Header from './header/index.jsx';
+import Intro from './intro/index.jsx';
+import ShareSection from './share/index.jsx';
 
 const DefaultLayout = () => {
   return (
     <>
       <Header />
-      <main className="mw-1280 min-h-screen flex items-center justify-center">
+      <main className="min-h-screen">
+        <Intro />
+        <PolicySummary />
+        <Vote />
         <RatingSection />
+        <CheerSection />
+        <ShareSection />
       </main>
-      <footer className="mw-1280"></footer>
+      <Footer />
     </>
   );
 };

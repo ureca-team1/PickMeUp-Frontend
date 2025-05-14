@@ -1,0 +1,143 @@
+[
+  {
+    "party": "더불어민주당",
+    "color": "bg-democratic/70",
+    "candidates": [
+      {
+        "name": "이재명",
+        "image": "/candidateImages/이재명2.png",
+        "policyRef": "이재명",
+        "info": {
+          "birth": "1963년 12월 8일, 61세",
+          "history": [
+            "제22대 국회의원",
+            "더불어민주당 자치분권정책협의회 의장",
+            "더불어민주당 계양구 을 지역위원장",
+            "제35대 경기도지사",
+            "제19·20대 경기도 성남시장"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "국민의힘",
+    "color": "bg-people/70",
+    "candidates": [
+      {
+        "name": "김문수",
+        "image": "/candidateImages/김문수2.png",
+        "policyRef": "김문수",
+        "info": {
+          "birth": "1951년 9월 27일, 73세",
+          "history": [
+            "제10대 고용노동부장관",
+            "제13대 경제사회노동위원회 위원장",
+            "제32·33대 경기도지사"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "개혁신당",
+    "color": "bg-reform/70",
+    "candidates": [
+      {
+        "name": "이준석",
+        "image": "/candidateImages/이준석2.png",
+        "policyRef": "이준석",
+        "info": {
+          "birth": "1985년 3월 31일, 40세",
+          "history": [
+            "제22대 국회의원",
+            "개혁연구원 원장",
+            "초대 개혁신당 대표",
+            "초대 국민의힘 대표"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "민주노동당",
+    "color": "bg-labor/70",
+    "candidates": [
+      {
+        "name": "권영국",
+        "image": "/candidateImages/권영국2.png",
+        "policyRef": "권영국",
+        "info": {
+          "birth": "1963년 8월 15일, 61세",
+          "history": [
+            "민주노동당 대표",
+            "법무법인 두율 고문변호사",
+            "경상북도 장애인권익 옹호기관 학대판정위원",
+            "경주다움 성폭력상담센터 운영위원장"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "자유통일당",
+    "color": "bg-free/70",
+    "candidates": [
+      {
+        "name": "구주와",
+        "image": "/candidateImages/구주와2.png",
+        "policyRef": "구주와",
+        "info": {
+          "birth": "1980년 1월 23일, 45세",
+          "history": [
+            "자유통일당 최고위원",
+            "법무법인 비트윈 변호사",
+            "국민혁명당 대변인",
+            "구주와 법률사무소 대표변호사"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "황교안(무소속)",
+    "color": "bg-independent/70",
+    "candidates": [
+      {
+        "name": "황교안",
+        "image": "/candidateImages/황교안.png",
+        "policyRef": "황교안",
+        "info": {
+          "birth": "1957년 4월 15일, 68세",
+          "history": [
+            "자유민주원팀혁명위원회 총괄대표",
+            "대통령 권한대행 (황교안 권한대행 체제)",
+            "부정선거방지 특수전사령부 총괄대표",
+            "부정선거부패방지대 총괄대표",
+            "변호사 황교안 법률사무소 변호사"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "party": "송진호(무소속)",
+    "color": "bg-independent/70",
+    "candidates": [
+      {
+        "name": "송진호",
+        "image": "/candidateImages/송진호.png",
+        "policyRef": "송진호",
+        "info": {
+          "birth": "1968년 3월 28일, 57세",
+          "history": [
+            "국제 무예올림피아드 명예총재",
+            "미라클시티월드그룹 대표",
+            "대한민국 국민 사이버국회 의장",
+            "재단법인 미라클 불교문화재단 이사장"
+          ]
+        }
+      }
+    ]
+  }
+]

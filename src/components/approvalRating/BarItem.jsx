@@ -3,7 +3,6 @@ import React from 'react';
 const BarItem = ({ name, party, percent, image, color }) => {
   return (
     <div className="flex flex-col items-center mx-2 w-20 text-center">
-      {/* 정사각형 이미지 */}
       <div className="w-full aspect-square">
         <img src={image} alt={name} className="w-full h-full object-cover rounded-md" />
       </div>
