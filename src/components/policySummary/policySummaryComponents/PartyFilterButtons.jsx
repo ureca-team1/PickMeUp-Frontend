@@ -10,14 +10,14 @@ const PartyFilterButtons = ({ onFilterClick }) => {
   };
 
   return (
-    <div className="mb-8 flex flex-wrap justify-center gap-4">
+    <div className="mb-15 flex flex-wrap justify-center gap-4">
       {partyData.map((party) => (
         <div key={party.party}>
           {party.candidates.map((candidate) => (
             <button
               key={candidate.name}
               onClick={() => handleClick(party.party)}
-              className={`rounded-lg px-4 py-2 transition-all duration-200 ${party.color}`}
+              className={`rounded-lg px-4 py-2 transition-all duration-200 ${party.color}  font-bold  text-center`}
             >
               {party.party}
             </button>

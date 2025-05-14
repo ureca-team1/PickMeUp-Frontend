@@ -82,7 +82,12 @@ function TimeLine() {
       />
       <div className="flex flex-col gap-10 md:flex-row md:gap-16">
         {timelines.map((item) => (
-          <NodeItem title={item.title} active={item.active} subTitle={item.subTitle} />
+          <NodeItem
+            key={item.title}
+            title={item.title}
+            active={item.active}
+            subTitle={item.subTitle}
+          />
         ))}
       </div>
     </div>
