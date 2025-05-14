@@ -2,8 +2,8 @@ import React from 'react';
 
 const VoteHeader = () => {
   return (
-    <div className="mb-6 w-full px-4 text-center overflow-hidden">
-      <h1 className="mb-2 text-2xl font-extrabold leading-snug md:text-5xl break-keep whitespace-nowrap">
+    <div className="mb-6 w-full overflow-hidden px-4 text-center">
+      <h1 className="mb-2 text-2xl leading-snug font-extrabold break-keep whitespace-nowrap md:text-5xl">
         나는 누구의 공약에 공감할까?
       </h1>
       <p className="text-sm leading-relaxed md:text-2xl">
