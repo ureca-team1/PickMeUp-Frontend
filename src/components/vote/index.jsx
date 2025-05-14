@@ -49,6 +49,13 @@ const Vote = () => {
       saveVotedCandidate(selectedCandidate.id, selectedRegionId);
       setIsVoted(true);
       toast.success(`${selectedCandidate.name} 후보에게 투표 완료되었습니다.`);
+
+      // 커스텀 이벤트 발생: 투표 완료
+      window.dispatchEvent(
+        new CustomEvent('vote:change', {
+          detail: { candidateId: selectedCandidate.id },
+        })
+      );
     } catch (err) {
       toast.error('투표 전송 실패: 서버 문제 또는 네트워크 오류');
       console.error(err);
@@ -70,6 +77,13 @@ const Vote = () => {
       selectCandidate(null);
       setIsVoted(false);
       toast.success('투표가 취소되었습니다.');
+
+      // 커스텀 이벤트 발생: 투표 취소
+      window.dispatchEvent(
+        new CustomEvent('vote:change', {
+          detail: { candidateId: null },
+        })
+      );
     } catch (err) {
       toast.error('투표 취소 실패: 서버 문제 또는 네트워크 오류');
       console.error(err);
