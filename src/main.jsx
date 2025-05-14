@@ -13,6 +13,18 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
     {/* 토스트바 나타나게 해줌 */}
-    <Toaster position="bottom-center" reverseOrder={false} />
+
+    <Toaster
+      position="bottom-center"
+      reverseOrder={false}
+      toastOptions={{
+        success: {
+          className: 'toast-responsive',
+        },
+        error: {
+          className: 'toast-responsive',
+        },
+      }}
+    />
   </StrictMode>
 );
