@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 // 백엔드 지역 그대로 가져왔습니다.
 const REGIONS = {
@@ -11,7 +12,7 @@ const REGIONS = {
   7: '강원/제주',
 };
 
-const RegionSelect = ({ onRegionSelect }) => {
+const RegionSelect = ({ selectedRegionId, onRegionSelect }) => {
   return (
     <div className="flex w-full items-center justify-between">
       <label htmlFor="region" className="text-lg whitespace-nowrap text-gray-700 dark:text-white">
@@ -20,10 +21,11 @@ const RegionSelect = ({ onRegionSelect }) => {
       <select
         id="region"
         className="w-34 rounded-md border p-2 text-sm sm:w-34 dark:bg-black dark:text-white"
-        defaultValue=""
+        value={selectedRegionId ?? ''}
         onChange={(e) => {
           const regionId = Number(e.target.value);
           onRegionSelect(regionId);
+          toast.success('후보자를 투표하세요!');
         }}
       >
         <option value="" disabled>
