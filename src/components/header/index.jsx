@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header className="mw-1280 flex items-center justify-between py-4 md:py-5">
+    <header className="mw-1280 flex items-center justify-between pt-4 pb-1">
       <h1>
         <img className="h-auto w-24 md:w-40" src="/logo.svg" alt="PickMeUp 픽미업" />
       </h1>
