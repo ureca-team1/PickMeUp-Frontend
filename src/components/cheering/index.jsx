@@ -13,7 +13,6 @@ const CheerSection = () => {
     setIsLoading(true);
     try {
       const data = await getCheerMessages();
-      // console.log('서버에서 가져온 메시지 목록:', data);
       setMessages(data);
     } catch (err) {
       setError('메시지를 불러오는데 실패했습니다.');

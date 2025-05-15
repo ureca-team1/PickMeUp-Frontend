@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// 응원 메시지 목록을 가져오는 함수 (GET with pagination)
+// 응원 메시지 목록을 가져오는 함수 (GET)
 export const getCheerMessages = async (page = 1, size = 6) => {
   try {
     const { data } = await axios.get(`${API_URL}/api/comments`, {
