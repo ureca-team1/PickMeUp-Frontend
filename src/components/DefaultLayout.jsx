@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import LazyWrapper from './common/LazyFadeInSection.jsx';
 import TopButton from './common/TopButton.jsx';
 import Footer from './footer/index.jsx';
-import React from 'react';
-
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
 import GlobalNavigation from './navigation/index.jsx';
@@ -59,9 +57,11 @@ const DefaultLayout = () => {
         <GlobalNavigation className={isEndOfScroll ? 'flex' : 'hidden'} />
         <Intro />
         <LazyWrapper id="policy" componentKey="PolicySummary" delay={0.1} />
+        <LazyWrapper id="map" componentKey="Map" delay={0.1} />
         <LazyWrapper id="vote" componentKey="Vote" delay={0.1} />
         <LazyWrapper id="poll-results" componentKey="ApprovalRating" delay={0.1} />
         <LazyWrapper id="comments" componentKey="CheerSection" delay={0.1} />
+        <LazyWrapper componentKey="VoteCount" delay={0.1} />
         <LazyWrapper componentKey="ShareSection" delay={0.1} />
       </main>
       <Footer />

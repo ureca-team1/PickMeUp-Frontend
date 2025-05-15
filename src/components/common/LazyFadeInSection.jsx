@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { fadeImportMap } from './lazyComponentMap';
 
@@ -11,17 +11,15 @@ const FadeInLazyWrapper = ({ id, componentKey, delay = 0, fallback = null }) => 
     threshold: 0.1,
   });
 
-  useEffect(() => {
-    if (inView) {
-      console.log(`${componentKey} is in view`);
-    }
-  }, [inView, componentKey]);
-
   const LazyComponent = fadeImportMap[componentKey];
   if (!LazyComponent) return null;
 
   return (
-    <section ref={ref} id={id} className="scroll-margin min-h-[40vh]">
+    <section
+      ref={ref}
+      id={id}
+      className={`scroll-margin ${componentKey === 'VoteCount' ? '' : 'min-h-[40vh]'}`}
+    >
       {inView && (
         <MotionDiv
           initial={{ opacity: 0, y: 40 }}

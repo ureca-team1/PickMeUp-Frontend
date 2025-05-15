@@ -2,6 +2,8 @@ import Facebook from '@/assets/facebook.svg?react';
 import Link from '@/assets/line-md_link.svg?react';
 import X from '@/assets/x.svg?react';
 
+import toast from 'react-hot-toast';
+
 const LinkButton = ({ children, className, ...restProps }) => {
   return (
     <button
@@ -17,8 +19,7 @@ const LinkButton = ({ children, className, ...restProps }) => {
 function ShareSection() {
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(window.location.href);
-    // TODO: 토스트 메시지로 바꾸기
-    alert('링크가 복사되었습니다.');
+    toast.success('링크가 복사되었습니다.');
   };
 
   return (

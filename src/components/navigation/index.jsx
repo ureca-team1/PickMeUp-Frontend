@@ -5,18 +5,27 @@ const navList = [
   {
     caption: '공약 총정리',
     sectionId: 'policy',
+    className: '',
+  },
+  {
+    caption: '투표소 찾기',
+    sectionId: 'map',
+    className: 'hidden md:inline',
   },
   {
     caption: '모의 투표',
     sectionId: 'vote',
+    className: '',
   },
   {
     caption: '실시간 지지율',
     sectionId: 'poll-results',
+    className: '',
   },
   {
     caption: '응원 한마디',
     sectionId: 'comments',
+    className: '',
   },
 ];
 
@@ -57,12 +66,12 @@ function GlobalNavigation({ className }) {
 
   return (
     <nav
-      className={`sticky top-0 z-20 items-center justify-center gap-1 bg-white py-4 md:gap-30 dark:bg-black ${className}`}
+      className={`sticky top-0 z-20 items-center justify-center gap-1 bg-white py-4 md:gap-8 dark:bg-black ${className}`}
     >
       {navList.map((item) => (
         <NavLink
           to={`#${item.sectionId}`}
-          className={`${defaultClassName} ${activeId === item.sectionId ? 'font-bold' : 'font-normal'} `}
+          className={`${defaultClassName} ${activeId === item.sectionId ? 'font-bold' : 'font-normal'} ${item.className}`}
           onClick={(e) => handleClick(e, item.sectionId)}
         >
           {item.caption}

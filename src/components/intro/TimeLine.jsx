@@ -38,9 +38,11 @@ const NodeItem = ({ title, subTitle, active = false }) => {
       className={`flex items-center gap-4 md:flex-col ${active ? '-translate-x-4 md:translate-x-0 md:-translate-y-4' : ''}`}
     >
       <div
-        className={`border-primary flex items-center justify-center rounded-full border-[5px] ${active ? 'bg-secondary h-12 w-12 md:h-[60px] md:w-[60px]' : 'h-4 w-4 bg-white md:h-8 md:w-8'}`}
+        className={`dark:bg-whiteborder-primary flex items-center justify-center rounded-full border-[5px] dark:bg-black ${active ? 'bg-secondary h-12 w-12 md:h-[60px] md:w-[60px] dark:bg-black' : 'h-4 w-4 bg-white md:h-8 md:w-8 dark:bg-black'}`}
       >
-        {active && <div className="bg-primary h-4 w-4 rounded-full md:h-5 md:w-5" />}
+        {active && (
+          <div className="bg-primary dark:bg h-4 w-4 rounded-full md:h-5 md:w-5 dark:bg-white" />
+        )}
       </div>
       <div className="md:text-center">
         <h4
