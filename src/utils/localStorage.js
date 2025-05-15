@@ -1,23 +1,26 @@
-export const getVotedCandidate = () => {
+export const getVoteInfo = () => {
   try {
     const voteInfo = localStorage.getItem('voteinfo');
-    if (!voteInfo) return null;
-    const parsed = JSON.parse(voteInfo);
-    return parsed.candidateId || null;
+    return voteInfo ? JSON.parse(voteInfo) : null;
   } catch (error) {
-    console.error('로컬 스토리지 접근 오류:', error);
+    console.error('voteinfo 파싱 오류:', error);
     return null;
   }
 };
 
-export const saveVotedCandidate = (candidateId, regionId) => {
+export const saveVoteInfo = (candidateId, regionId) => {
   try {
-    const voteInfo = JSON.stringify({
-      regionId,
-      candidateId,
-    });
+    const voteInfo = JSON.stringify({ candidateId, regionId });
     localStorage.setItem('voteinfo', voteInfo);
   } catch (error) {
-    console.error('로컬 스토리지 저장 오류:', error);
+    console.error('voteinfo 저장 오류:', error);
+  }
+};
+
+export const removeVoteInfo = () => {
+  try {
+    localStorage.removeItem('voteinfo');
+  } catch (error) {
+    console.error('voteinfo 삭제 오류:', error);
   }
 };
