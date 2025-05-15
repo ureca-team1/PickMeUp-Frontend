@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BarItem = ({ name, party, height, percent, image, color }) => {
   const isSmall = percent < 5;
   const displaySize = isSmall ? 20 : height * 2;

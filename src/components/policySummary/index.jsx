@@ -35,7 +35,7 @@ const PolicySummary = () => {
             <CandidateInfo
               key={candidate.name}
               candidate={candidate}
-              partyColor={selectedPartyData.color}
+              profileColor={candidate.color}
               policies={matchedPolicy?.categories || []} //여기서 전달
             />
           );
