@@ -81,3 +81,13 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.fade-in-up-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.fade-in-up-wrapper.show {
+  max-height: 1000px;
+}

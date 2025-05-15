@@ -11,7 +11,7 @@ function TopButton({ className }) {
   return (
     <button
       type="button"
-      className={`border-primary flex h-[54px] w-[54px] items-center justify-center rounded-full border-4 bg-white md:h-[70px] md:w-[70px] md:border-[5px] ${className}`}
+      className={`border-primary dark:bg-grey dark:bg-gray flex h-[54px] w-[54px] items-center justify-center rounded-full border-4 bg-white md:h-[70px] md:w-[70px] md:border-[5px] dark:border-white ${className}`}
       onClick={handleClick}
     >
       <Up className="h-auto w-6 md:w-8" />

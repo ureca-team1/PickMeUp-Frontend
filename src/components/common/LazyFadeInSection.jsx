@@ -15,7 +15,11 @@ const FadeInLazyWrapper = ({ id, componentKey, delay = 0, fallback = null }) => 
   if (!LazyComponent) return null;
 
   return (
-    <section ref={ref} id={id} className="scroll-margin min-h-[40vh]">
+    <section
+      ref={ref}
+      id={id}
+      className={`scroll-margin ${componentKey === 'VoteCount' ? '' : 'min-h-[40vh]'}`}
+    >
       {inView && (
         <MotionDiv
           initial={{ opacity: 0, y: 40 }}

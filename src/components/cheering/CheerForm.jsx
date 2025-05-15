@@ -3,6 +3,7 @@ import { candidateNameMap } from '@/utils/candidateMap';
 import { getVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../common/Button';
+import toast from 'react-hot-toast';
 
 const CheerForm = ({ onAddMessage }) => {
   const [message, setMessage] = useState('');
@@ -53,6 +54,7 @@ const CheerForm = ({ onAddMessage }) => {
       onAddMessage(formattedMessage);
       setMessage('');
       setCharCount(0);
+      toast.success('응원 메시지가 전송되었습니다.');
     } catch (err) {
       console.error('메시지 전송 실패:', err);
       alert('전송 오류. 다시 시도해주세요.');
@@ -63,7 +65,7 @@ const CheerForm = ({ onAddMessage }) => {
 
   return (
     <div className="mb-12 flex w-full flex-col items-center md:mb-16">
-      <form className="border-primary mx-auto w-full max-w-[865px] rounded-lg border-3 px-5 py-4 md:w-[865px] md:rounded-2xl md:px-7 md:py-5">
+      <form className="border-primary mx-auto w-full max-w-[865px] rounded-lg border-3 px-5 py-4 md:w-[865px] md:rounded-2xl md:px-7 md:py-5 dark:border-white">
         <div className="mb-4 md:mb-5 md:text-2xl">
           {candidateId ? (
             <>

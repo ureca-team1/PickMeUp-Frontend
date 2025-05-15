@@ -14,7 +14,7 @@ const MapInfo = () => {
   };
 
   return (
-    <form className="mb-20 flex w-[319px] flex-col rounded-2xl border-[#292B2E] p-6 md:w-[865px] md:flex-row md:justify-between md:border-3">
+    <form className="mb-20 flex w-[319px] flex-col rounded-2xl border-[#292B2E] p-6 md:w-[865px] md:flex-row md:justify-between md:border-3 dark:border-white">
       {/* 애니메이션 영역 */}
       <section className="mb-6 flex-shrink-0 md:mr-6 md:mb-0">
         <Lottie options={defaultOptions} height={300} width={300} />
