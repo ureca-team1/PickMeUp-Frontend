@@ -13,7 +13,7 @@ const CheerSection = () => {
     setIsLoading(true);
     try {
       const data = await getCheerMessages();
-      setMessages(data);
+      setMessages(data.messages);
     } catch (err) {
       setError('메시지를 불러오는데 실패했습니다.');
       console.error('Error fetching messages:', err);
