@@ -1,8 +1,5 @@
-import axios from 'axios';
+import axios from '@/utils/axiosInstance';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-//각 후보별 정보 매핑
 const CANDIDATE_INFO = {
   1: {
     name: '이재명',
@@ -19,23 +16,22 @@ const CANDIDATE_INFO = {
   8: { name: '기타', party: '', partyKey: 'primary', image: '' },
 };
 
-//전체 지지율 가져오는 함수
 export const getRatings = async () => {
   try {
-    const { data } = await axios.get(`${API_URL}/api/poll-results/national`);
+    const { data } = await axios.get('/api/poll-results/national');
     const { totalRespondents, results } = data;
     const maxSupport = Math.max(...results.map((sup) => sup.supportCount));
 
     return results.map(({ candidate, supportCount }) => {
       const info = CANDIDATE_INFO[candidate] || {};
-      const normalized = +((supportCount / maxSupport) * 100).toFixed(1); //정규화
-      const realPercent = +((supportCount / totalRespondents) * 100).toFixed(1); //실제 지지율
+      const normalized = +((supportCount / maxSupport) * 100).toFixed(1);
+      const realPercent = +((supportCount / totalRespondents) * 100).toFixed(1);
 
       return {
         id: candidate,
         supportCount,
-        height: normalized, // 막대 그래프 정규화 높이
-        percent: realPercent, // 실제 지지율 퍼센트
+        height: normalized,
+        percent: realPercent,
         ...info,
       };
     });
