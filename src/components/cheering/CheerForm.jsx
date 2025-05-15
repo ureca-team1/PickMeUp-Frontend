@@ -1,5 +1,6 @@
 import { postCheerMessage } from '@/apis/cheerApi';
 import { candidateNameMap } from '@/utils/candidateMap';
+import { getVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../common/Button';
 
@@ -18,17 +19,16 @@ const CheerForm = ({ onAddMessage }) => {
     }
   };
 
+  const loadCandidateFromStorage = () => {
+    const voteInfo = getVoteInfo();
+    setCandidateId(voteInfo?.candidateId || null);
+  };
+
   useEffect(() => {
-    const handleVoteChange = (e) => {
-      const newId = e.detail?.candidateId || null;
-      setCandidateId(newId);
-    };
-
+    loadCandidateFromStorage();
+    const handleVoteChange = () => loadCandidateFromStorage();
     window.addEventListener('vote:change', handleVoteChange);
-
-    return () => {
-      window.removeEventListener('vote:change', handleVoteChange);
-    };
+    return () => window.removeEventListener('vote:change', handleVoteChange);
   }, []);
 
   const handleSubmit = async () => {
@@ -49,6 +49,7 @@ const CheerForm = ({ onAddMessage }) => {
         text: message,
         createdAt: new Date().toISOString(),
       };
+
       onAddMessage(formattedMessage);
       setMessage('');
       setCharCount(0);
