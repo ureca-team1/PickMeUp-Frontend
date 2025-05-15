@@ -48,14 +48,14 @@ const MapInfo = () => {
 
         <div className="mt-4 flex justify-between md:justify-start md:gap-4">
           <Button
-            size="custom"
+            className="h-[38px] w-[130px] text-sm md:h-[48px] md:w-[223px] md:text-xl"
             onClick={() => window.open('https://map.naver.com/p/search/사전%20투표소', '_blank')}
           >
             사전 투표소 찾기
           </Button>
 
           <Button
-            size="custom"
+            className="h-[38px] w-[130px] text-sm md:h-[48px] md:w-[223px] md:text-xl"
             onClick={() => window.open('https://map.naver.com/p/search/사전%20투표소', '_blank')}
           >
             본 투표소 찾기

@@ -60,3 +60,24 @@
     }
   }
 }
+
+/* 등장 애니메이션*/
+
+.fade-wrapper {
+  overflow: hidden;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+  overflow-anchor: none;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}

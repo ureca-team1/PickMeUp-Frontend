@@ -2,6 +2,8 @@ import Facebook from '@/assets/facebook.svg?react';
 import Link from '@/assets/line-md_link.svg?react';
 import X from '@/assets/x.svg?react';
 
+import toast from 'react-hot-toast';
+
 const LinkButton = ({ children, className, ...restProps }) => {
   return (
     <button
@@ -17,12 +19,11 @@ const LinkButton = ({ children, className, ...restProps }) => {
 function ShareSection() {
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(window.location.href);
-    // TODO: 토스트 메시지로 바꾸기
-    alert('링크가 복사되었습니다.');
+    toast.success('링크가 복사되었습니다.');
   };
 
   return (
-    <section className="mw-1280 pb-20">
+    <section className="mw-1280">
       <h3 className="mb-5 text-center text-2xl font-bold md:mb-10 md:h-8 md:text-[2rem]">
         공유를 통해 더 많은 <br className="md:hidden" />
         투표 참가에 도움을 주세요!

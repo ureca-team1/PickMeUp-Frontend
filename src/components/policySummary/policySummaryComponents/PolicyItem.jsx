@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import CategoryIcon from './CategoryIcon';
+import '../../../styles/policy.css';
 
 const PolicyItem = ({ category, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [visible, setVisible] = useState(false); // 애니메이션 제어
   const toggleOpen = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => setVisible(true), 10);
+      return () => clearTimeout(timer);
+    } else {
+      setVisible(false);
+    }
+  }, [isOpen]);
 
   return (
     <div className="border-primary border-t-5 pt-6 md:pt-8">
@@ -22,15 +32,21 @@ const PolicyItem = ({ category, items }) => {
       </button>
 
       {isOpen && (
-        <div className={`mt-6 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8`}>
-          <ul className="flex flex-col gap-1 px-3.5 md:text-lg">
-            {items.map((item, idx) => (
-              <li key={idx} className="flex gap-3 text-left md:gap-4">
-                <div className="bg-primary mt-2.5 h-1 w-1 shrink-0 rounded-full md:h-1.5 md:w-1.5" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div className="fade-wrapper">
+          <div
+            className={`fade-in-up mt-6 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8 ${
+              visible ? 'show' : ''
+            }`}
+          >
+            <ul className="flex flex-col gap-1 px-3.5 md:text-lg">
+              {items.map((item, idx) => (
+                <li key={idx} className="flex gap-3 text-left md:gap-4">
+                  <div className="bg-primary mt-2.5 h-1 w-1 shrink-0 rounded-full md:h-1.5 md:w-1.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>{' '}
         </div>
       )}
     </div>

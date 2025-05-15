@@ -1,11 +1,11 @@
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { Suspense, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { fadeImportMap } from './lazyComponentMap';
 
 const MotionDiv = motion.div;
 
-const FadeInLazyWrapper = ({ componentKey, delay = 0, fallback = null }) => {
+const FadeInLazyWrapper = ({ id, componentKey, delay = 0, fallback = null }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -21,7 +21,7 @@ const FadeInLazyWrapper = ({ componentKey, delay = 0, fallback = null }) => {
   if (!LazyComponent) return null;
 
   return (
-    <div ref={ref} className="min-h-[40vh]">
+    <section ref={ref} id={id} className="scroll-margin min-h-[40vh]">
       {inView && (
         <MotionDiv
           initial={{ opacity: 0, y: 40 }}
@@ -33,7 +33,7 @@ const FadeInLazyWrapper = ({ componentKey, delay = 0, fallback = null }) => {
           </Suspense>
         </MotionDiv>
       )}
-    </div>
+    </section>
   );
 };
 
