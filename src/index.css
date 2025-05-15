@@ -70,22 +70,26 @@ html::-webkit-scrollbar {
   display: none; /*  Chrome, Safari, and Opera */
 }
 
+.scroll-margin {
+  scroll-margin-top: 80px;
+}
+
 /*커서 변경*/
 body {
   cursor: url('/src/assets/cursor.svg'), auto;
 }
 
-/*마우스 포인터 유지하고 싶으면 밑에 코드 지우면 됩니다*/
 button,
 a,
 [class*='cursor-pointer'] {
   cursor: url('/src/assets/cursor.svg'), auto !important;
 }
 
-.scroll-margin {
-  scroll-margin-top: 80px;
-}
 @media (max-width: 768px) {
+  .scroll-margin {
+    scroll-margin-top: 64px;
+  }
+
   body {
     cursor: url('/src/assets/cursor-m.png'), auto;
   }
@@ -94,11 +98,6 @@ a,
   a,
   [class*='cursor-pointer'] {
     cursor: url('/src/assets/cursor-m.png'), auto !important;
-  }
-}
-@media (max-width: 768px) {
-  .scroll-margin {
-    scroll-margin-top: 64px;
   }
 }
 
