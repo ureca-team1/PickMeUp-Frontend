@@ -6,4 +6,5 @@ export const fadeImportMap = {
   ApprovalRating: lazy(() => import('../approvalRating')),
   CheerSection: lazy(() => import('../cheering')),
   ShareSection: lazy(() => import('../share/index.jsx')),
+  Map: lazy(() => import('../map/index')),
 };

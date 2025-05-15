@@ -7,6 +7,10 @@ const navList = [
     sectionId: 'policy',
   },
   {
+    caption: '투표소 찾기',
+    sectionId: 'map',
+  },
+  {
     caption: '모의 투표',
     sectionId: 'vote',
   },
@@ -20,7 +24,7 @@ const navList = [
   },
 ];
 
-const defaultClassName = 'w-[84px] shrink-0 text-center text-xs md:w-[170px] md:text-2xl';
+const defaultClassName = 'w-[72px] shrink-0 text-center text-xs md:w-[170px] md:text-2xl';
 
 function GlobalNavigation({ className }) {
   const [activeId, setActiveId] = useState('');
@@ -57,7 +61,7 @@ function GlobalNavigation({ className }) {
 
   return (
     <nav
-      className={`sticky top-0 z-20 items-center justify-center gap-1 bg-white py-4 md:gap-30 dark:bg-black ${className}`}
+      className={`sticky top-0 z-20 items-center justify-center gap-1 bg-white py-4 md:gap-8 dark:bg-black ${className}`}
     >
       {navList.map((item) => (
         <NavLink
