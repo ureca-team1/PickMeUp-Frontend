@@ -1,7 +1,7 @@
 import { cancelVote, sendVote } from '@/apis/voteApi';
 import Button from '@/components/common/Button';
 import { candidates } from '@/utils/candidates';
-import { getVoteInfo, saveVoteInfo, removeVoteInfo } from '@/utils/localStorage';
+import { getVoteInfo, removeVoteInfo, saveVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { candidateImages } from './images/images';
@@ -115,11 +115,11 @@ const Vote = () => {
       </div>
 
       {isVoted ? (
-        <Button className="mx-auto" onClick={handleCancelVote}>
+        <Button type="button" className="mx-auto" onClick={handleCancelVote}>
           취소하기
         </Button>
       ) : (
-        <Button className="mx-auto" onClick={handleVote} disabled={selected === null}>
+        <Button type="button" className="mx-auto" onClick={handleVote} disabled={selected === null}>
           투표하기
         </Button>
       )}
