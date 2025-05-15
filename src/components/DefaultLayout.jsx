@@ -5,6 +5,7 @@ import TopButton from './common/TopButton.jsx';
 import LazyWrapper from './common/LazyFadeInSection.jsx';
 import GlobalNavigation from './navigation/index.jsx';
 import React, { useState, useEffect } from 'react';
+import Map from './map/index.jsx';
 
 const DefaultLayout = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -42,6 +43,7 @@ const DefaultLayout = () => {
         <GlobalNavigation />
         <Intro />
         <LazyWrapper componentKey="PolicySummary" delay={0.1} />
+        <Map />
         <LazyWrapper componentKey="Vote" delay={0.1} />
         <LazyWrapper componentKey="CheerSection" delay={0.1} />
         <LazyWrapper componentKey="ShareSection" delay={0.1} />
