@@ -7,9 +7,9 @@ const MapSearch = () => {
         투표소 찾기
       </h2>
       <p className="font-nanumSquare text-[16px] leading-[150%] font-normal md:text-[24px]">
-        투표할 때 뭐 필요하더라? 투표 어디서 하더라?
+        투표할 때 뭐 챙겨야 하지? 어디로 가야 하지?
         <br />
-        헷갈리지 않도록 싹 정리했어요
+        헷갈릴 틈 없이 깔끔하게 정리해뒀어요.
       </p>
     </div>
   );
