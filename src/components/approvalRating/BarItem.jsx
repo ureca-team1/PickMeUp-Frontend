@@ -2,7 +2,7 @@ import React from 'react';
 
 const BarItem = ({ name, party, height, percent, image, color }) => {
   const isSmall = percent < 5;
-  const displaySize = isSmall ? 30 : height * 2;
+  const displaySize = isSmall ? 20 : height * 2;
   const isLabor = party === '민주노동당';
   const textColor = isLabor ? 'text-black' : 'text-white';
 
@@ -23,7 +23,7 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
               width: `${displaySize}px`,
               minWidth: '40px',
               backgroundColor: `var(${color})`,
-              borderRadius: '4px',
+              borderRadius: '2px',
             }}
           >
             {isSmall ? '5% 미만' : `${percent.toFixed(1)}%`}
@@ -32,29 +32,26 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
       </div>
 
       {/* PC*/}
-      <div className="mx-2 hidden w-20 flex-col items-center text-center md:flex">
+      <div className="mx-2 hidden w-24 flex-col items-center text-center md:flex">
         {image && (
           <div className="aspect-square w-full">
-            <img src={image} alt={name} className="h-full w-full rounded-t-md object-cover" />
+            <img src={image} alt={name} className="h-full w-full object-cover" />
           </div>
         )}
 
         {/* 그래프 */}
         <div
-          className={`flex w-full items-center justify-center text-sm font-bold ${textColor}`}
+          className={`flex w-full items-center justify-center text-base font-bold ${textColor}`}
           style={{
             height: `${displaySize * 2}px`,
             backgroundColor: `var(${color})`,
-            borderBottomLeftRadius: '8px',
-            borderBottomRightRadius: '8px',
           }}
         >
           {isSmall ? '5% 미만' : `${percent.toFixed(1)}%`}
         </div>
 
-        {/* 텍스트 */}
-        <div className="mt-1 text-sm leading-tight text-gray-500">{party || '\u00A0'}</div>
-        <div className="text-base font-bold">{name}</div>
+        <div className="mt-2 text-base leading-tight text-gray-500">{party || '\u00A0'}</div>
+        <div className="text-lg font-bold">{name}</div>
       </div>
     </div>
   );

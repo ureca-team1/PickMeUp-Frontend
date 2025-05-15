@@ -4,7 +4,7 @@ import MainParagraph from '../common/MainParagraph';
 
 const RatingTitle = () => {
   return (
-    <div className="mb-8 text-center">
+    <div className="mb-14 text-center">
       <MainTitle>실시간 지지율</MainTitle>
       <MainParagraph>
         다른 사람들은 누구에게 투표중인지
