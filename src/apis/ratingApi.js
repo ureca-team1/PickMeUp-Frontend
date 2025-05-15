@@ -1,5 +1,4 @@
 import axios from '@/utils/axiosInstance';
-import { imgMap } from '../components/approvalRating/imgMap';
 
 const CANDIDATE_INFO = {
   1: { name: '이재명', party: '더불어민주당', partyKey: 'democratic', image: '1.png' },
@@ -29,7 +28,6 @@ export const getRatings = async () => {
         height: normalized,
         percent: realPercent,
         ...info,
-        image: imgMap[info.image] || '',
       };
     });
   } catch (error) {

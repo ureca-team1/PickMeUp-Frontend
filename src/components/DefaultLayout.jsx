@@ -7,7 +7,6 @@ import React from 'react';
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
 import GlobalNavigation from './navigation/index.jsx';
-import Map from './map/index.jsx';
 
 const DefaultLayout = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

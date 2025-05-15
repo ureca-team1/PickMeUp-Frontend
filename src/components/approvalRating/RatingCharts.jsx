@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { getRatings } from '../../apis/ratingApi';
+import { getRatings } from '@/apis/ratingApi';
+import { useEffect, useState } from 'react';
 import BarItem from './BarItem';
 
 const RatingCharts = () => {
@@ -25,12 +25,13 @@ const RatingCharts = () => {
       ));
 
   return (
-    <div className="mx-auto w-full max-w-screen-md px-4">
+    <div className="mx-auto w-full sm:w-fit">
       {/* 모바일 */}
-      <div className="flex flex-col gap-2 md:hidden">{renderBarItems()}</div>
-
+      <div className="flex flex-col gap-3 md:hidden">{renderBarItems()}</div>
       {/* PC */}
-      <div className="hidden items-end justify-center gap-4 md:flex">{renderBarItems()}</div>
+      <div className="hidden items-end justify-center gap-4 md:flex md:gap-6">
+        {renderBarItems()}
+      </div>
     </div>
   );
 };
