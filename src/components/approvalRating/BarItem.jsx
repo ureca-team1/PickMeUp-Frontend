@@ -7,16 +7,16 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
   return (
     <div>
       {/* 모바일 */}
-      <div className="flex items-center justify-start gap-x-2 py-2 pr-2 pl-6 md:hidden">
-        <div className="flex w-20 flex-shrink-0 flex-col text-left">
-          <span className="text-sm leading-none text-gray-500">{party}</span>
-          <span className="text-base leading-tight font-bold">{name}</span>
+      <div className="flex items-center justify-start gap-3 pl-6 md:hidden">
+        <div className="flex w-20 shrink-0 flex-col text-left">
+          <span className="text-sm text-[#595959]">{party}</span>
+          <span className="font-bold">{name}</span>
         </div>
 
         {/* 그래프 */}
         <div className="flex w-full items-center">
           <div
-            className={`flex h-8 items-center px-2 text-xs font-bold ${textColor}`}
+            className={`flex h-10 items-center pl-2 text-xs font-bold ${textColor}`}
             style={{
               width: `${displaySize}px`,
               minWidth: '40px',
@@ -30,7 +30,7 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
       </div>
 
       {/* PC*/}
-      <div className="mx-2 hidden w-24 flex-col items-center text-center md:flex">
+      <div className="hidden w-24 flex-col items-center text-center md:flex">
         {image && (
           <div className="aspect-square w-full">
             <img src={image} alt={name} className="h-full w-full object-cover" />
@@ -48,8 +48,8 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
           {isSmall ? '5% 미만' : `${percent.toFixed(1)}%`}
         </div>
 
-        <div className="mt-2 text-base leading-tight text-gray-500">{party || '\u00A0'}</div>
-        <div className="text-lg font-bold">{name}</div>
+        <div className="mt-4 mb-1 leading-tight text-gray-500">{party || '\u00A0'}</div>
+        <div className="text-lg font-bold md:text-2xl">{name}</div>
       </div>
     </div>
   );
