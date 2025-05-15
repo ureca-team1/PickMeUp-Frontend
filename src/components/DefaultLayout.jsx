@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import LazyWrapper from './common/LazyFadeInSection.jsx';
 import TopButton from './common/TopButton.jsx';
 import Footer from './footer/index.jsx';
-import React from 'react';
-
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
 import GlobalNavigation from './navigation/index.jsx';
