@@ -3,6 +3,7 @@ import { candidateNameMap } from '@/utils/candidateMap';
 import { getVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../common/Button';
+import toast from 'react-hot-toast';
 
 const CheerForm = ({ onAddMessage }) => {
   const [message, setMessage] = useState('');
@@ -53,6 +54,7 @@ const CheerForm = ({ onAddMessage }) => {
       onAddMessage(formattedMessage);
       setMessage('');
       setCharCount(0);
+      toast.success('응원 메시지가 전송되었습니다.');
     } catch (err) {
       console.error('메시지 전송 실패:', err);
       alert('전송 오류. 다시 시도해주세요.');
