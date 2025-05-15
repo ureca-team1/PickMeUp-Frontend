@@ -1,7 +1,5 @@
-import axios from 'axios';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import axios from '@/utils/axiosInstance';
 
 export const fetchNationalPollResults = () => {
-  return axios.get(`${API_URL}/api/poll-results/national`);
+  return axios.get('/api/poll-results/national');
 };
