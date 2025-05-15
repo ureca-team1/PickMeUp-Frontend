@@ -1,9 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { getCheerMessages } from '@/apis/cheerApi';
 import CheerItem from './CheerItem';
+import { v4 as uuidv4 } from 'uuid';
 
-const CheerList = ({ messages }) => {
-  const [showMore, setShowMore] = useState(false);
-  const initialDisplayCount = 6;
+const CheerList = () => {
+  const [messages, setMessages] = useState([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const loadedPages = useRef(new Set());
+  const messageHash = useRef(new Set());
+
+  const fetchMessages = async (pageNum) => {
+    if (loadedPages.current.has(pageNum)) return;
+
+    setIsLoading(true);
+    try {
+      const data = await getCheerMessages(pageNum, 6);
+      const filtered = data.messages.filter((msg) => {
+        const hash = `${msg.candidate}-${msg.text}`;
+        if (messageHash.current.has(hash)) return false;
+        messageHash.current.add(hash);
+        return true;
+      });
+
+      const newMessages = filtered.map((msg) => ({
+        ...msg,
+        uid: uuidv4(),
+      }));
+
+      setMessages((prev) => [...prev, ...newMessages]);
+      setHasMore(data.currentPage < data.totalPages);
+      loadedPages.current.add(pageNum);
+    } catch (error) {
+      console.error('응원 메시지 불러오기 실패:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMessages(page);
+  }, [page]);
 
   if (!messages || messages.length === 0) {
     return (
@@ -13,29 +51,22 @@ const CheerList = ({ messages }) => {
     );
   }
 
-  const displayMessages = showMore ? messages : messages.slice(0, initialDisplayCount);
-
-  const handleShowMore = () => {
-    setShowMore(true);
-  };
-
   return (
     <div className="relative w-full">
       <div className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
-        {displayMessages.map((message) => (
-          <CheerItem key={message.id} message={message} />
+        {messages.map((message) => (
+          <CheerItem key={message.uid} message={message} />
         ))}
       </div>
 
-      {/* 더 많은 메시지가 있고 아직 모두 표시되지 않았을 때만 점 3개 표시 */}
-      {!showMore && messages.length > initialDisplayCount && (
+      {hasMore && !isLoading && (
         <div
           className="mt-5 flex cursor-pointer flex-col items-center gap-3 md:mt-8"
-          onClick={handleShowMore}
+          onClick={() => setPage((prev) => prev + 1)}
         >
           {[...Array(3)].map((_, i) => (
             <div
-              key={i}
+              key={`dots-${i}`}
               className="h-[5px] w-[5px] rounded-full bg-[#B7B7B7] md:h-[10px] md:w-[10px]"
             />
           ))}
