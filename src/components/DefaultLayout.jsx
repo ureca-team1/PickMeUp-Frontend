@@ -60,7 +60,6 @@ const DefaultLayout = () => {
         <Intro />
         <LazyWrapper id="policy" componentKey="PolicySummary" delay={0.1} />
         <LazyWrapper id="map" componentKey="Map" delay={0.1} />
-
         <LazyWrapper id="vote" componentKey="Vote" delay={0.1} />
         <LazyWrapper id="poll-results" componentKey="ApprovalRating" delay={0.1} />
         <LazyWrapper id="comments" componentKey="CheerSection" delay={0.1} />
