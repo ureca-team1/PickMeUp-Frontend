@@ -4,7 +4,6 @@ import { candidates } from '@/utils/candidates';
 import { getVoteInfo, removeVoteInfo, saveVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { candidateImages } from './images/images';
 import useVote from './useVote';
 import CandidateCard from './voteComponents/CandidateCard';
 import Disclaimer from './voteComponents/Disclaimer';
@@ -104,10 +103,7 @@ const Vote = () => {
         {candidates.map((candidate) => (
           <CandidateCard
             key={candidate.id}
-            image={candidateImages[candidate.image]}
-            name={candidate.name}
-            party={candidate.party}
-            slogan={candidate.slogan}
+            candidate={candidate}
             selected={selected === candidate.id}
             onClick={() => selectCandidate(candidate.id)}
           />

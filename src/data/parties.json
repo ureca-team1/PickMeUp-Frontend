@@ -5,8 +5,9 @@
     "candidates": [
       {
         "name": "이재명",
-        "image": "/candidateImages/이재명2.png",
+        "image": "/candidates/이재명.png",
         "policyRef": "이재명",
+        "color": "bg-democratic",
         "info": {
           "birth": "1963년 12월 8일, 61세",
           "history": [
@@ -26,8 +27,9 @@
     "candidates": [
       {
         "name": "김문수",
-        "image": "/candidateImages/김문수2.png",
+        "image": "/candidates/김문수.png",
         "policyRef": "김문수",
+        "color": "bg-people",
         "info": {
           "birth": "1951년 9월 27일, 73세",
           "history": [
@@ -45,8 +47,9 @@
     "candidates": [
       {
         "name": "이준석",
-        "image": "/candidateImages/이준석2.png",
+        "image": "/candidates/이준석.png",
         "policyRef": "이준석",
+        "color": "bg-reform",
         "info": {
           "birth": "1985년 3월 31일, 40세",
           "history": [
@@ -65,8 +68,9 @@
     "candidates": [
       {
         "name": "권영국",
-        "image": "/candidateImages/권영국2.png",
+        "image": "/candidates/권영국.png",
         "policyRef": "권영국",
+        "color": "bg-labor",
         "info": {
           "birth": "1963년 8월 15일, 61세",
           "history": [
@@ -85,8 +89,9 @@
     "candidates": [
       {
         "name": "구주와",
-        "image": "/candidateImages/구주와2.png",
+        "image": "/candidates/구주와.png",
         "policyRef": "구주와",
+        "color": "bg-free",
         "info": {
           "birth": "1980년 1월 23일, 45세",
           "history": [
@@ -105,8 +110,9 @@
     "candidates": [
       {
         "name": "황교안",
-        "image": "/candidateImages/황교안.png",
+        "image": "/candidates/황교안.png",
         "policyRef": "황교안",
+        "color": "bg-independent",
         "info": {
           "birth": "1957년 4월 15일, 68세",
           "history": [
@@ -126,8 +132,9 @@
     "candidates": [
       {
         "name": "송진호",
-        "image": "/candidateImages/송진호.png",
+        "image": "/candidates/송진호.png",
         "policyRef": "송진호",
+        "color": "bg-independent",
         "info": {
           "birth": "1968년 3월 28일, 57세",
           "history": [
