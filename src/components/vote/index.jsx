@@ -94,7 +94,7 @@ const Vote = () => {
       selectCandidate(voteInfo.candidateId);
       setIsVoted(true);
     }
-  }, []);
+  }, [selectCandidate]);
 
   return (
     <div className="mw-1280 pb-24 md:pb-36">
