@@ -85,7 +85,17 @@ a,
 .scroll-margin {
   scroll-margin-top: 80px;
 }
+@media (max-width: 768px) {
+  body {
+    cursor: url('/src/assets/cursor-m.png'), auto;
+  }
 
+  button,
+  a,
+  [class*='cursor-pointer'] {
+    cursor: url('/src/assets/cursor-m.png'), auto !important;
+  }
+}
 @media (max-width: 768px) {
   .scroll-margin {
     scroll-margin-top: 64px;
