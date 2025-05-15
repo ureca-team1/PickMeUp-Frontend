@@ -65,7 +65,7 @@ const CheerForm = ({ onAddMessage }) => {
 
   return (
     <div className="mb-12 flex w-full flex-col items-center md:mb-16">
-      <form className="border-primary mx-auto w-full max-w-[865px] rounded-lg border-3 px-5 py-4 md:w-[865px] md:rounded-2xl md:px-7 md:py-5">
+      <form className="border-primary mx-auto w-full max-w-[865px] rounded-lg border-3 px-5 py-4 md:w-[865px] md:rounded-2xl md:px-7 md:py-5 dark:border-white">
         <div className="mb-4 md:mb-5 md:text-2xl">
           {candidateId ? (
             <>

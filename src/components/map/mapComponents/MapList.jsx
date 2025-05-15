@@ -128,13 +128,13 @@ const DropdownSection = ({ category, items }) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className="border-primary mb-10 border-t-5 pt-6 md:pt-8">
+    <div className="border-primary mb-10 border-t-5 pt-6 md:pt-8 dark:border-white">
       <button onClick={toggleOpen} className="flex w-full items-center justify-between">
         <span className="text-xl font-bold">{category}</span>
         {isOpen ? (
-          <FiChevronUp className="text-independent h-6 w-6" />
+          <FiChevronUp className="text-independent h-6 w-6 dark:text-white" />
         ) : (
-          <FiChevronDown className="text-independent h-6 w-6" />
+          <FiChevronDown className="text-independent h-6 w-6 dark:text-white" />
         )}
       </button>
       <div className={`fade-in-up-wrapper ${isOpen ? 'show' : ''}`}>
