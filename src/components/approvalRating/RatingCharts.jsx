@@ -17,21 +17,20 @@ const RatingCharts = () => {
     loadData();
   }, []);
 
+  const renderBarItems = () =>
+    ratings
+      .filter((candidate) => candidate.name !== '기타')
+      .map((candidate) => (
+        <BarItem key={candidate.id} {...candidate} color={`--color-${candidate.partyKey}`} />
+      ));
+
   return (
-    <div className="w-full">
+    <div className="mx-auto w-full max-w-screen-md px-4">
       {/* 모바일 */}
-      <div className="flex flex-col gap-2 md:hidden">
-        {ratings.map((candidate) => (
-          <BarItem key={candidate.id} {...candidate} color={`--color-${candidate.partyKey}`} />
-        ))}
-      </div>
+      <div className="flex flex-col gap-2 md:hidden">{renderBarItems()}</div>
 
       {/* PC */}
-      <div className="hidden items-end justify-center gap-4 md:flex">
-        {ratings.map((candidate) => (
-          <BarItem key={candidate.id} {...candidate} color={`--color-${candidate.partyKey}`} />
-        ))}
-      </div>
+      <div className="hidden items-end justify-center gap-4 md:flex">{renderBarItems()}</div>
     </div>
   );
 };
