@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { fadeImportMap } from './lazyComponentMap';
 
@@ -10,12 +10,6 @@ const FadeInLazyWrapper = ({ id, componentKey, delay = 0, fallback = null }) => 
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  useEffect(() => {
-    if (inView) {
-      console.log(`${componentKey} is in view`);
-    }
-  }, [inView, componentKey]);
 
   const LazyComponent = fadeImportMap[componentKey];
   if (!LazyComponent) return null;
