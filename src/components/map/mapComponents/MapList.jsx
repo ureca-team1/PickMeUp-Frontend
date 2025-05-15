@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiChevronDown, FiChevronUp, FiCheckCircle, FiXCircle } from 'react-icons/fi';
+import '@/styles/policy.css';
 
 const MapList = () => {
   const data = [
@@ -136,14 +137,13 @@ const DropdownSection = ({ category, items }) => {
           <FiChevronDown className="text-independent h-6 w-6" />
         )}
       </button>
-
-      {isOpen && (
-        <div className="mt-6 flex flex-col gap-8 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8">
+      <div className={`fade-in-up-wrapper ${isOpen ? 'show' : ''}`}>
+        <div
+          className={`fade-in-up ${isOpen ? 'show' : ''} mt-6 flex flex-col gap-8 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8`}
+        >
           {items.map((item, idx) => (
             <div key={idx}>
-              <h3 className="flex items-start gap-3.5 px-3.5 text-lg font-semibold md:text-xl">
-                {item.title}
-              </h3>
+              <h3 className="flex gap-3.5 px-3.5 text-lg font-semibold md:text-xl">{item.title}</h3>
 
               <ul className="mt-3 flex flex-col gap-1 px-3.5 md:text-lg">
                 {item.contents.map((content, cIdx) => (
@@ -157,7 +157,7 @@ const DropdownSection = ({ category, items }) => {
             </div>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
