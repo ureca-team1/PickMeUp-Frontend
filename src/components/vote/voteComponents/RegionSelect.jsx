@@ -14,7 +14,6 @@ import toast from 'react-hot-toast';
 
 import { REGIONS } from '@/utils/constants.js';
 
-
 const RegionSelect = ({ selectedRegionId, onRegionSelect }) => {
   return (
     <div className="mx-auto flex w-full max-w-[700px] items-center justify-between">
