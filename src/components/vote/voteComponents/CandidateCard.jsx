@@ -16,7 +16,9 @@ const CandidateCard = ({ candidate, selected, onClick }) => {
       {/* 이름, 정당, 슬로건 */}
       <div className="flex-1">
         <p className="mb-0.5 flex items-center gap-1.5 md:mb-1 md:gap-2">
-          <span className="text-primary text-sm font-bold md:text-xl dark:text-white">{name}</span>
+          <span className="text-primary text-sm font-bold md:text-xl dark:text-white">
+            {candidate.name}
+          </span>
           <span className="text-xs font-normal text-[#595959] md:text-lg dark:text-gray-300">
             {candidate.party}
           </span>
