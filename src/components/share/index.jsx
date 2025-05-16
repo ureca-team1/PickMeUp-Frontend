@@ -1,7 +1,6 @@
 import Facebook from '@/assets/facebook.svg?react';
 import Link from '@/assets/line-md_link.svg?react';
 import X from '@/assets/x.svg?react';
-
 import toast from 'react-hot-toast';
 
 const LinkButton = ({ children, className, ...restProps }) => {

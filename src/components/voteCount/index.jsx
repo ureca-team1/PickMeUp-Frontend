@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchNationalPollResults } from '../../apis/countApi.js';
 
 const VoteCount = () => {
@@ -28,15 +28,14 @@ const VoteCount = () => {
   const displayVotes = Math.max(totalVotes - 1000, 0);
 
   return (
-    <div className="mb-5 text-center text-2xl font-bold md:mb-10 md:h-8 md:text-[2rem]">
+    <p className="text-primary mb-1.5 text-center font-bold md:mb-2.5 md:text-xl">
       지금까지{' '}
-      <strong className="animate-pulse text-3xl md:text-4xl">
+      <strong className="animate-pulse font-extrabold text-black">
         {displayVotes.toLocaleString()}
       </strong>{' '}
       명이 공약을 읽고
-      <br className="md:hidden" />
-      가장 공감하는 후보에게 투표했어요.
-    </div>
+      <br className="md:hidden" /> 가장 공감하는 후보에게 투표했어요.
+    </p>
   );
 };
 
