@@ -8,11 +8,11 @@ export const getCheerMessages = async (page = 1, size = 6) => {
     });
 
     return {
-      messages: data.comments.map((comment, index) => ({
-        id: `${comment.candidate}-${Date.now()}-${uuidv4()}-${index}`,
+      messages: data.comments.map((comment) => ({
+        uid: `${comment.candidate}-${comment.content}-${comment.createdAt}-${uuidv4()}`,
         text: comment.content,
         candidate: comment.candidate,
-        createdAt: new Date().toISOString(),
+        createdAt: comment.createdAt,
       })),
       totalPages: data.totalPages,
       currentPage: data.currentPage,

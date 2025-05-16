@@ -17,8 +17,9 @@ const CheerList = () => {
     setIsLoading(true);
     try {
       const data = await getCheerMessages(pageNum, 6);
+
       const filtered = data.messages.filter((msg) => {
-        const hash = `${msg.candidate}-${msg.text}`;
+        const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
         if (messageHash.current.has(hash)) return false;
         messageHash.current.add(hash);
         return true;
@@ -26,7 +27,7 @@ const CheerList = () => {
 
       const newMessages = filtered.map((msg) => ({
         ...msg,
-        uid: uuidv4(),
+        uid: msg.uid || uuidv4(),
       }));
 
       setMessages((prev) => [...prev, ...newMessages]);
@@ -40,7 +41,9 @@ const CheerList = () => {
   };
 
   useEffect(() => {
-    fetchMessages(page);
+    if (!loadedPages.current.has(page)) {
+      fetchMessages(page);
+    }
   }, [page]);
 
   if (!messages || messages.length === 0) {
