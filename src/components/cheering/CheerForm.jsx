@@ -86,7 +86,7 @@ const CheerForm = ({ onAddMessage }) => {
             placeholder={
               candidateId ? '응원을 남겨주세요' : '투표 후 나의 후보에게 응원을 남겨주세요'
             }
-            className="placeholder:text-independent dark:placeholder:text-independent h-[4.25rem] w-full resize-none p-3.5 text-sm placeholder:text-sm focus:outline-none md:h-[4.75rem] md:max-h-none md:p-5 md:text-2xl md:placeholder:text-2xl"
+            className="placeholder:text-independent dark:placeholder:text-independent h-[4.25rem] w-full resize-none p-3.5 text-sm placeholder:text-sm focus:outline-none md:h-[4.75rem] md:max-h-none md:p-5 md:text-2xl md:placeholder:text-2xl dark:text-black"
             disabled={isSubmitting || !candidateId}
           />
           <span className="text-independent px-3.5 text-[0.625rem] md:px-5 md:text-base dark:text-white/70">
