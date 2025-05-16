@@ -70,6 +70,7 @@ function GlobalNavigation({ className }) {
     >
       {navList.map((item) => (
         <NavLink
+          key={item.sectionId}
           to={`#${item.sectionId}`}
           className={`${defaultClassName} ${activeId === item.sectionId ? 'font-bold' : 'font-normal'} ${item.className}`}
           onClick={(e) => handleClick(e, item.sectionId)}
