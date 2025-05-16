@@ -36,7 +36,7 @@ export const candidates = [
     imgSrc: '/candidates/구주와.png',
     name: '구주와',
     party: '자유통일당',
-    slogan: '광화문 정신! 젋은 대통령! 정치 교체',
+    slogan: '광화문 정신! 정치 교체!',
     colorClassName: 'bg-free',
   },
   {
@@ -52,7 +52,7 @@ export const candidates = [
     imgSrc: '/candidates/송진호.png',
     name: '송진호',
     party: '무소속',
-    slogan: '선(先)경제 후(後)정치',
+    slogan: '선경제, 후정치!',
     colorClassName: 'bg-independent',
   },
 ];
