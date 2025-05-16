@@ -1,34 +1,41 @@
-import { useState } from 'react';
-import { FiChevronDown, FiChevronUp, FiCheckCircle, FiXCircle } from 'react-icons/fi';
 import '@/styles/policy.css';
+import { useState } from 'react';
+import { FiCheckCircle, FiChevronDown, FiChevronUp, FiXCircle } from 'react-icons/fi';
 
 const MapList = () => {
   const data = [
     {
-      category: '투표소에서 조심할 것은?',
+      category: '투표소에서 주의할 것은?',
       items: [
         {
           title: '도장은 투표소 안에 있는 것만!',
           contents: [
-            'O: 투표소 안에 있는 도장만 사용해요.',
-            'X: 집에서 가져온 도장이나 볼펜을 사용하면 안 돼요.',
+            '투표소 안에 있는 도장만 사용해요.',
+            '집에서 가져온 도장이나 볼펜을 사용하면 안 돼요.',
           ],
         },
         {
           title: '도장은 네모 칸 안에 딱 한 번만!',
           contents: [
-            'O: 투표용지에 도장은 딱 한 번만 찍어요. 도장은 네모 칸 안에 찍으면 돼요.',
-            'X: 도장을 여러 번 찍거나 네모 칸 바깥에 찍으면 표로 인정되지 않아요.',
+            '투표용지에 도장은 딱 한 번만 찍어요. 도장은 네모 칸 안에 찍으면 돼요.',
+            '도장을 여러 번 찍거나 네모 칸 바깥에 찍으면 표로 인정되지 않아요.',
           ],
         },
         {
           title: '인증샷을 찍을 때는',
           contents: [
-            'O: 투표 인증샷은 투표소 밖에서 찍어요.',
-            'X: 투표소 안에서는 사진을 찍으면 안 돼요.',
-            '투표소 안에서 사진을 찍으면 공직선거법*을 어기는 거예요.',
-            '공직선거법을 어기면 벌금을 내야 해요.',
-            '*공직선거법 : 대통령, 국회의원 등을 뽑는 선거 방법을 정해놓은 법',
+            '투표 인증샷은 투표소 밖에서 찍어요.',
+            <>
+              투표소 안에서는 사진을 찍으면 안 돼요.
+              <br />
+              투표소 안에서 사진을 찍으면 공직선거법*을 어기는 거예요.
+              <br />
+              공직선거법을 어기면 벌금을 내야 해요.
+              <br />
+              <span className="text-independent mt-1 inline-block text-xs md:text-sm">
+                *공직선거법 : 대통령, 국회의원 등을 뽑는 선거 방법을 정해놓은 법
+              </span>
+            </>,
             '투표소에서 ‘투표 확인증’을 받는 것도 좋은 인증 방법이에요.',
           ],
         },
@@ -85,7 +92,7 @@ const MapList = () => {
   ];
 
   return (
-    <div className="w-full md:max-w-[730px]">
+    <div className="flex w-full flex-col gap-7 md:max-w-[940px] md:gap-8">
       {data.map((section, index) => (
         <DropdownSection key={index} category={section.category} items={section.items} />
       ))}
@@ -93,43 +100,53 @@ const MapList = () => {
   );
 };
 
-// 아이콘 및 점(dot) 표시를 위한 컴포넌트
-const ContentWithIcon = ({ text, showDot }) => {
-  let icon = null;
-  let contentText = text;
+const Description = ({ children }) => {
+  return <p className="md:text-lg">{children}</p>;
+};
 
-  if (text.startsWith('O:')) {
-    icon = <FiCheckCircle className="mt-0.5 shrink-0 text-green-500" />;
-    contentText = text.slice(2).trim();
-  } else if (text.startsWith('X:')) {
-    icon = <FiXCircle className="mt-0.5 shrink-0 text-red-500" />;
-    contentText = text.slice(2).trim();
-  }
+const IconList = ({ children, iconType }) => {
+  const generateIcon = (type) => {
+    switch (type) {
+      case 'check':
+        return <FiCheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />;
+      case 'x':
+        return <FiXCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />;
+      case 'dot':
+        return (
+          <div className="bg-primary mx-1 mt-2.5 h-1 w-1 shrink-0 rounded-full md:h-1.5 md:w-1.5" />
+        );
+      case 'thumbs':
+        return <span className="md:text-lg">👍</span>;
+      default:
+        return null;
+    }
+  };
+
+  const icon = generateIcon(iconType);
 
   return (
-    <li className="flex items-start gap-3 text-left md:gap-4">
-      {showDot && (
-        <div className="bg-primary mt-2.5 h-1 w-1 shrink-0 rounded-full md:h-1.5 md:w-1.5" />
-      )}
-      {icon ? (
-        <>
-          {icon}
-          <span>{contentText}</span>
-        </>
-      ) : (
-        <span>{contentText}</span>
-      )}
+    <li className="flex gap-2 md:gap-2.5">
+      {icon}
+      <Description>{children}</Description>
     </li>
   );
 };
 
 const DropdownSection = ({ category, items }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleOpen = () => setIsOpen(!isOpen);
 
+  const getIconType = (category, contentIndex) => {
+    if (category === '누구나 투표할 권리가 있어요!') return 'dot';
+    if (contentIndex === 0) return 'check';
+    if (contentIndex === 1) return 'x';
+    return 'thumbs';
+  };
+
   return (
-    <div className="border-primary mb-10 border-t-5 pt-6 md:pt-8 dark:border-white">
-      <button onClick={toggleOpen} className="flex w-full items-center justify-between">
+    <div className="border-primary border-t-5 pt-6 md:pt-8 dark:border-white">
+      <button onClick={toggleOpen} className="flex w-full items-center justify-between px-3">
         <span className="text-xl font-bold">{category}</span>
         {isOpen ? (
           <FiChevronUp className="text-independent h-6 w-6 dark:text-white" />
@@ -141,21 +158,20 @@ const DropdownSection = ({ category, items }) => {
         <div
           className={`fade-in-up ${isOpen ? 'show' : ''} mt-6 flex flex-col gap-8 border-t border-[#B7B7B7] pt-6 md:mt-8 md:pt-8`}
         >
-          {items.map((item, idx) => (
-            <div key={idx}>
-              <h3 className="flex gap-3.5 px-3.5 text-lg font-semibold md:text-xl">{item.title}</h3>
-
-              <ul className="mt-3 flex flex-col gap-1 px-3.5 md:text-lg">
-                {item.contents.map((content, cIdx) => (
-                  <ContentWithIcon
-                    key={cIdx}
-                    text={content}
-                    showDot={category === '누구나 투표할 권리가 있어요!'}
-                  />
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="flex flex-col gap-3 px-3 md:gap-4">
+            {items.map((item, idx) => (
+              <div key={idx}>
+                <h3 className="mb-1.5 font-bold md:mb-2 md:text-lg">{item.title}</h3>
+                <ul className="flex flex-col gap-1 md:text-lg">
+                  {item.contents.map((content, idx) => (
+                    <IconList key={idx} iconType={getIconType(category, idx)}>
+                      {content}
+                    </IconList>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
