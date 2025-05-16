@@ -81,6 +81,8 @@ body {
 
 button,
 a,
+select,
+option,
 [class*='cursor-pointer'] {
   cursor: url('/src/assets/cursor.svg'), auto !important;
 }
@@ -96,6 +98,8 @@ a,
 
   button,
   a,
+  select,
+  option,
   [class*='cursor-pointer'] {
     cursor: url('/src/assets/cursor-m.png'), auto !important;
   }
