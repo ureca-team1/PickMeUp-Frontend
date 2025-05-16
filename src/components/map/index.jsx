@@ -4,7 +4,7 @@ import MapSearch from './mapComponents/MapSearch';
 
 const Map = () => {
   return (
-    <div className="mw-1280 mb-24 flex flex-col items-center md:mb-52">
+    <div className="mw-1280 flex flex-col items-center pb-32 md:pb-52">
       <MapSearch />
       <MapInfo />
       <MapList />

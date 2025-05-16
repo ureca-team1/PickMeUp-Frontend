@@ -84,10 +84,11 @@
 
 .fade-in-up-wrapper {
   max-height: 0;
+  height: 100%;
   overflow: hidden;
   transition: max-height 0.5s ease;
 }
 
 .fade-in-up-wrapper.show {
-  max-height: 1000px;
+  max-height: 1070px;
 }
