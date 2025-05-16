@@ -10,38 +10,38 @@ const CheerList = ({ messages, setMessages }) => {
   const hasMore = useRef(true);
   const isLoading = useRef(false);
 
-  const fetchMessages = async (pageNum) => {
-    if (loadedPages.current.has(pageNum) || isLoading.current) return;
-    isLoading.current = true;
-
-    try {
-      const data = await getCheerMessages(pageNum, 6);
-
-      const filtered = data.messages.filter((msg) => {
-        const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
-        if (messageHash.current.has(hash)) return false;
-        messageHash.current.add(hash);
-        return true;
-      });
-
-      const newMessages = filtered.map((msg) => ({
-        ...msg,
-        uid: msg.uid || uuidv4(),
-      }));
-
-      setMessages((prev) => [...prev, ...newMessages]);
-      hasMore.current = data.currentPage < data.totalPages;
-      loadedPages.current.add(pageNum);
-    } catch (error) {
-      console.error('응원 메시지 불러오기 실패:', error);
-    } finally {
-      isLoading.current = false;
-    }
-  };
-
   useEffect(() => {
-    fetchMessages(page.current);
-  }, []);
+    const fetchMessages = async () => {
+      if (loadedPages.current.has(page.current) || isLoading.current) return;
+      isLoading.current = true;
+
+      try {
+        const data = await getCheerMessages(page.current, 6);
+
+        const filtered = data.messages.filter((msg) => {
+          const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
+          if (messageHash.current.has(hash)) return false;
+          messageHash.current.add(hash);
+          return true;
+        });
+
+        const newMessages = filtered.map((msg) => ({
+          ...msg,
+          uid: msg.uid || uuidv4(),
+        }));
+
+        setMessages((prev) => [...prev, ...newMessages]);
+        hasMore.current = data.currentPage < data.totalPages;
+        loadedPages.current.add(page.current);
+      } catch (error) {
+        console.error('응원 메시지 불러오기 실패:', error);
+      } finally {
+        isLoading.current = false;
+      }
+    };
+
+    fetchMessages();
+  }, [setMessages]);
 
   if (!messages || messages.length === 0) {
     return (
@@ -64,7 +64,35 @@ const CheerList = ({ messages, setMessages }) => {
           className="mt-5 flex cursor-pointer flex-col items-center gap-3 md:mt-8"
           onClick={() => {
             page.current += 1;
-            fetchMessages(page.current);
+            const fetchMessages = async () => {
+              if (loadedPages.current.has(page.current) || isLoading.current) return;
+              isLoading.current = true;
+
+              try {
+                const data = await getCheerMessages(page.current, 6);
+
+                const filtered = data.messages.filter((msg) => {
+                  const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
+                  if (messageHash.current.has(hash)) return false;
+                  messageHash.current.add(hash);
+                  return true;
+                });
+
+                const newMessages = filtered.map((msg) => ({
+                  ...msg,
+                  uid: msg.uid || uuidv4(),
+                }));
+
+                setMessages((prev) => [...prev, ...newMessages]);
+                hasMore.current = data.currentPage < data.totalPages;
+                loadedPages.current.add(page.current);
+              } catch (error) {
+                console.error('응원 메시지 불러오기 실패:', error);
+              } finally {
+                isLoading.current = false;
+              }
+            };
+            fetchMessages();
           }}
         >
           {[...Array(3)].map((_, i) => (
