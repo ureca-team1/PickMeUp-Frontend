@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import CategoryIcon from './CategoryIcon';
 import '../../../styles/policy.css';
+import CategoryIcon from './CategoryIcon';
 
 const PolicyItem = ({ category, items }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,8 +18,11 @@ const PolicyItem = ({ category, items }) => {
   }, [isOpen]);
 
   return (
-    <div className="border-primary border-t-5 pt-6 md:pt-8 dark:border-white">
-      <button onClick={toggleOpen} className="flex w-full items-center justify-between">
+    <div className="border-primary border-t-5 dark:border-white">
+      <button
+        onClick={toggleOpen}
+        className="flex w-full items-center justify-between px-3 pt-6 md:pt-8"
+      >
         <div className="flex items-center gap-2">
           <CategoryIcon category={category} />
           <span className="text-xl font-bold">{category}</span>
