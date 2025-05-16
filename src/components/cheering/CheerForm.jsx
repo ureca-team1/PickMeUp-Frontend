@@ -4,6 +4,7 @@ import { getVoteInfo } from '@/utils/localStorage';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../common/Button';
 import toast from 'react-hot-toast';
+import { v4 as uuidv4 } from 'uuid';
 
 const CheerForm = ({ onAddMessage }) => {
   const [message, setMessage] = useState('');
@@ -36,30 +37,32 @@ const CheerForm = ({ onAddMessage }) => {
     if (!message.trim() || !candidateId) return;
     setIsSubmitting(true);
 
+    const optimisticMessage = {
+      candidate: candidateId,
+      text: message,
+      content: message,
+      createdAt: new Date().toISOString(),
+      uid: uuidv4(),
+    };
+
+    // ✅ 낙관적 UI 적용: 먼저 메시지 반영
+    onAddMessage(optimisticMessage);
+
     try {
-      const newMessage = {
+      await postCheerMessage({
         candidate: candidateId,
         content: message,
-      };
+      });
 
-      await postCheerMessage(newMessage);
-
-      const formattedMessage = {
-        ...newMessage,
-        id: Date.now(),
-        text: message,
-        createdAt: new Date().toISOString(),
-      };
-
-      onAddMessage(formattedMessage);
-      setMessage('');
-      setCharCount(0);
+      // 실제 성공 시, 이후 새로고침이나 페이징에서 대체될 수 있도록 UID는 유지
       toast.success('응원 메시지가 전송되었습니다.');
     } catch (err) {
       console.error('메시지 전송 실패:', err);
-      alert('전송 오류. 다시 시도해주세요.');
+      toast.error('전송 오류. 다시 시도해주세요.');
     } finally {
       setIsSubmitting(false);
+      setMessage('');
+      setCharCount(0);
     }
   };
 

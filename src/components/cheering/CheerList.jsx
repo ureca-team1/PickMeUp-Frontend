@@ -1,47 +1,47 @@
-import { useState, useEffect, useRef } from 'react';
-import { getCheerMessages } from '@/apis/cheerApi';
+import { useEffect, useRef } from 'react';
 import CheerItem from './CheerItem';
 import { v4 as uuidv4 } from 'uuid';
+import { getCheerMessages } from '@/apis/cheerApi';
 
-const CheerList = () => {
-  const [messages, setMessages] = useState([]);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+const CheerList = ({ messages, setMessages }) => {
+  const page = useRef(1);
   const loadedPages = useRef(new Set());
   const messageHash = useRef(new Set());
-
-  const fetchMessages = async (pageNum) => {
-    if (loadedPages.current.has(pageNum)) return;
-
-    setIsLoading(true);
-    try {
-      const data = await getCheerMessages(pageNum, 6);
-      const filtered = data.messages.filter((msg) => {
-        const hash = `${msg.candidate}-${msg.text}`;
-        if (messageHash.current.has(hash)) return false;
-        messageHash.current.add(hash);
-        return true;
-      });
-
-      const newMessages = filtered.map((msg) => ({
-        ...msg,
-        uid: uuidv4(),
-      }));
-
-      setMessages((prev) => [...prev, ...newMessages]);
-      setHasMore(data.currentPage < data.totalPages);
-      loadedPages.current.add(pageNum);
-    } catch (error) {
-      console.error('응원 메시지 불러오기 실패:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const hasMore = useRef(true);
+  const isLoading = useRef(false);
 
   useEffect(() => {
-    fetchMessages(page);
-  }, [page]);
+    const fetchMessages = async () => {
+      if (loadedPages.current.has(page.current) || isLoading.current) return;
+      isLoading.current = true;
+
+      try {
+        const data = await getCheerMessages(page.current, 6);
+
+        const filtered = data.messages.filter((msg) => {
+          const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
+          if (messageHash.current.has(hash)) return false;
+          messageHash.current.add(hash);
+          return true;
+        });
+
+        const newMessages = filtered.map((msg) => ({
+          ...msg,
+          uid: msg.uid || uuidv4(),
+        }));
+
+        setMessages((prev) => [...prev, ...newMessages]);
+        hasMore.current = data.currentPage < data.totalPages;
+        loadedPages.current.add(page.current);
+      } catch (error) {
+        console.error('응원 메시지 불러오기 실패:', error);
+      } finally {
+        isLoading.current = false;
+      }
+    };
+
+    fetchMessages();
+  }, [setMessages]);
 
   if (!messages || messages.length === 0) {
     return (
@@ -59,10 +59,41 @@ const CheerList = () => {
         ))}
       </div>
 
-      {hasMore && !isLoading && (
+      {hasMore.current && !isLoading.current && (
         <div
           className="mt-5 flex cursor-pointer flex-col items-center gap-3 md:mt-8"
-          onClick={() => setPage((prev) => prev + 1)}
+          onClick={() => {
+            page.current += 1;
+            const fetchMessages = async () => {
+              if (loadedPages.current.has(page.current) || isLoading.current) return;
+              isLoading.current = true;
+
+              try {
+                const data = await getCheerMessages(page.current, 6);
+
+                const filtered = data.messages.filter((msg) => {
+                  const hash = `${msg.candidate}-${msg.text}-${msg.createdAt}`;
+                  if (messageHash.current.has(hash)) return false;
+                  messageHash.current.add(hash);
+                  return true;
+                });
+
+                const newMessages = filtered.map((msg) => ({
+                  ...msg,
+                  uid: msg.uid || uuidv4(),
+                }));
+
+                setMessages((prev) => [...prev, ...newMessages]);
+                hasMore.current = data.currentPage < data.totalPages;
+                loadedPages.current.add(page.current);
+              } catch (error) {
+                console.error('응원 메시지 불러오기 실패:', error);
+              } finally {
+                isLoading.current = false;
+              }
+            };
+            fetchMessages();
+          }}
         >
           {[...Array(3)].map((_, i) => (
             <div
