@@ -34,8 +34,8 @@ const RatingCharts = () => {
 
   return (
     <div className="mx-auto w-full max-w-[700px] px-4">
-      {/* 지역 선택 드롭다운 */}
       <div className="mb-10 w-full">
+        {/* 드롭다운 박스 */}
         <div className="flex justify-end">
           <select
             className="-translate-x-4 rounded border p-2 text-sm md:translate-x-16 dark:bg-gray-800 dark:text-white"

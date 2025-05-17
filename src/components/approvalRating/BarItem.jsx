@@ -4,7 +4,8 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
   const isLabor = party === '민주노동당';
   const textColor = isLabor ? 'text-black' : 'text-white';
 
-  const barHeight = displaySize * 2; // 이미지 높이 고정값
+  // 이미지 높이 고정값
+  const barHeight = displaySize * 2;
 
   return (
     <div>
@@ -15,6 +16,7 @@ const BarItem = ({ name, party, height, percent, image, color }) => {
           <span className="font-bold">{name}</span>
         </div>
 
+        {/* 그래프 */}
         <div className="flex w-full items-center">
           <div
             className={`flex h-10 items-center pl-2 text-xs font-bold ${textColor}`}

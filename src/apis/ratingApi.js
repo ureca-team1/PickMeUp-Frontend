@@ -17,6 +17,7 @@ const CANDIDATE_INFO = {
   8: { name: '기타', party: '', partyKey: 'primary', image: '' },
 };
 
+// 전체 지지율
 export const getRatings = async () => {
   try {
     const { data } = await axios.get('/api/poll-results/national');
@@ -40,6 +41,7 @@ export const getRatings = async () => {
   }
 };
 
+// 지역별 지지율
 export const getRegionRatings = async () => {
   try {
     const { data } = await axios.get('/api/poll-results/regions');
