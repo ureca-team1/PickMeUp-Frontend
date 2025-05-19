@@ -45,7 +45,6 @@ const CheerForm = ({ onAddMessage }) => {
       uid: uuidv4(),
     };
 
-    // ✅ 낙관적 UI 적용: 먼저 메시지 반영
     onAddMessage(optimisticMessage);
 
     try {

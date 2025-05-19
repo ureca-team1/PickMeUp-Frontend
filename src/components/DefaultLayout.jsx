@@ -5,6 +5,13 @@ import Footer from './footer/index.jsx';
 import Header from './header/index.jsx';
 import Intro from './intro/index.jsx';
 import GlobalNavigation from './navigation/index.jsx';
+import SkeletonPolicySummary from '../components/policySummary/SkeletonPolicySummary.jsx';
+import SkeletonMap from '../components/map/SkeletonMap.jsx';
+import SkeletonVote from '../components/vote/SkeletonVote.jsx';
+import SkeletonApprovalRating from '../components/approvalRating/SkeletonApprovalRating.jsx';
+import SkeletonCheerSection from '../components/cheering/SkeletonCheerSection.jsx';
+import VoteCount from './voteCount/index.jsx';
+import ShareSection from './share/index.jsx';
 
 const DefaultLayout = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -54,15 +61,30 @@ const DefaultLayout = () => {
     <div className="bg-white text-black dark:bg-black dark:text-white">
       <main className="min-h-screen">
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-        <GlobalNavigation className={isEndOfScroll ? 'flex' : 'hidden'} />
+        <GlobalNavigation className={isEndOfScroll ? 'flex' : 'flex'} />
         <Intro />
-        <LazyWrapper id="policy" componentKey="PolicySummary" delay={0.1} />
-        <LazyWrapper id="map" componentKey="Map" delay={0.1} />
-        <LazyWrapper id="vote" componentKey="Vote" delay={0.1} />
-        <LazyWrapper id="poll-results" componentKey="ApprovalRating" delay={0.1} />
-        <LazyWrapper id="comments" componentKey="CheerSection" delay={0.1} />
-        <LazyWrapper componentKey="VoteCount" delay={0.1} />
-        <LazyWrapper componentKey="ShareSection" delay={0.1} />
+        <LazyWrapper
+          id="policy"
+          componentKey="PolicySummary"
+          SkeletonComponent={SkeletonPolicySummary}
+        />
+
+        <LazyWrapper id="map" componentKey="Map" SkeletonComponent={SkeletonMap} />
+        <LazyWrapper id="vote" componentKey="Vote" SkeletonComponent={SkeletonVote} />
+        <LazyWrapper
+          id="poll-results"
+          componentKey="ApprovalRating"
+          SkeletonComponent={SkeletonApprovalRating}
+        />
+        <LazyWrapper
+          id="comments"
+          componentKey="CheerSection"
+          SkeletonComponent={SkeletonCheerSection}
+        />
+        <VoteCount />
+        <ShareSection />
+        {/* <LazyWrapper componentKey="VoteCount" delay={0.1} />
+        <LazyWrapper componentKey="ShareSection" delay={0.1} /> */}
       </main>
       <Footer />
       <TopButton className="fixed right-5 bottom-5 z-20 md:right-8" />
