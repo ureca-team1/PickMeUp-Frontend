@@ -3,9 +3,7 @@
 PickMeUp 애플리케이션을 구현한 저장소입니다.  
 ➡️ [백엔드 저장소 보러가기](https://github.com/ureca-team1/PickMeUp-Backend)
 
-## 소개
-
-[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pick-me-up-orcin.vercel.app/)
+[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pick-me-up-three.vercel.app/)
 
 ---
 
