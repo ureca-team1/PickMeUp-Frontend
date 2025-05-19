@@ -1,14 +1,12 @@
 const SkeletonPolicySummary = () => {
   return (
     <div className="mb-32 flex animate-pulse flex-col items-center justify-center px-4 text-center md:px-0">
-      {/* Title & Paragraph */}
       <div className="mb-8 md:mb-11">
         <div className="mb-4 h-8 w-40 rounded bg-gray-200 md:w-60 dark:bg-neutral-700"></div>
         <div className="mx-auto h-4 w-64 rounded bg-gray-200 md:w-[360px] dark:bg-neutral-700" />
         <div className="mx-auto mt-2 h-4 w-52 rounded bg-gray-200 md:w-[300px] dark:bg-neutral-700" />
       </div>
 
-      {/* Filter Buttons */}
       <div className="mb-11 flex flex-wrap justify-center gap-4 md:mb-16">
         {Array.from({ length: 4 }).map((_, idx) => (
           <div
@@ -18,7 +16,6 @@ const SkeletonPolicySummary = () => {
         ))}
       </div>
 
-      {/* CandidateInfo Cards */}
       <div className="w-full space-y-12 md:max-w-[730px]">
         {Array.from({ length: 2 }).map((_, idx) => (
           <div key={idx} className="space-y-6">

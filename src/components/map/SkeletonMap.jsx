@@ -1,16 +1,12 @@
-// components/map/SkeletonMap.jsx
-
 const SkeletonMap = () => {
   return (
     <div className="mw-1280 flex animate-pulse flex-col items-center pb-32 md:pb-52">
-      {/* MapSearch */}
       <div className="mb-8 text-center md:mb-12">
         <div className="mx-auto mb-4 h-8 w-48 rounded bg-gray-200 md:w-64 dark:bg-neutral-700" />
         <div className="mx-auto mb-2 h-4 w-60 rounded bg-gray-200 dark:bg-neutral-700" />
         <div className="mx-auto h-4 w-44 rounded bg-gray-200 dark:bg-neutral-700" />
       </div>
 
-      {/* MapInfo 애니메이션 + 설명 */}
       <div className="mb-9 flex w-full max-w-[940px] flex-col rounded-2xl border border-dashed border-gray-300 p-6 md:mb-11 md:flex-row md:items-center md:justify-center dark:border-neutral-700">
         <div className="mb-6 flex items-center justify-center md:mr-6 md:mb-0">
           <div className="h-[300px] w-[300px] rounded-xl bg-gray-300 dark:bg-neutral-700" />
@@ -30,7 +26,6 @@ const SkeletonMap = () => {
         </div>
       </div>
 
-      {/* MapList Dropdowns */}
       <div className="flex w-full flex-col gap-7 md:max-w-[940px] md:gap-8">
         {Array.from({ length: 2 }).map((_, idx) => (
           <div key={idx}>
