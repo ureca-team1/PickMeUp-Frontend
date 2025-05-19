@@ -5,7 +5,7 @@
  
  ## 데모 링크
 
-[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://your-demo-url.com)
+[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pickmeup-plum.vercel.app/)
 
 
 ---
