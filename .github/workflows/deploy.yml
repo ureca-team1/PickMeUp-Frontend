@@ -3,9 +3,13 @@ name: Deploy
 on:
   push:
     branches: ['main']
+  pull_request:
+    types: [closed]
+    branches: ['main']
 
 jobs:
   build:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     container: pandoc/latex
 
@@ -28,7 +32,8 @@ jobs:
           destination-github-username: khwww
           destination-repository-name: PickMeUp-Frontend
           user-email: ${{ secrets.EMAIL }}
-          commit-message: ${{ github.event.commits[0].message }}
+          commit-message: >
+            ${{ github.event.head_commit.message || github.event.pull_request.title || 'Update from team repository' }}
           target-branch: main
 
       - name: Test get variable exported by push-to-another-repository
