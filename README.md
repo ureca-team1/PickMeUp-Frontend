@@ -5,18 +5,17 @@ PickMeUp 애플리케이션을 구현한 저장소입니다.
 
 [![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pick-me-up-three.vercel.app/)
 
----
 
 ## 📌 프로젝트 소개
 
-> 사용자가 ‘정책 중심’의 기준으로  
+> 사용자가 **후보자의 공약**을 기준으로  
 > 후보자를 이해하고 선택할 수 있도록 돕는 정치 참여 플랫폼
 
-**PickMeUp**은 후보자의 정책과 공약을 직관적으로 비교하고, **실시간 지지율과 모의 투표 결과**를 시각화하는 정책 중심의 정치 참여 플랫폼입니다.
+**PickMeUp**은 후보자의 정책과 공약을 직관적으로 비교하고, **실시간 지지율과 모의 투표 결과**를 시각화하는 공약 중심의 정치 참여 플랫폼입니다.
 
 **투표소 정보 제공**으로 참여의 문턱을 낮추고, **건강한 민주주의 문화 확산**을 목표로 합니다.
 
----
+
 
 ## 🎯 기획 의도
 
@@ -31,7 +30,7 @@ PickMeUp은 2025년 대선 정보를 제공한 [뉴닉 이슈 – 대선2025](ht
 
 사용자가 실제로 **참여하고 의견을 표현**할 수 있는 구조를 통해 정치 참여를 유도하고자 차별화했습니다.
 
----
+
 
 ## ✨ 주요 기능
 
@@ -41,7 +40,7 @@ PickMeUp은 2025년 대선 정보를 제공한 [뉴닉 이슈 – 대선2025](ht
 - **응원 메시지 작성**: 선택한 후보에게 짧은 메시지 전송
 - **투표소 찾기**: 실제 선거를 위한 위치 기반 투표소 정보 제공
 
----
+
 
 ## 🛠️ 기타 기능
 
@@ -51,6 +50,7 @@ PickMeUp은 2025년 대선 정보를 제공한 [뉴닉 이슈 – 대선2025](ht
 - **다크 모드 지원**: 사용자 설정에 따른 테마 전환
 - **투표 참여 수 시각화**: 전체 참여자 수 시각적 표시
 - **공유 기능**: 페이지를 링크로 공유 가능
+  
 
 ## 🧰 기술 스택 (Tech Stack)
 
@@ -73,15 +73,36 @@ PickMeUp은 2025년 대선 정보를 제공한 [뉴닉 이슈 – 대선2025](ht
 | 데이터베이스 | MongoDB + Mongoose ODM |
 | 배포         | Cloudtype              |
 
-## 🖼️ 주요 화면
 
-| 메인 화면              | 공약 총정리                     | 투표소 찾기                    |
-| ---------------------- | ------------------------------- | ------------------------------ |
-| ![메인](docs/main.png) | ![공약 총정리](docs/policy.png) | ![투표소 찾기](docs/polls.png) |
+<h2>🖼️ 주요 화면</h2>
 
-| 모의 투표                     | 실시간 지지율                           | 응원 한마디                       |
-| ----------------------------- | --------------------------------------- | --------------------------------- |
-| ![모의 투표](docs/voting.png) | ![실시간 지지율](docs/poll-results.png) | ![응원 한마디](docs/comments.png) |
+<table>
+  <tr>
+    <th>메인 화면</th>
+    <th>공약 총정리</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/628949ad-1ccd-4fa1-8612-5ee2fbe3345f" width="350"/></td>
+    <td><img src="https://github.com/user-attachments/assets/ca279b60-b9ff-46b7-8191-61da9face8a9" width="350"/></td>
+  </tr>
+  <tr>
+    <th>투표소 찾기</th>
+    <th>모의 투표</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/84dcc079-badd-4dfd-ab1f-d5389aebe750" width="350"/></td>
+    <td><img src="https://github.com/user-attachments/assets/807b1bc2-c3b7-4532-aea4-18dd546ecce2" width="350"/></td>
+  </tr>
+  <tr>
+    <th>실시간 지지율</th>
+    <th>응원 한마디</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/c6a81d14-3239-4015-b8ca-7ed6faf85862" width="350"/></td>
+    <td><img src="https://github.com/user-attachments/assets/5ecdc217-7544-46d5-ae8c-656ac8719958" width="350"/></td>
+  </tr>
+</table>
+
 
 ## 👥 팀원 소개
 
